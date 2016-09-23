@@ -9,6 +9,7 @@ public class User {
 	private String passwordHash;
 	private String uuid;
 	private ArrayList<String> reviews = new ArrayList<String>();
+	private ArrayList<String> friends = new ArrayList<String>();
 
 	public User(String name, String email, String passwordHash){
 		this.name = name;
@@ -53,6 +54,14 @@ public class User {
 		return reviews;
 	}
 
+	public ArrayList<String> getFriends() {
+		return friends;
+	}
+
+	public void setFriends(ArrayList<String> friends) {
+		this.friends = friends;
+	}
+
 	public void setReviews(ArrayList<String> reviews) {
 		this.reviews = reviews;
 	}
@@ -68,6 +77,5 @@ public class User {
 		reviews.remove(review);
 		return true;
 	}
-
 
 }
