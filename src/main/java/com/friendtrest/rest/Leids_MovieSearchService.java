@@ -80,7 +80,7 @@ public class Leids_MovieSearchService {
             }
         }
         String json = new Gson().toJson(moviesToShow);
-        return Response.ok(json).build();
+        return Response.ok(json, MediaType.APPLICATION_JSON).build();
     }
 
     @GET
