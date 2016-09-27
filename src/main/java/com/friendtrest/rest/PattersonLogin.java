@@ -40,7 +40,7 @@ public class PattersonLogin {
     public String attemptCreateAccount(@QueryParam("username") String username, @QueryParam("password") String password) {
         if (!userExists(username)) {
             users.add(new PattersonUser(username, password));
-            return "Welcome " + username + ". Account created succesfuly!\n";
+            return "Welcome " + username + ". Account created successfully!\n";
         }
 
         return "Account already exists.\n";
