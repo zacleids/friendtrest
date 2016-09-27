@@ -5,8 +5,8 @@
 </head>
 <body>
 
-<div id="greeting">
-  Welcome, please login or create an account.</br>
+<div>
+  <span id="greeting">Welcome, please login or create an account.</span></br>
   <input id="username" type="text" autofocus /></br>
   <input id="password" type="password" /></br>
   <button id="login" onclick="attemptLogin()">Login</button></br>
@@ -32,7 +32,7 @@
         // displays server error message, e.g. if called with empty username
         $("#greeting").text(textStatus + ": " + errorThrown);
       });
-  };
+  }
 
 
   // attempts create account
@@ -50,9 +50,8 @@
          // displays server error message, e.g. if called with empty name
          $("#greeting").text(textStatus + ": " + errorThrown);
        });
-  };
+  }
 
-  $(today); // execute today() after DOM is ready, see https://api.jquery.com/ready/
 </script>
 
 </body>
