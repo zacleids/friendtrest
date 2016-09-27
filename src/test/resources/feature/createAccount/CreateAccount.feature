@@ -3,7 +3,7 @@ Feature: createAccount
 
   Scenario Outline: createAccount
     When I request to create an account with <username>
-    Then, I will recieve the message "Hello <user>. Account created successfully!"
+    Then I will recieve the message Hello <user>. Account created successfully!
 
     Examples:
       | username    | user        |
