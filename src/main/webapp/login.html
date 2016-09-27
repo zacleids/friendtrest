@@ -1,0 +1,59 @@
+<!doctype html>
+<head>
+<title>Login</title>
+<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+</head>
+<body>
+
+<div id="greeting">
+  Welcome, please login or create an account.</br>
+  <input id="username" type="text" autofocus /></br>
+  <input id="password" type="password" /></br>
+  <button id="login" onclick="attemptLogin()">Login</button></br>
+  <button id="create_account" onclick="attemptCreateAccount()">Create Account</button></br>
+</div>
+
+<script>
+  var username = $("#username").val();
+  var password = $("#password").val();
+
+  // attempts a login
+  function attemptLogin() {
+    $.get(
+      "/rest/login",
+      { 
+        username: username,
+        password: password
+      },
+      function(loginMessage) {
+        $("#greeting").text(loginMessage);
+      })
+      .fail(function(jqXHR, textStatus, errorThrown) {
+        // displays server error message, e.g. if called with empty username
+        $("#greeting").text(textStatus + ": " + errorThrown);
+      });
+  };
+
+
+  // attempts create account
+  function attemptCreateAccount() {
+    $.get(
+      "/rest/createAccount",
+      { 
+        username: username,
+        password: password
+      },
+      function(createAccountMessage) {
+        $("#greeting").text(createAccountMessage);
+      })
+      .fail(function(jqXHR, textStatus, errorThrown) {
+         // displays server error message, e.g. if called with empty name
+         $("#greeting").text(textStatus + ": " + errorThrown);
+       });
+  };
+
+  $(today); // execute today() after DOM is ready, see https://api.jquery.com/ready/
+</script>
+
+</body>
+</html>
