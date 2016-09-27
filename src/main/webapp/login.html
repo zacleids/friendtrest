@@ -14,11 +14,11 @@
 </div>
 
 <script>
-  var username = $("#username").val();
-  var password = $("#password").val();
-
   // attempts a login
   function attemptLogin() {
+    var username = $("#username").val();
+    var password = $("#password").val();
+
     $.get(
       "/rest/login",
       { 
@@ -37,6 +37,9 @@
 
   // attempts create account
   function attemptCreateAccount() {
+    var username = $("#username").val();
+    var password = $("#password").val();
+    
     $.get(
       "/rest/createAccount",
       { 
