@@ -44,8 +44,6 @@ public class ReviewSteps extends JerseyTest{
 
     @Then("^the number of reviews should be (\\d+)$")
     public void the_number_of_reviews_should_be(int numReviews) throws Throwable {
-        //Leids_MovieSearchService service = new Leids_MovieSearchService();
-        System.out.println("\n The num od reviews for " + movie + " is " + numReviews + "\n");
         assertTrue(numReviews == response.readEntity(Integer.class));
     }
 
