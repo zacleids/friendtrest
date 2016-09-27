@@ -27,9 +27,10 @@ public class PattersonLogin {
 
     @GET
     @Path("/login")
-    public String attempLogin(@QueryParam("username") String username, @QueryParam("password") String password) {
-        if (checkCredentials(username, password))
+    public String attemptLogin(@QueryParam("username") String username, @QueryParam("password") String password) {
+        if (checkCredentials(username, password)) {
     	   return "Hello, " + username + "\n";
+        }
         
         return "Bad username/password.\n";
     }
@@ -39,7 +40,7 @@ public class PattersonLogin {
     public String attemptCreateAccount(@QueryParam("username") String username, @QueryParam("password") String password) {
         if (!userExists(username)) {
             users.add(new PattersonUser(username, password));
-            return "Welcome " + username + ". Account created successfuly!\n";
+            return "Welcome " + username + ". Account created succesfuly!\n";
         }
 
         return "Account already exists.\n";
@@ -47,9 +48,11 @@ public class PattersonLogin {
 
     public boolean checkCredentials(String username, String password) {
         for (PattersonUser tempUser : users) {
-            if (tempUser.getUsername().equals(username))
-                if (tempUser.getPassword().equals(password))
+            if (tempUser.getUsername().equals(username)) {
+                if (tempUser.getPassword().equals(password)) {
                     return true;
+                }
+            }
         }
         return false;
     }

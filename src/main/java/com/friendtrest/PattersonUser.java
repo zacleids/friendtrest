@@ -11,7 +11,7 @@ public class PattersonUser {
 	}
 
 	public String getUsername() {
-		return new String(username);
+		return username;
 	}
 
 	public void setUsername(String username) {
@@ -19,7 +19,7 @@ public class PattersonUser {
 	}
 
 	public String getPassword() {
-		return new String(password);
+		return password;
 	}
 
 	public void setPassword(String password) {
