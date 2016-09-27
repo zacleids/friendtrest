@@ -4,3 +4,4 @@ target/
 friendtrest.iml
 .classpath
 .project
+bin/
