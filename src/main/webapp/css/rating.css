@@ -1,0 +1,12 @@
+#rate_review {
+    display: none;
+}
+
+#rating {
+    width: 250px;
+    height: 50px;
+    background-color: red;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+

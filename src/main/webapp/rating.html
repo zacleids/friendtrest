@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/rating.css">
+
+    <title>Rating Prototype</title>
+</head>
+
+<body>
+  This page has no content.
+  <br>
+  <button type="button" id="rate_button">RATE</button>
+
+  <div id="rate_review">
+    <div id="rating">YA<br>YA</div>
+    <textarea cols="43" rows="10"></textarea>
+  </div>
+
+  <script>
+    var shown = false;
+
+    $(document).ready(function() {
+      $("#rate_button").on("click", function(){
+        if (shown) {
+          $("#rate_review").css("display", "none");
+          shown = false;
+        } else {
+          $("#rate_review").css("display", "block");
+          shown = true;
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>
