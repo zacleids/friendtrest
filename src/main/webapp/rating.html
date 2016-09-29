@@ -10,29 +10,60 @@
 </head>
 
 <body>
-  This page has no content.
-  <br>
-  <button type="button" id="rate_button">RATE</button>
+    This page has no content.
+    <br>
+    <button type="button" id="rate_button">RATE</button>
 
-  <div id="rate_review">
-    <div id="rating">YA<br>YA</div>
-    <textarea cols="43" rows="10"></textarea>
-  </div>
+    <div id="rate_review">
+        <div id="rating">
+            <div id="rating2"></div>
+        </div>
+        <textarea cols="43" rows="10" id="review"></textarea>
+        <button type="button" id="save">SAVE</button>
+    </div>
 
-  <script>
-    var shown = false;
+    <div id="result"></div>
 
-    $(document).ready(function() {
-      $("#rate_button").on("click", function(){
-        if (shown) {
-          $("#rate_review").css("display", "none");
-          shown = false;
-        } else {
-          $("#rate_review").css("display", "block");
-          shown = true;
-        }
-      });
-    });
+    <script>
+        var shown = false, down = false;
+
+        $(document).ready(function() {
+            $("#rate_button").on("click", function(){
+                if (shown) {
+                    $("#rate_review").css("display", "none");
+                    shown = false;
+                } else {
+                    $("#rate_review").css("display", "block");
+                    shown = true;
+                }
+            });
+
+            var timeout;
+
+            $("#rating").on("mousedown", function(mouse) {
+                var percent = (mouse.pageX - $(this).offset().left) * 100 / $("#rating").width();
+                $("#rating2").css("width", "" + percent + "%");
+            });
+
+            $("#rating").on("mouseup", function(mouse) {
+                var percent = (mouse.pageX - $(this).offset().left) * 100 / $("#rating").width();
+                $("#rating2").css("width", "" + percent + "%");
+            });
+
+            $("#save").on("click", function() {
+                if ($("#review").val() == "") {
+                    $("#rate_review").css("display", "none");
+                    shown = false;
+                    $("#result").text("CLOSED");
+                } else {
+                    $("#rate_review").css("display", "none");
+                    shown = false;
+                    $("#result").text("SUBMITTED");
+                }
+            });
+        });
+
+
   </script>
 </body>
 
