@@ -7,5 +7,6 @@ Feature: Submit
 		
 	Examples:
 	  | content1 | content2 |
+	  | content  | content  |
 	  | stuff	 | stuff    |
-	  | words	 | words    |
+	  | word	 | word		|

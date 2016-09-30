@@ -26,9 +26,14 @@
 
     <script>
         var shown = false, down = false;
+	var content;
 
 	function getContent() {
 	    return content;	
+	}
+
+	function setContent(new_content) {
+	    content = new_content;
 	}
 
         $(document).ready(function() {
