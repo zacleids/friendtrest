@@ -30,14 +30,14 @@ public class CloseTest {
      *
      *      Given I am on the rating page
      *      When I open a rating popup and press "submit" having not entered content
-     *      Then the rating popup should close without saving.
+     *      Then the rating popup should close without updating.
      */
 
     @Test
     public void testCloseNoContent() {
         driver.findElement(By.id("rate_button")).click();
-
-        WebElement element = driver.findElement(By.id("result"));
-        assertEquals(element.getText(), "CLOSED");
+        driver.findElement(By.id("save")).click();
+ 
+        assertEquals("CLOSED", driver.findElement(By.id("result")).getText());
     }
 }

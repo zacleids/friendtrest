@@ -27,6 +27,10 @@
     <script>
         var shown = false, down = false;
 
+	function getContent() {
+	    return content;	
+	}
+
         $(document).ready(function() {
             $("#rate_button").on("click", function(){
                 if (shown) {
@@ -37,8 +41,6 @@
                     shown = true;
                 }
             });
-
-            var timeout;
 
             $("#rating").on("mousedown", function(mouse) {
                 var percent = (mouse.pageX - $(this).offset().left) * 100 / $("#rating").width();
