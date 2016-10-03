@@ -15,9 +15,8 @@
     <button type="button" id="rate_button">RATE</button>
 
     <div id="rate_review">
-        <div id="rating">
-            <div id="rating2"></div>
-        </div>
+        <input type="range" id="rating" min="0" max="10" step=".01">
+        <br>
         <textarea cols="43" rows="10" id="review"></textarea>
         <button type="button" id="save">SAVE</button>
     </div>
@@ -46,7 +45,7 @@
                     shown = true;
                 }
             });
-
+/*
             $("#rating").on("mousedown", function(mouse) {
                 var percent = (mouse.pageX - $(this).offset().left) * 100 / $("#rating").width();
                 $("#rating2").css("width", "" + percent + "%");
@@ -55,6 +54,17 @@
             $("#rating").on("mouseup", function(mouse) {
                 var percent = (mouse.pageX - $(this).offset().left) * 100 / $("#rating").width();
                 $("#rating2").css("width", "" + percent + "%");
+            });
+*/
+            var rating = $("#rating"), rating_interval;
+            rating.on("mousedown", function() {
+                var max = rating.attr("max");
+                rating_interval = setInterval(function() {
+                    var val = rating.val() / max;
+                    $("#result").text(val);
+                }, 500);
+            }).on("mouseup", function() {
+                clearInterval(rating_interval);
             });
 
             $("#save").on("click", function() {
