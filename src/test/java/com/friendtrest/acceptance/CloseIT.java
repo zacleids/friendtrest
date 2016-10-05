@@ -15,7 +15,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  * Created by Austin on 9/28/2016.
  */
 
-public class CloseTest {
+public class CloseIT {
 
     WebDriver driver = new ChromeDriver();
 
