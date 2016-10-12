@@ -1,36 +1,24 @@
 package com.friendtrest;
 
 import java.util.ArrayList;
+import java.util.Date;
 
-public class Movie {
-    private String name;
-    private int releaseYear;
+/**
+ * Created by Zac Leids on 10/4/2016.
+ */
+public class Movie extends OnScreenMedia {
     private String MPAARating;
-    private ArrayList<String> cast = new ArrayList<String>();
-    private ArrayList<String> tags = new ArrayList<String>();
+    private int runTimeInMinutes;
 
-    public Movie(String name, int releaseYear, String MPAARating, ArrayList<String> cast, ArrayList<String> tags){
-        this.name = name;
-        this.releaseYear = releaseYear;
-        this.MPAARating = MPAARating;
-        this.cast = cast;
-        this.tags = tags;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getReleaseYear() {
-        return releaseYear;
-    }
-
-    public void setReleaseYear(int releaseYear) {
-        this.releaseYear = releaseYear;
+    public Movie(String name, String description, ArrayList<String> tags, Date releaseDate, ArrayList<String> actors, String director, String MPAARating, int runTimeInMinutes){
+        this.setName(name);
+        this.setDescription(description);
+        this.setTags(tags);
+        this.setReleaseDate(releaseDate);
+        this.setActors(actors);
+        this.setDirector(director);
+        this.setMPAARating(MPAARating);
+        this.setRunTimeInMinutes(runTimeInMinutes);
     }
 
     public String getMPAARating() {
@@ -41,19 +29,11 @@ public class Movie {
         this.MPAARating = MPAARating;
     }
 
-    public ArrayList<String> getCast() {
-        return cast;
+    public int getRunTimeInMinutes() {
+        return runTimeInMinutes;
     }
 
-    public void setCast(ArrayList<String> cast) {
-        this.cast = cast;
-    }
-
-    public ArrayList<String> getTags() {
-        return tags;
-    }
-
-    public void setTags(ArrayList<String> tags) {
-        this.tags = tags;
+    public void setRunTimeInMinutes(int runTimeInMinutes) {
+        this.runTimeInMinutes = runTimeInMinutes;
     }
 }
