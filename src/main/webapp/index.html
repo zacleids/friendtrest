@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <div class="container-fluid">
 <head>
     <!-- information -->
@@ -110,6 +111,25 @@ MAIN PAGE | MAIN PAGE | MAIN PAGE | MAIN PAGE <br><br><br><br>
       </div>
   </div>
 </footer>
+
+    <script>
+        $("#search_submit").on('click', function() {
+            var query = $("#search_text").val();
+            if (query != null && query != "") {
+                $.get("/rest/query", {query: query}, function(response) {
+                    alert(response);
+                }).fail(function() {
+                    alert("failed");
+                });
+                alert("jgjkhg");
+                /*
+                $.get("/rest/query", {query: query}, function() {
+                    alert("jgjkhg");
+                });
+                */
+            }
+        });
+    </script>
 
 </body>
 
