@@ -18,14 +18,14 @@ public class SearchIndex {
 	}
 	
 	public void addRecord(String uuid, String content) {
-		content = content.replaceAll("\\p{P}", )
+		content = content.replaceAll("\\p{P}", " ");
 	}
 	
 	public List<Integer> getResults(int[] keyword_indices) {
 		List<Integer> document_indices = new LinkedList<Integer>(); //TODO: change to uuid
 		
 		for (int index : keyword_indices) {
-			document_indices.add(reverse_index.get(index));
+			//document_indices.addAll(reverse_index.get(index).get(index));
 		}
 		
 		return document_indices;
