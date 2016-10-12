@@ -25,7 +25,11 @@ public class SearchIndex {
 		List<Integer> document_indices = new LinkedList<Integer>(); //TODO: change to uuid
 		
 		for (int index : keyword_indices) {
+<<<<<<< HEAD
 			//document_indices.addAll(reverse_index.get(index).get(index));
+=======
+			document_indices.add(reverse_index.get(index));
+>>>>>>> commiting a lot of new files for search
 		}
 		
 		return document_indices;
