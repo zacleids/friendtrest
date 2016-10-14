@@ -13,6 +13,7 @@ import com.friendtrest.DayOfWeek;
  * This is a "root resource class" as explained in
  * https://jersey.java.net/documentation/latest/jaxrs-resources.html
  */
+
 @Path("/")
 public class HelloService {
     @GET
