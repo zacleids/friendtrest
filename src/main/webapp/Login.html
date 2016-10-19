@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<div class="container-fluid">
+<head>
+    <!-- information -->
+    <meta charset="utf-8">
+    <title>Friendtrest</title>
+    <meta name="description" content="Friendtrest">
+    <meta name="author" content="patt3273">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- ***** links to libraries and frameworks ***** -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <!-- jquery -->
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <!-- ajax -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    
+    <!-- links to local files -->
+    <script type="text/javascript" src="src/main/webapp/js/facebookLogin.js"></script>
+    <link rel="stylesheet" type="text/css" href="src/main/webapp/css/styles.css"> 
+    <link rel="stylesheet" type="text/css" href="src/main/webapp/css/bootstrap-social/bootstrap-social.css">
+    
+</head>
+<body>
+
+<div class="container-fluid">
+
+<div class="row">
+    <div class="col-md-12">
+
+      <!-- row that holds the three big panels -->
+      <div class="row big-panel-wrapper">
+
+        <!-- left big panel for left backdrop -->
+        <div class="col-md-4">
+          <!-- left backdrop image -->
+          <div class="backdrop_left">
+              <img src="src/main/webapp/img/backdrop_left.png"> 
+          </div>
+        </div>
+
+        <!-- center big panel for login form -->
+        <div class="col-md-4 login-form">
+          <!-- friendtrest logo row -->
+          <div class="row">
+            <div class="col-md-12 FT_logo">
+              Friendtrest
+            </div>
+          </div>
+
+          <!-- row for username textbox -->
+          <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+              <!-- username textbox -->
+              <div class="login_form_usr">
+                  <input type="text" class="form-control" id="usr" placeholder="Username">
+              </div>
+            </div>
+            <div class="col-md-4"></div>
+          </div>
+
+          <!-- row for password textbox -->
+          <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+              <!-- password textbox -->
+              <div class="login_form_pass">
+                  <input type="password" class="form-control" id="pwd" placeholder="Password">
+              </div>
+            </div>
+            <div class="col-md-4"></div>
+          </div>
+
+          <!-- row for login button -->
+          <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+              <!-- login button -->
+              <div class="login_form_login_button">
+                  <button type="submit" class="btn btn-xl" style="width:175px;">Login</button>
+              </div>
+            </div>
+            <div class="col-md-4"></div>
+          </div>
+
+          <!-- row for create account button -->
+          <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+              <!-- create account button -->
+              <div class="login_form_create_acct_button">
+                  <button type="submit" class="btn btn-xl" style="width:175px;">Create Account</button>
+              </div>
+            </div>
+            <div class="col-md-4"></div>
+          </div>
+
+          <!-- row for "- or -" text -->
+          <div class="row">
+            <!-- "- or -" text -->
+            <div class="col-md-12 or">
+              - or -
+            </div>
+          </div>
+
+          <!-- row for login via facebook button-icon -->
+          <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+              <!-- login via facebook button-icon -->
+              <div class="login_form_login_facebook">
+                <!--<a href="https://www.facebook.com/" title="Facebook" class="btn btn-block btn-social btn-lg btn-facebook">-->
+                <!--    <i class="fa fa-facebook">f</i> Sign in with Facebook-->
+                <!--</a>-->
+                <div class="fb-login-button" data-max-rows="1" data-size="large" data-show-faces="false" data-auto-logout-link="false">
+                </div>
+                
+              </div>
+            </div>
+            <div class="col-md-4"></div>
+          </div>
+
+          <!-- row for login via facebook text -->
+          <div class="row">
+            <!-- login via facebook text -->
+            <div class="col-md-12 swfb_text">
+              Sign in with Facebook
+            </div>
+          </div>
+        </div>
+
+        <!-- right big panel for right backdrop -->
+        <div class="col-md-4">
+          <!-- right backdrop image -->
+          <div class="backdrop_right">
+              <img src="src/main/webapp/img/backdrop_right.png"> 
+          </div>
+        </div>
+      </div>
+
+    </div>
+</div>
+
+</div>
+   
+<footer class="footer">
+  <div class="container">
+      <!-- row that has footer for links and stuff -->
+      <div class="row">
+        <div class="col-md-6 left-footer">
+          Copyright LLC
+        </div>
+        <div class="col-md-6 right-footer">
+          <a href="https://www.csumb.edu/">About Us</a>
+          <span class="pipe">|</span> 
+          <a href="https://www.csumb.edu/">Contact Us</a>
+          <span class="pipe">|</span> 
+          <a href="https://www.csumb.edu/">CSUMB</a>
+        </div>
+      </div>
+  </div>
+</footer>
+
+</body>
+
+</div>
+</html>
