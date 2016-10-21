@@ -1,4 +1,4 @@
-package com.friendtrest.acceptance;
+package com.friendtrest.integration;
 
 import static org.junit.Assert.*;
 import static org.hamcrest.CoreMatchers.*;

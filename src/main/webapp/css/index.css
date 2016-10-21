@@ -1,0 +1,21 @@
+#search_submit {
+
+}
+
+#search_text {
+
+}
+
+#top_bar_half1 td {
+    background-color: darkslategray;
+    color: white;
+    /*display: block;*/
+    height: 25px;
+}
+
+#top_bar_half2 {
+    background-color: purple;
+    color:white
+    /*display: block;*/
+    height: 25px;
+}
