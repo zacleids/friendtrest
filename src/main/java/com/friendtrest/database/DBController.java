@@ -13,6 +13,7 @@ import java.util.Properties;
 /**
  * Created by Austin on 10/21/2016.
  */
+
 public class DBController {
 
     private DynamoDB item_db;
@@ -26,8 +27,8 @@ public class DBController {
             if (new File("access.ini").exists()) { //properties file
                 Properties prop = new Properties();
                 prop.load(new FileInputStream("access.ini"));
-                access = prop.getProperty("Access"); //from access.ini
-                secret = prop.getProperty("Secret"); //from access.ini
+                access = prop.getProperty("AccessKeyId"); //from access.ini
+                secret = prop.getProperty("AWSSecretKey"); //from access.ini
                 System.out.println(access);
             } else { // environment variables
                 access = System.getenv("Access");
