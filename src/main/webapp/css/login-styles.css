@@ -1,0 +1,81 @@
+html {
+    background-color:#5aa058;
+}
+
+.row {
+    text-align:center;
+}
+
+.big-panel-wrapper {
+    transform: translate(0, 10%);
+    background-color:#5aa058;
+    overflow:hidden;
+}
+
+.right-footer {
+    text-align:right;
+}
+
+.left-footer {
+    text-align:left;
+}
+
+.backdrop_left, .backdrop_right, .container-fluid {
+    background-color:#5aa058;
+}
+
+.login-form {
+    background-color:#FFFFFF;
+    border-radius:8%;
+    border:solid;
+    border-color:#5aa058;
+}
+
+.FT_logo {
+    padding-top:90px;
+    padding-bottom:50px;
+    font-size:300%;
+    font-weight:bold;
+}
+
+.swfb_text {
+    padding-top:30px;
+    padding-bottom:90px;
+    font-size:200%;
+}
+
+.or, login_form_login_facebook {
+    padding-top:30px;
+    padding-bottom:30px;
+    font-size:200%;
+}
+
+.login-form-usr, .login_form_login_button {
+    padding-top:30px;
+    padding-bottom:15px;
+}
+
+.login-form-pass, .login_form_create_acct_button {
+    padding-top:15px;
+    padding-bottom:30px;
+}
+
+.login-form .row .col-md-4 {
+    margin:0 auto;
+}
+
+.footer {
+    position:fixed;
+    bottom:0;
+    width:100%;
+    background-color:#5aa058;
+}
+
+a {
+    color:#000000;
+}
+
+.pipe {
+    padding-left:10px;
+    padding-right:10px;
+}
