@@ -65,9 +65,9 @@
       </ul>
       <form class="navbar-form navbar-left">
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
+          <input type="text" class="form-control" id="search_text" placeholder="Search">
         </div>
-        <button type="submit" class="btn btn-default">Submit</button>
+        <button type="button" class="btn btn-default" id="search_submit">Submit</button>
       </form>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="login.html">Logout</a></li>
@@ -113,6 +113,7 @@ MAIN PAGE | MAIN PAGE | MAIN PAGE | MAIN PAGE <br><br><br><br>
 </footer>
 
     <script>
+        //won't work locally unless jetty is running (mvn jetty:run)
         $("#search_submit").on('click', function() {
             var query = $("#search_text").val();
             if (query != null && query != "") {
@@ -121,12 +122,6 @@ MAIN PAGE | MAIN PAGE | MAIN PAGE | MAIN PAGE <br><br><br><br>
                 }).fail(function() {
                     alert("failed");
                 });
-                alert("jgjkhg");
-                /*
-                $.get("/rest/query", {query: query}, function() {
-                    alert("jgjkhg");
-                });
-                */
             }
         });
     </script>

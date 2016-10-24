@@ -3,6 +3,7 @@ package com.friendtrest;
 import java.util.UUID;
 
 public class Review {
+
     private String objectType;
     private String title;
     private int rating;

@@ -1,4 +1,4 @@
-package com.friendtrest;
+package com.friendtrest.data;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -7,11 +7,12 @@ import java.util.Date;
  * Created by Zac Leids on 10/5/2016.
  */
 public class Song extends Item {
+
     private String artist;
     private int min;
     private int seconds;
 
-    public Song(String name, String description, ArrayList<String> tags, Date releaseDate, String artist, int min, int seconds){
+    public Song(String name, String description, ArrayList<String> tags, String releaseDate, String artist, int min, int seconds){
         this.setName(name);
         this.setDescription(description);
         this.setTags(tags);
@@ -24,7 +25,6 @@ public class Song extends Item {
     public String getArtist() {
         return artist;
     }
-
     public void setArtist(String artist) {
         this.artist = artist;
     }
@@ -32,15 +32,11 @@ public class Song extends Item {
     public int getMin() {
         return min;
     }
-
     public void setMin(int min) {
         this.min = min;
     }
 
-    public int getSeconds() {
-        return seconds;
-    }
-
+    public int getSeconds() { return seconds; }
     public void setSeconds(int seconds) {
         this.seconds = seconds;
     }

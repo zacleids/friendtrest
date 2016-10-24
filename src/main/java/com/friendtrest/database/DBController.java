@@ -29,7 +29,6 @@ public class DBController {
                 prop.load(new FileInputStream("access.ini"));
                 access = prop.getProperty("AccessKeyId"); //from access.ini
                 secret = prop.getProperty("AWSSecretKey"); //from access.ini
-                System.out.println(access);
             } else { // environment variables
                 access = System.getenv("Access");
                 secret = System.getenv("Secret");
@@ -47,6 +46,8 @@ public class DBController {
         item_db.shutdown();
         client.shutdown();
     }
+
+    public AmazonDynamoDB getAmazonDynamoDB() { return client; }
 
     public DynamoDB getDynamoDB() {
         return item_db;
