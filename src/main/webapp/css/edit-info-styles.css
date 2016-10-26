@@ -2,8 +2,41 @@ html {
     background-color:#5aa058;
 }
 
+.page-header {
+    text-align:center;
+    font-size:200%;
+    font-weight:bold;
+}
+
+.row {
+    padding-top:20px;
+}
+
+.profile-pic {
+    text-align:center;
+}
+
 body {
     background-color:#5aa058;
+}
+
+.big-panel-wrapper {
+    transform: translate(0, 15%);
+    background-color:#5aa058;
+    overflow:hidden;
+}
+
+.btn, .btn-xl {
+    width:175px;
+}
+
+.bottom-of-form {
+    padding-bottom:60px;
+}
+
+.white-box {
+    background-color:#FFFFFF;
+    border-radius:25px;
 }
 
 .navbar-brand {

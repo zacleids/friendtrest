@@ -6,6 +6,10 @@ html {
     text-align:center;
 }
 
+.btn, .btn-xl {
+    width:100%;
+}
+
 .big-panel-wrapper {
     transform: translate(0, 10%);
     background-color:#5aa058;
@@ -26,9 +30,7 @@ html {
 
 .login-form {
     background-color:#FFFFFF;
-    border-radius:8%;
-    border:solid;
-    border-color:#5aa058;
+    border-radius:25px;
 }
 
 .FT_logo {
@@ -44,7 +46,7 @@ html {
     font-size:200%;
 }
 
-.or, login_form_login_facebook {
+.or, .login_form_login_facebook {
     padding-top:30px;
     padding-bottom:30px;
     font-size:200%;

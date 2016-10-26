@@ -86,14 +86,151 @@
   </div><!-- /.container-fluid -->
 </nav>
 
-MANAGE ACCOUNT | MANAGE ACCOUNT | MANAGE ACCOUNT | MANAGE ACCOUNT<br><br><br><br>
-MANAGE ACCOUNT | MANAGE ACCOUNT | MANAGE ACCOUNT | MANAGE ACCOUNT<br><br><br><br>
-MANAGE ACCOUNT | MANAGE ACCOUNT | MANAGE ACCOUNT | MANAGE ACCOUNT<br><br><br><br>
-MANAGE ACCOUNT | MANAGE ACCOUNT | MANAGE ACCOUNT | MANAGE ACCOUNT<br><br><br><br>
-MANAGE ACCOUNT | MANAGE ACCOUNT | MANAGE ACCOUNT | MANAGE ACCOUNT<br><br><br><br>
-MANAGE ACCOUNT | MANAGE ACCOUNT | MANAGE ACCOUNT | MANAGE ACCOUNT<br><br><br><br>
-MANAGE ACCOUNT | MANAGE ACCOUNT | MANAGE ACCOUNT | MANAGE ACCOUNT<br><br><br><br>
-
+<!--Container for the pages grid system-->
+<div class="container-fluid">
+  
+  <div class="row big-panel-wrapper">
+    
+    <!--left panel is background space-->
+    <div class="col-md-2">
+    </div>
+    
+    <!-- middle panel holds the entire white box -->
+    <div class="col-md-8 white-box">
+      
+      <!--Account Management Header/Title-->
+      <div class="row">
+        <div class="col-md-12 page-header">
+          Account Management
+        </div>
+      </div>
+      
+      <!--This Row Holds the middle section (all content except Title and bottom buttons)-->
+      <div class="row">
+        
+        <!--the profile picture along with the edit profile picture button-->
+        <div class="col-md-3">
+          <div class="row">
+            <div class="col-md-12 profile-pic">
+              <img src="img/generic-user.png"><br>
+              <a href="#">Edit Profile Picture</a>
+            </div>
+          </div>
+        </div>
+        
+        <!--middle row will hold all the input for the account edit form-->
+        <div class="col-md-6">
+          
+          <!--first name, last name-->
+          <div class="row">
+            <div class="col-md-5">
+              <label for="first-name-text-input">First Name</label>
+              <input class="form-control" type="text" placeholder="Jane" id="first-name-text-input">
+            </div>
+            <div class="col-md-7">
+              <label for="last-name-text-input">Last Name</label>
+              <input class="form-control" type="text" placeholder="Doe" id="last-name-text-input">
+            </div>
+          </div>
+          
+          <!--Email-->
+          <div class="row">
+            <div class="col-md-12">
+                            <label for="input-email">Email address</label>
+                            <input type="email" class="form-control" id="input-email" aria-describedby="emailHelp" placeholder="Enter email">
+                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+          </div>
+          
+          <!--Date of Birth Dropdown Menus-->
+          <div class="row">
+            <div class="col-md-6">
+              <label for="dob-month-select">Month</label>
+                            <select class="form-control" id="dob-month-select">
+                              <option>-Select-</option>
+                              <option>January</option>
+                              <option>February</option>
+                              <option>March</option>
+                              <option>April</option>
+                              <option>May</option>
+                              <option>June</option>
+                              <option>July</option>
+                              <option>August</option>
+                              <option>September</option>
+                              <option>October</option>
+                              <option>November</option>
+                              <option>December</option>
+                            </select>
+            </div>
+            <div class="col-md-2">
+              <label for="dob-day-select">Day</label>
+                            <select class="form-control" id="dob-day-select">
+                              <option>XX</option>
+                              <script>
+                                for (var i = 1; i <= 31; i++)
+                                  document.write("<option>" + i + "</option>")
+                              </script>
+                            </select>
+            </div>
+            <div class="col-md-4">
+              <label for="dob-year-select">Year</label>
+                            <select class="form-control" id="dob-year-select">
+                              <option>XXXX</option>
+                              <script>
+                                for (var i = 2016; i >= 1900; i--)
+                                  document.write("<option>" + i + "</option>")
+                              </script>
+                            </select>
+            </div>
+          </div>
+          
+          <!--Change Password Button-->
+          <div class="row">
+            <div class="col-md-12">
+              <button type="submit" href="#" class="btn btn-xl">Change Password</button>
+            </div>
+          </div>
+          
+          <!--View Edit Reviews Button-->
+          <div class="row">
+            <div class="col-md-12">
+              <button type="submit" href="#" class="btn btn-xl">Edit Reviews</button>
+            </div>
+          </div>
+          
+          <!--View Edit Friends Button-->
+          <div class="row">
+            <div class="col-md-12">
+              <button type="submit" href="#" class="btn btn-xl">Edit Friends</button>
+            </div>
+          </div>
+          
+        </div>
+        
+        <!--right side empty white space-->
+        <div class="col-md-2">
+        </div>
+      </div>
+      
+      <!--bottom row of the white rectangle-->
+      <div class="row bottom-of-form">
+        <div class="col-md-4">
+        </div>
+        <div class="col-md-4">
+        </div>
+        <div class="col-md-2">
+          <button type="submit" href="#" class="btn btn-xl">Save</button>
+        </div>
+        <div class="col-md-2"></div>
+        </div>
+      </div>
+    </div>
+    
+    <!--empty background space-->
+    <div class="col-md-2">
+    </div>
+  </div>
+</div>
    
 <footer class="footer">
   <div class="container">
