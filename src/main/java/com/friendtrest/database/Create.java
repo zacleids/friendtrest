@@ -10,7 +10,6 @@ import com.friendtrest.data.Item;
 public class Create {
 
     public static boolean createRow(DBController dbc, Item item) {
-        System.out.println("here");
         DynamoDBMapper dbm = new DynamoDBMapper(dbc.getAmazonDynamoDB());
 
         try {

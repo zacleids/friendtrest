@@ -12,7 +12,8 @@ public class Song extends Item {
     private int min;
     private int seconds;
 
-    public Song(String name, String description, ArrayList<String> tags, String releaseDate, String artist, int min, int seconds){
+    public Song(String name, String description, ArrayList<String> tags, String releaseDate, String artist, int min, int seconds, String url){
+        super(url);
         this.setName(name);
         this.setDescription(description);
         this.setTags(tags);

@@ -21,8 +21,14 @@ public class Item {
     private String description;
     private List<String> tags;
     private String releaseDate;
+    private String url;
 
-    public Item() { this.uuid = UUID.randomUUID().toString(); }
+    public Item() {}
+
+    public Item(String url) {
+        this.uuid = UUID.randomUUID().toString();
+        this.url = url;
+    }
 
     @DynamoDBHashKey(attributeName = "uuid")
     public String getUUID() { return uuid; }
@@ -55,6 +61,10 @@ public class Item {
     public void setReleaseDate(String releaseDate) {
         this.releaseDate = releaseDate;
     }
+
+    @DynamoDBAttribute(attributeName = "url")
+    public String getURL() { return url; }
+    public void setURL(String url) { this.url = url; }
 
     @DynamoDBIgnore
     public void addTag(String tag){

@@ -11,7 +11,8 @@ public class Movie extends OnScreenMedia {
     private String MPAARating;
     private int runTimeInMinutes;
 
-    public Movie(String name, String description, ArrayList<String> tags, String releaseDate, ArrayList<String> actors, String director, String MPAARating, int runTimeInMinutes){
+    public Movie(String name, String description, ArrayList<String> tags, String releaseDate, ArrayList<String> actors, String director, String MPAARating, int runTimeInMinutes, String url){
+        super(url);
         this.setName(name);
         this.setDescription(description);
         this.setTags(tags);
