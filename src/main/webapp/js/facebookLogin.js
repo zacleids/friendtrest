@@ -22,7 +22,7 @@
   // This function is called when someone finishes with the Login
   // Button.
   function checkLoginState() {
-      window.location="http://cst438webapp-env.us-west-1.elasticbeanstalk.com/index.html";
+      window.location="index.html";
       FB.getLoginStatus(function(response) {
           statusChangeCallback(response);
       });
