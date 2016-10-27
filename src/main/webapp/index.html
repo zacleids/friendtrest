@@ -26,7 +26,7 @@
     <script type="text/javascript" src="js/facebookLogin.js"></script>
     <link rel="stylesheet" type="text/css" href="css/edit-info-styles.css"> 
     <link rel="stylesheet" type="text/css" href="css/bootstrap-social/bootstrap-social.css">
-    
+    <link rel="stylesheet" type="text/css" href="css/index.css">
 </head>
 <body>
 
@@ -48,7 +48,7 @@
       <ul class="nav navbar-nav">
         <li><a href="reviews.html">Reviews</a></li>
         <li><a href="browse.html">Browse</a></li>
-        <li><a href="edit-account.html">Manage Account</a></li>
+        <li><a href="edit_account.html">Manage Account</a></li>
 
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
@@ -86,13 +86,48 @@
   </div><!-- /.container-fluid -->
 </nav>
 
-MAIN PAGE | MAIN PAGE | MAIN PAGE | MAIN PAGE <br><br><br><br>
-MAIN PAGE | MAIN PAGE | MAIN PAGE | MAIN PAGE <br><br><br><br>
-MAIN PAGE | MAIN PAGE | MAIN PAGE | MAIN PAGE <br><br><br><br>
-MAIN PAGE | MAIN PAGE | MAIN PAGE | MAIN PAGE <br><br><br><br>
-MAIN PAGE | MAIN PAGE | MAIN PAGE | MAIN PAGE <br><br><br><br>
-MAIN PAGE | MAIN PAGE | MAIN PAGE | MAIN PAGE <br><br><br><br>
-MAIN PAGE | MAIN PAGE | MAIN PAGE | MAIN PAGE <br><br><br><br>
+<div class="container content-wrapper">
+
+    <div class="row">
+        <div class="col-sm-3">
+            <img id="1" src="https://upload.wikimedia.org/wikipedia/en/a/a1/Radiohead.okcomputer.albumart.jpg">
+            <div id="cirlce" style="background-color:green"></div>
+        </div>
+        <div class="col-sm-3">
+            <img id="1" src="https://pictures.abebooks.com/isbn/9780316017930-us.jpg">
+            <div id="cirlce" style="background-color:red"></div>
+        </div>
+        <div class="col-sm-3">
+            <img id="1" src="https://pictures.abebooks.com/isbn/9780375756825-us-300.jpg">
+            <div id="cirlce" style="background-color:green"></div>
+        </div>
+        <div class="col-sm-3">
+            <img id="1" src="https://pictures.abebooks.com/isbn/9780060291693-us-300.jpg">
+            <div id="cirlce" style="background-color:brown"></div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-3">
+            <img id="1" src="https://upload.wikimedia.org/wikipedia/en/9/93/KendrickGKMC.jpg">
+            <div id="cirlce" style="background-color:green"></div>
+        </div>
+        <div class="col-sm-3">
+            <img id="1" src="https://upload.wikimedia.org/wikipedia/en/thumb/c/ca/ExileMainSt.jpg/220px-ExileMainSt.jpg
+">
+            <div id="cirlce" style="background-color:yellow"></div>
+        </div>
+        <div class="col-sm-3">
+            <img id="1" src="http://pictures.abebooks.com/isbn/9781604598933-us.jpg">
+            <div id="cirlce" style="background-color:yellow"></div>
+            <div id="cirlce2" style="background-color:brown"></div>
+        </div>
+        <div class="col-sm-3">
+            <img id="1" src="https://upload.wikimedia.org/wikipedia/en/6/68/Interpol_-_Turn_On_The_Bright_Lights.jpg">
+            <div id="cirlce" style="background-color:red"></div>
+        </div>
+    </div>
+</div>
 
 <footer class="footer">
   <div class="container">
@@ -112,19 +147,31 @@ MAIN PAGE | MAIN PAGE | MAIN PAGE | MAIN PAGE <br><br><br><br>
   </div>
 </footer>
 
-    <script>
-        //won't work locally unless jetty is running (mvn jetty:run)
-        $("#search_submit").on('click', function() {
-            var query = $("#search_text").val();
-            if (query != null && query != "") {
-                $.get("/rest/query", {query: query}, function(response) {
-                    alert(response);
-                }).fail(function() {
-                    alert("failed");
-                });
-            }
+<script>
+    //won't work locally unless jetty is running (mvn jetty:run)
+    $("#search_submit").on('click', function() {
+        var query = $("#search_text").val();
+        if (query != null && query != "") {
+            $.get("/rest/query", {query: query}, function(response) {
+                alert(response);
+            }).fail(function() {
+                alert("search failed");
+            });
+        }
+    });
+
+    /*
+    function getData() {
+        $.get("/rest/data",, function(results) {
+            alert(results);
+        }).fail(function() {
+            alert("data retrieval failed");
         });
-    </script>
+    };
+
+    getData();
+    */
+</script>
 
 </body>
 
