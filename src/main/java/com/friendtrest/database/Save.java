@@ -7,17 +7,10 @@ import com.friendtrest.data.Item;
 /**
  * Created by Austin on 10/23/2016.
  */
-public class Create {
+public class Save {
 
-    public static boolean createRow(DBController dbc, Item item) {
+    public static void saveItem(Object item, DBController dbc) {
         DynamoDBMapper dbm = new DynamoDBMapper(dbc.getAmazonDynamoDB());
-
-        try {
-            dbm.save(item);
-            return true;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return false;
-        }
+        dbm.save(item);
     }
 }

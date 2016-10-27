@@ -3,7 +3,6 @@ package com.friendtrest.database;
 import com.friendtrest.data.Album;
 import com.friendtrest.data.Book;
 import com.friendtrest.data.Item;
-import com.friendtrest.data.Movie;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +10,7 @@ import java.util.List;
 /**
  * Created by Austin on 10/23/2016.
  */
-public class CreateDemo {
+public class SaveDemo {
 
     public static void main(String[] args) {
         DBController dbc = new DBController();
@@ -57,8 +56,8 @@ public class CreateDemo {
 
         Item example = album_example;
         System.out.println(example.getUUID());
-        Create.createRow(dbc, example);
-        Item load = Load.loadItem(dbc, example.getUUID());
+        Save.saveItem(example, dbc);
+        Item load = (Item)Load.loadItem(example.getUUID(), dbc);
         if (load == null) {
             System.out.println("NULL");
             System.exit(1);

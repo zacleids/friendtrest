@@ -8,14 +8,8 @@ import com.friendtrest.data.Item;
  */
 public class Load {
 
-    public static Item loadItem(DBController dbc, String uuid) {
+    public static Object loadItem(String uuid, DBController dbc) {
         DynamoDBMapper dbm = new DynamoDBMapper(dbc.getAmazonDynamoDB());
-
-        try {
-            return dbm.load(Item.class, uuid);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        }
+        return dbm.load(Item.class, uuid);
     }
 }

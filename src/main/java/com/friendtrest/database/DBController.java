@@ -7,6 +7,7 @@ import com.amazonaws.services.s3.model.Region;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 
@@ -24,12 +25,12 @@ public class DBController {
             String access;
             String secret;
 
-            if (new File("access.ini").exists()) { //properties file
+            try {   //properties file
                 Properties prop = new Properties();
                 prop.load(new FileInputStream("access.ini"));
                 access = prop.getProperty("AccessKeyId"); //from access.ini
                 secret = prop.getProperty("AWSSecretKey"); //from access.ini
-            } else { // environment variables
+            } catch (FileNotFoundException e) { //environment variables
                 access = System.getenv("Access");
                 secret = System.getenv("Secret");
             }
