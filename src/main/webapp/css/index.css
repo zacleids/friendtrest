@@ -1,21 +1,28 @@
-#search_submit {
-
-}
-
-#search_text {
-
-}
-
-#top_bar_half1 td {
-    background-color: darkslategray;
-    color: white;
-    /*display: block;*/
+#cirlce {
+    width: 25px;
     height: 25px;
+    border-radius:50%;
+    position: absolute;
+    left: 17px;
+    top: 1px;
 }
 
-#top_bar_half2 {
-    background-color: purple;
-    color:white
-    /*display: block;*/
+#cirlce2 {
+    width: 25px;
     height: 25px;
+    border-radius:50%;
+    position: absolute;
+    left: 42px;
+    top: 1px;
+}
+
+img {
+    max-height: 150px;
+    height: 100%;
+    width: auto;
+    position: relative;
+}
+
+.content-wrapper {
+    transform: translate(0,25%);
 }
