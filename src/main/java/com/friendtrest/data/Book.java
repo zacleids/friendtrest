@@ -16,7 +16,8 @@ public class Book extends Item {
     private String isbn;
     private String author;
 
-    public Book(String name, String description, List<String> tags, String releaseDate, String isbn, String author){
+    public Book(String name, String description, List<String> tags, String releaseDate, String isbn, String author, String url){
+        super(url);
         this.setName(name);
         this.setDescription(description);
         this.setTags(tags);
@@ -25,6 +26,7 @@ public class Book extends Item {
         this.author = author;
     }
 
+    @DynamoDBAttribute(attributeName = "isbn")
     public String getISBN() {
         return isbn;
     }

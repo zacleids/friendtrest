@@ -10,7 +10,8 @@ public class TVShow extends OnScreenMedia {
 
     private int numSeasons;
 
-    public TVShow(String name, String description, ArrayList<String> tags, String releaseDate, ArrayList<String> actors, String director, int numSeasons){
+    public TVShow(String name, String description, ArrayList<String> tags, String releaseDate, ArrayList<String> actors, String director, int numSeasons, String url){
+        super(url);
         this.setName(name);
         this.setDescription(description);
         this.setTags(tags);

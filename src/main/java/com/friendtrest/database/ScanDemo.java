@@ -1,20 +1,23 @@
 package com.friendtrest.database;
 
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
-import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClient;
+
+import com.amazonaws.services.dynamodbv2.model.AttributeValue;
 import com.amazonaws.services.dynamodbv2.model.ScanRequest;
 import com.amazonaws.services.dynamodbv2.model.ScanResult;
 
+import java.util.Map;
+
 /**
- * Created by austinzielinski on 10/26/16.
+ * Created by Austin on 10/26/2016.
  */
 public class ScanDemo {
 
     public static void main(String[] args) {
         DBController dbc = new DBController();
-        AmazonDynamoDB client = dbc.getAmazonDynamoDB();
 
-        ScanRequest sr = new ScanRequest().withTableName("Items");
-        ScanResult result = client.scan(sr);
+        for (Map<String, AttributeValue> item : Scan.getTable("Items", dbc)){
+            System.out.println(item.get("name"));
+        }
     }
 }
