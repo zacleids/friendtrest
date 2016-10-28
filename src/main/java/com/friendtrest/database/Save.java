@@ -9,7 +9,7 @@ import com.friendtrest.data.Item;
  */
 public class Save {
 
-    public static void saveItem(Object item, DBController dbc) {
+    public static void saveItem(Item item, DBController dbc) {
         DynamoDBMapper dbm = new DynamoDBMapper(dbc.getAmazonDynamoDB());
         dbm.save(item);
     }

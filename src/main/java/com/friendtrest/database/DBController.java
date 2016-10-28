@@ -31,8 +31,8 @@ public class DBController {
                 access = prop.getProperty("AccessKeyId"); //from access.ini
                 secret = prop.getProperty("AWSSecretKey"); //from access.ini
             } catch (FileNotFoundException e) { //environment variables
-                access = System.getenv("Access");
-                secret = System.getenv("Secret");
+                access = System.getenv("AWS_ACCESS_KEY_ID");
+                secret = System.getenv("AWS_SECRET_ACCESS_KEY");
             }
 
             client = new AmazonDynamoDBClient(new BasicAWSCredentials(access, secret));
