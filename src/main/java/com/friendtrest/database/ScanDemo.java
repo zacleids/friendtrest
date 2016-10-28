@@ -2,9 +2,11 @@ package com.friendtrest.database;
 
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
 
+import com.amazonaws.services.dynamodbv2.datamodeling.PaginatedScanList;
 import com.amazonaws.services.dynamodbv2.model.AttributeValue;
 import com.amazonaws.services.dynamodbv2.model.ScanRequest;
 import com.amazonaws.services.dynamodbv2.model.ScanResult;
+import com.friendtrest.data.Item;
 
 import java.util.Map;
 
@@ -16,8 +18,10 @@ public class ScanDemo {
     public static void main(String[] args) {
         DBController dbc = new DBController();
 
-        for (Map<String, AttributeValue> item : Scan.getTable("Items", dbc)){
-            System.out.println(item.get("name"));
+        PaginatedScanList<Item> items = Scan.getItemsTable(dbc);
+
+        for (Item item : items) {
+            System.out.println(item.getName());
         }
     }
 }
