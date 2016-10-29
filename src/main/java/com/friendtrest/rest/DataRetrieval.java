@@ -28,4 +28,18 @@ public class DataRetrieval {
 
         return Response.ok(json, MediaType.APPLICATION_JSON).build();
     }
+
+    @GET
+    @Path("/simpleSearch")
+    public Response simpleSearch(){
+
+        return Response.ok("temp").build();
+    }
+
+    @GET
+    @Path("/search")
+    public Response search(){
+
+        return Response.ok("temp").build();
+    }
 }
