@@ -22,6 +22,8 @@
     
     <!-- links to local files -->
     <script type="text/javascript" src="js/facebookLogin.js"></script>
+    <script type="text/javascript" src="js/appearance.js"></script>
+    <script type="text/javascript" src="js/array.js"></script>
     <link rel="stylesheet" type="text/css" href="css/edit-info-styles.css"> 
     <link rel="stylesheet" type="text/css" href="css/bootstrap-social/bootstrap-social.css">
     <link rel="stylesheet" type="text/css" href="css/index.css">
@@ -84,49 +86,7 @@
   </div><!-- /.container-fluid -->
 </nav>
 
-
-<div class="container content-wrapper">
-
-    <div class="row">
-        <div class="col-sm-3">
-            <img id="1" src="https://upload.wikimedia.org/wikipedia/en/a/a1/Radiohead.okcomputer.albumart.jpg">
-            <div id="cirlce" style="background-color:green"></div>
-        </div>
-        <div class="col-sm-3">
-            <img id="1" src="https://pictures.abebooks.com/isbn/9780316017930-us.jpg">
-            <div id="cirlce" style="background-color:red"></div>
-        </div>
-        <div class="col-sm-3">
-            <img id="1" src="https://pictures.abebooks.com/isbn/9780375756825-us-300.jpg">
-            <div id="cirlce" style="background-color:green"></div>
-        </div>
-        <div class="col-sm-3">
-            <img id="1" src="https://pictures.abebooks.com/isbn/9780060291693-us-300.jpg">
-            <div id="cirlce" style="background-color:brown"></div>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-sm-3">
-            <img id="1" src="https://upload.wikimedia.org/wikipedia/en/9/93/KendrickGKMC.jpg">
-            <div id="cirlce" style="background-color:green"></div>
-        </div>
-        <div class="col-sm-3">
-            <img id="1" src="https://upload.wikimedia.org/wikipedia/en/thumb/c/ca/ExileMainSt.jpg/220px-ExileMainSt.jpg
-">
-            <div id="cirlce" style="background-color:yellow"></div>
-        </div>
-        <div class="col-sm-3">
-            <img id="1" src="http://pictures.abebooks.com/isbn/9781604598933-us.jpg">
-            <div id="cirlce" style="background-color:yellow"></div>
-            <div id="cirlce2" style="background-color:brown"></div>
-        </div>
-        <div class="col-sm-3">
-            <img id="1" src="https://upload.wikimedia.org/wikipedia/en/6/68/Interpol_-_Turn_On_The_Bright_Lights.jpg">
-            <div id="cirlce" style="background-color:red"></div>
-        </div>
-    </div>
-</div>
+<div id="main" class="container"></div>
 
 <footer class="footer">
   <div class="container">
@@ -159,11 +119,42 @@
         }
     });
 
+    function randomRating() {
+        return (Math.random() * 10);
+    }
+
     function getData() {
         $.get("/rest/data", {}, function(results) {
-            console.log(results);
+            results = shuffle(results);
+            var len = results.length;
+            for (var i = 0; i < len; i++) {
+                var row = "<div class='row'>";
+                if (i < len) {
+                    row += "<div class='col-sm-3'>";
+                    row += "<img id='cover' src='" + results[i++].url + "'>";
+                    row += "<div id='rating_color' style='background-color:" + getColor(randomRating()) + "'></div>";
+                    row += "</div>";
+                } if (i < len) {
+                    row += "<div class='col-sm-3'>";
+                    row += "<img id='cover' src='" + results[i++].url + "'>";
+                    row += "<div id='rating_color' style='background-color:" + getColor(randomRating()) + "'></div>";
+                    row += "</div>";
+                } if (i < len) {
+                    row += "<div class='col-sm-3'>";
+                    row += "<img id='cover' src='" + results[i++].url + "'>";
+                    row += "<div id='rating_color' style='background-color:" + getColor(randomRating()) + "'></div>";
+                    row += "</div>";
+                } if (i < len) {
+                    row += "<div class='col-sm-3'>";
+                    row += "<img id='cover' src='" + results[i].url + "'>";
+                    row += "<div id='rating_color' style='background-color:" + getColor(randomRating()) + "'></div>";
+                    row += "</div>";
+                }
+                row += "</div>";
+                $("#main").html($("#main").html() + row);
+            }
         }).fail(function() {
-            console.log("data retrieval failed");
+            alert("data retrieval failed");
         });
     };
 
