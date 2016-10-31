@@ -66,8 +66,10 @@
           console.log(response);
           console.log('Successful login for: ' + response.name);
 
-
           document.getElementById('profilepic').src = 
+              response.picture.data.url;
+
+          document.getElementById('profilepic-l').src = 
               response.picture.data.url;
 
           // getting first name and last name separate into an array
