@@ -1,6 +1,5 @@
 document.write(
     '<!-- information -->' + '\n' +
-    '<meta charset="utf-8">' + '\n' +
     '<title>Friendtrest</title>' + '\n' +
     '<meta name="description" content="Friendtrest">' + '\n' +
     '<meta name="author" content="patt3273">' + '\n' +
@@ -18,5 +17,7 @@ document.write(
     '' + '\n' +
     '<!-- links to local files -->' + '\n' +
     '<script type="text/javascript" src="js/facebookLogin.js"></script>' + '\n' +
+    '<script type="text/javascript" src="js/writeNavBar.js"></script>' + '\n' +
+    '<link rel="stylesheet" type="text/css" href="css/global-styles.css">' + '\n' +
     '<link rel="stylesheet" type="text/css" href="css/bootstrap-social/bootstrap-social.css">' + '\n'
 );
