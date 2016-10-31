@@ -26,6 +26,7 @@ public class DataRetrieval {
         PaginatedScanList<Item> items = Scan.getItemsTable(dbc);
         String json = new Gson().toJson(items);
 
-        return Response.ok(json, MediaType.APPLICATION_JSON).build();
+        //return Response.ok(json, MediaType.APPLICATION_JSON).build();
+        return Response.ok("NOT FAILED").build();
     }
 }
