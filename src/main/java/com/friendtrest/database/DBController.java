@@ -20,7 +20,7 @@ import java.util.Properties;
 
 public class DBController {
 
-    private static final String CREDENTIALS_FILE_PATH = "access.ini";
+    private static final String CREDENTIALS_FILE_PATH = "./access.ini";
 
     private AmazonDynamoDB client;
     private DynamoDB dynamoDB;
@@ -38,7 +38,7 @@ public class DBController {
 
     public AmazonDynamoDB getAmazonDynamoDB() { return client; }
 
-    private AWSCredentialsProvider getCredentialsProvider() {
+    private static AWSCredentialsProvider getCredentialsProvider() {
         if (new File(CREDENTIALS_FILE_PATH).exists()) {
             // reads properties accessKey, secretKey
             return new PropertiesFileCredentialsProvider(CREDENTIALS_FILE_PATH);
