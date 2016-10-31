@@ -18,7 +18,5 @@ document.write(
     '' + '\n' +
     '<!-- links to local files -->' + '\n' +
     '<script type="text/javascript" src="js/facebookLogin.js"></script>' + '\n' +
-    '<script type="text/javascript" src="js/appearance.js"></script>' + '\n' +
-    '<script type="text/javascript" src="js/array.js"></script>' + '\n' +
     '<link rel="stylesheet" type="text/css" href="css/bootstrap-social/bootstrap-social.css">' + '\n'
 );
