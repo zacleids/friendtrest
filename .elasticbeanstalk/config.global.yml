@@ -1,0 +1,9 @@
+branch-defaults:
+  master:
+    environment: friendtrest
+deploy:
+  artifact: target/friendtrest.war
+global:
+  application_name: friendtrest
+  default_region: us-west-2
+  sc: git
