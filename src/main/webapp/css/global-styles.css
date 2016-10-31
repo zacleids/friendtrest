@@ -13,6 +13,13 @@ body {
 	max-height:50px;
 }
 
+.largeprofilepic {
+    width: auto;
+    height: auto;
+    min-width: 256px;
+    min-height: 256px;
+}
+
 .nav-name {
 	transform: translate(0px, 15px);
 	font-weight: bold;

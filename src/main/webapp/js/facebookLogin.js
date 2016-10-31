@@ -57,15 +57,33 @@
       fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk'));
 
+
+  // this function doesn't happen on every page load... just after the facebook login.
+  // thats why its not changing anything on the edit-account page.
   function testAPI() {
       console.log('Welcome!  Fetching your information.... ');
       FB.api('/me', {fields : "name, picture"}, function(response) {
           console.log(response);
           console.log('Successful login for: ' + response.name);
+
+
           document.getElementById('profilepic').src = 
               response.picture.data.url;
-          
+
+          // getting first name and last name separate into an array
+          var nameArray = response.name.split(" ");
+          var firstName = nameArray[0];
+          var lastName = nameArray[1];
+
+          // filling instances of the user's name
           document.getElementById('status').innerHTML =
-              'You are logged in as ' + response.name + '.';
+              firstName + ' ' + lastName;
+
+          document.getElementById('first-name-text-input').value =
+              firstName;
+
+          document.getElementById('last-name-text-input').value =
+              lastName;
+
       });
   }
