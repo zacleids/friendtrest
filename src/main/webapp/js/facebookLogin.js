@@ -72,18 +72,25 @@ function testAPI() {
     response.picture.data.url;
 
     // getting first name and last name separate into an array'
-    var nameArray = response.name.split(" ");
+    var fullName = response.name;
+    var nameArray = fullName.split(" ");
     var firstName = nameArray[0];
     var lastName = nameArray[1];
 
-    // filling instances of the user's name
-    var nameOccurances = document.getElementByClassName('fNamelName')
+    // filling names for nav bars
+    document.getElementById('indexNavName').innderHTML =
+    fullName;
 
-    for (var i = 0; i < nameOccurances.size; i++) {
-      nameOccurances[i].innerHTML =
-      firstName + ' ' + lastName;
-    }
+    document.getElementById('reviewsNavName').innderHTML =
+    fullName;
 
+    document.getElementById('browseNavName').innderHTML =
+    fullName;
+
+    document.getElementById('edit-accountNavName').innderHTML =
+    fullName;
+
+    //account management page
     document.getElementById('first-name-text-input').value =
     firstName;
 
@@ -100,6 +107,6 @@ function testAPI() {
     parseInt(response.birthday.substring(3, 6));
 
     document.getElementById('dob-year-select').selectedIndex =
-    parseInt(response.birthday.substring(6, 10));
+    (2016 - 1900) - (parseInt(response.birthday.substring(6, 10)) - 1899);
   });
 }
