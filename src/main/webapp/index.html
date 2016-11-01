@@ -60,10 +60,10 @@
             results = shuffle(results);
             var len = results.length;
             for (var i = 0; i < len; i++) {
-                var row = "<div class='row'>";
                 if (i < len) {
-                    row += "<div class='col-sm-3'>";
+                    var row = "<div class='row' id='covertab'>";
                     row += "<img id='cover' src='" + results[i++].url + "'>";
+                    //row += makePopup(null, null, i);
                     row += "<div id='rating_color' style='background-color:" + getColor(randomRating()) + "'></div>";
                     row += "</div>";
                 } if (i < len) {
@@ -91,6 +91,40 @@
     };
 
     getData();
+
+    var shown = false;
+
+    $(document).ready(function() {
+      $("#popup").on("click", "#controls", function () {
+        if (shown) {
+          $("#close_placeholder").css("display", "block");
+          $("#close").css("display", "none");
+          //$("#popup").css("display", "none");
+          $(".popup").css("width", "25px");
+          $("#rate_review").css("display", "none");
+          shown = false;
+        } else {
+          $("#close_placeholder").css("display", "none");
+          $("#close").css("display", "block");
+          $(".popup").css("width", "245px");
+          $(".popup").css("display", "flex");
+          $("#rate_review").css("display", "block");
+
+          shown = true;
+        }
+      });
+
+      var rating = $("#rating"), rating_interval;
+      rating.on("mousedown", function () {
+        var max = rating.attr("max");
+        rating_interval = setInterval(function () {
+          var val = rating.val() / max;
+          $("#result").text(val);
+        }, 500);
+      }).on("mouseup", function () {
+        clearInterval(rating_interval);
+      });
+    });
 
 </script>
 

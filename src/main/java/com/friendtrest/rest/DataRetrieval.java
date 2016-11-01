@@ -3,11 +3,12 @@ package com.friendtrest.rest;
 
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
 import com.amazonaws.services.dynamodbv2.datamodeling.PaginatedScanList;
-import com.amazonaws.services.dynamodbv2.model.ScanRequest;
-import com.amazonaws.services.dynamodbv2.model.ScanResult;
 import com.friendtrest.data.Item;
+import com.friendtrest.data.Review;
 import com.friendtrest.database.DBController;
 
+import com.friendtrest.database.Load;
+import com.friendtrest.database.Save;
 import com.friendtrest.database.Scan;
 import com.google.gson.Gson;
 
@@ -23,7 +24,7 @@ import java.util.ArrayList;
  */
 @Path("/")
 public class DataRetrieval {
-    DBController dbc = new DBController();
+    private static final DBController dbc = new DBController();
     AmazonDynamoDB client = dbc.getAmazonDynamoDB();
 
     @GET
@@ -33,6 +34,34 @@ public class DataRetrieval {
         String json = new Gson().toJson(items);
 
         return Response.ok(json, MediaType.APPLICATION_JSON).build();
+    }
+
+    @GET
+    @Path("/reviewTest")
+    public Response getTestReview(@QueryParam("uuid") String uuid) {
+        Review review = Load.loadReview(uuid, dbc);
+        String json = new Gson().toJson(review);
+        return Response.ok(json, MediaType.APPLICATION_JSON).build();
+    }
+
+    @GET
+    @Path("/reviewTestSubmit")
+    public Response submitTestReview(
+            @QueryParam("uuid") String uuid,
+            @QueryParam("rating") double rating,
+            @QueryParam("review_text") String review_text,
+            @QueryParam("item_id") String item_id,
+            @QueryParam("user_id") String user_id
+    ) {
+        Review review = new Review();
+        review.setUuid(uuid);
+        review.setRating(rating);
+        review.setReview_text(review_text);
+        review.setItem_id(item_id);
+        review.setUser_id(user_id);
+        Save.saveReview(review, dbc);
+
+        return Response.ok("ok").build();
     }
 
     @GET
