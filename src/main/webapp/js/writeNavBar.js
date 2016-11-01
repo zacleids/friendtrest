@@ -68,7 +68,7 @@ function generateNavBar(currentPage) {
   '    </form>' + '\n' +
   '    <ul class="nav navbar-nav navbar-right">' + '\n' +
   '    	<li><img class="navprofilepic" id="profilepic" src="img/generic-user.png"></li>' + '\n' +
-  '    	<li class="nav-name"><span id="status">Generic User</span></li>' + '\n' +
+  '    	<li class="nav-name"><span class="fNamelName" id="status">Generic User</span></li>' + '\n' +
   '      <li><a href="login.html">Logout</a></li>' + '\n' +
   '      <li class="dropdown">' + '\n' +
   '        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>' + '\n' +
