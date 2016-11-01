@@ -65,11 +65,16 @@ function testAPI() {
     console.log(response);
     console.log('Successful login for: ' + response.name);
 
-    document.getElementById('profilepic').src = 
-    response.picture.data.url;
 
-    document.getElementById('profilepic-l').src = 
-    response.picture.data.url;
+    if (document.getElementById('profilepic') != null) {
+      document.getElementById('profilepic').src = 
+        response.picture.data.url;
+    }
+
+    if (document.getElementById('profilepic-l') != null) {
+      document.getElementById('profilepic-l').src = 
+        response.picture.data.url;
+    }
 
     // getting first name and last name separate into an array'
     var fullName = response.name;
@@ -77,36 +82,49 @@ function testAPI() {
     var firstName = nameArray[0];
     var lastName = nameArray[1];
 
-    // filling names for nav bars
-    document.getElementById('indexNavName').innderHTML =
-    fullName;
-
-    document.getElementById('reviewsNavName').innderHTML =
-    fullName;
-
-    document.getElementById('browseNavName').innderHTML =
-    fullName;
-
-    document.getElementById('edit-accountNavName').innderHTML =
-    fullName;
-
     //account management page
-    document.getElementById('first-name-text-input').value =
-    firstName;
+    if (document.getElementById('first-name-text-input') != null) {
+      document.getElementById('first-name-text-input').value =
+        firstName;
+    }
 
-    document.getElementById('last-name-text-input').value =
-    lastName;
+    if (document.getElementById('last-name-text-input') != null) {
+      document.getElementById('last-name-text-input').value =
+        lastName;
+    }
 
-    document.getElementById('input-email').value =
-    response.email;
+    // these are commented out until I can figure out how to give permissions to the items
+    // document.getElementById('input-email').value =
+    // response.email;
 
-    document.getElementById('dob-month-select').selectedIndex =
-    parseInt(response.birthday.substring(0, 3));
+    // document.getElementById('dob-month-select').selectedIndex =
+    // parseInt(response.birthday.substring(0, 3));
 
-    document.getElementById('dob-day-select').selectedIndex =
-    parseInt(response.birthday.substring(3, 6));
+    // document.getElementById('dob-day-select').selectedIndex =
+    // parseInt(response.birthday.substring(3, 6));
 
-    document.getElementById('dob-year-select').selectedIndex =
-    (2016 - 1900) - (parseInt(response.birthday.substring(6, 10)) - 1899);
+    // document.getElementById('dob-year-select').selectedIndex =
+    // (2016 - 1900) - (parseInt(response.birthday.substring(6, 10)) - 1899);
+
+    // filling names for nav bars
+    if (document.getElementById('indexNavName') != null) {
+      document.getElementById('indexNavName').innerHTML =
+        fullName;
+    }
+
+    if (document.getElementById('reviewsNavName') != null) {
+      document.getElementById('reviewsNavName').innerHTML =
+        fullName;
+    }
+
+    if (document.getElementById('browseNavName') != null) {
+      document.getElementById('browseNavName').innerHTML =
+        fullName;
+    }
+
+    if (document.getElementById('edit-accountNavName') != null) {
+      document.getElementById('edit-accountNavName').innerHTML =
+        fullName;
+    }
   });
 }
