@@ -3,6 +3,7 @@ package com.friendtrest.rest;
 
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
 import com.amazonaws.services.dynamodbv2.datamodeling.PaginatedScanList;
+import com.amazonaws.services.dynamodbv2.model.AttributeValue;
 import com.amazonaws.services.dynamodbv2.model.ScanRequest;
 import com.amazonaws.services.dynamodbv2.model.ScanResult;
 import com.friendtrest.data.Item;
@@ -17,22 +18,21 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Austin on 10/26/2016.
  */
 @Path("/")
 public class DataRetrieval {
-    DBController dbc = new DBController();
+    private static final DBController dbc = new DBController();
     AmazonDynamoDB client = dbc.getAmazonDynamoDB();
 
     @GET
     @Path("/data")
     public Response query() {
-        ScanRequest scanRequest = new ScanRequest().withTableName("Items");
-
-        ScanResult result = client.scan(scanRequest);
-        String json = new Gson().toJson(result);
+        String json = new Gson().toJson(Scan.getItemsTable(dbc));
 
         return Response.ok(json, MediaType.APPLICATION_JSON).build();
     }
