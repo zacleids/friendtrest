@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="utf-8" http-equiv="encoding">
+
+    <script type="text/javascript" src="js/writeHead.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/reviews-styles.css">
+</head>
+<body>
+<!-- javascript file will write the nav bar given the name of the page -->
+<script type="text/javascript" src="js/writeNavBar.js"></script>
+<script>
+    generateNavBar("reviews");
+</script>
+<br><br><br><br><br><br>
+<table>
+    <tr>
+        <td>Name: </td>
+        <td> <input id="name" type="text" placeholder="Name" autofocus /> </td>
+    </tr>
+    <tr>
+        <td><button id="submit" onclick="getItem()">Submit</button></td>
+    </tr>
+</table>
+<div id="items">
+
+</div>
+
+
+<script>
+    function getItem() {
+        var name = $("#name").val();
+        $("#items").html("");
+        $.get("/rest/simpleSearch", { name: name,}, function(items) {
+            for(var i = 0; i < items.length; i++){
+                displayItem(items[i]);
+            }
+        });
+    }
+
+    function displayItem(item){
+        var text = "<div id='movie'>" +
+                "<img src='" + item.url + "' >" +
+                "<b>" +
+                item.name +
+                "</b>  Released: " +
+                item.releaseDate  +
+                "</div><hr>";
+        $("#items").html($("#items").html() + text);
+    }
+</script>
+
+</body>
+</html>
