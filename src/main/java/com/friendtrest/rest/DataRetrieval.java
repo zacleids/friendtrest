@@ -29,10 +29,8 @@ public class DataRetrieval {
     @GET
     @Path("/data")
     public Response query() {
-        ScanRequest scanRequest = new ScanRequest().withTableName("Items");
-
-        ScanResult result = client.scan(scanRequest);
-        String json = new Gson().toJson(result);
+        PaginatedScanList<Item> items = Scan.getItemsTable(dbc);
+        String json = new Gson().toJson(items);
 
         return Response.ok(json, MediaType.APPLICATION_JSON).build();
     }
