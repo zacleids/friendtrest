@@ -61,7 +61,7 @@ window.fbAsyncInit = function() {
 // thats why its not changing anything on the edit-account page.
 function testAPI() {
   console.log('Welcome!  Fetching your information.... ');
-  FB.api('/me', {fields : "name, email, picture, birthday"}, function(response) {
+  FB.api('/me', {fields : "name, email, picture"}, function(response) {
     console.log(response);
     console.log('Successful login for: ' + response.name);
 
@@ -93,18 +93,10 @@ function testAPI() {
         lastName;
     }
 
-    // these are commented out until I can figure out how to give permissions to the items
-    // document.getElementById('input-email').value =
-    // response.email;
-
-    // document.getElementById('dob-month-select').selectedIndex =
-    // parseInt(response.birthday.substring(0, 3));
-
-    // document.getElementById('dob-day-select').selectedIndex =
-    // parseInt(response.birthday.substring(3, 6));
-
-    // document.getElementById('dob-year-select').selectedIndex =
-    // (2016 - 1900) - (parseInt(response.birthday.substring(6, 10)) - 1899);
+    if (document.getElementById('input-email') != null) {
+      document.getElementById('input-email').value =
+        response.email;
+    }
 
     // filling names for nav bars
     if (document.getElementById('indexNavName') != null) {
