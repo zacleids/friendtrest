@@ -8,10 +8,11 @@ deployment:
     commands:
       - eb deploy --staged
 test:
+  override:
+    - mvn verify
   post:
     - mkdir -p $CIRCLE_TEST_REPORTS/reports/
     - cp ./*/*-reports/*.xml $CIRCLE_TEST_REPORTS/reports/
-    - mvn verify
     - bash <(curl -s https://codecov.io/bash)
 notify:
   webhooks:

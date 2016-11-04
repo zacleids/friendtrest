@@ -5,5 +5,5 @@ deploy:
   artifact: target/friendtrest.war
 global:
   application_name: friendtrest
-  default_region: us-west-2
+  default_region: us-west-1
   sc: git
