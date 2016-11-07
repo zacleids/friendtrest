@@ -73,7 +73,7 @@ function testAPI() {
 
     if (document.getElementById('profilepic-l') != null) {
       document.getElementById('profilepic-l').src = 
-        'http://graph.facebook.com/' + response.id + '/picture?type=normal';
+        'http://graph.facebook.com/' + response.id + '/picture?type=large';
     }
 
     // getting first name and last name separate into an array'
