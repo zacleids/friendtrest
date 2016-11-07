@@ -1,13 +1,22 @@
-#rate_review {
-    display: none;
+#close {
+    width: 25px;
+    height: 25px;
+    background-color: red;
+    opacity: 0.75;
+}
+
+#controls, #popup_space {
+    width: 25px;
+    color: white;
 }
 
 #rating {
     -webkit-appearance: none;
-    width: 300px;
-    height: 50px;
+    width: 191px;
+    height: 25px;
     overflow: hidden;
-    margin-left: 20px;
+    margin-left: 25px;
+    margin-right: 25px;
 }
 
 #rating:focus{
@@ -23,5 +32,37 @@
 }
 
 #rating::-webkit-slider-runnable-track {
-    background-color: gray;
+    background-color: black;
+}
+
+#review {
+    background-color: black;
+    border: none;
+    color: white;
+    font-family: monospace;
+    font-size: 12px;
+    margin-left: 25px;
+    margin-right: 25px;
+    opacity: 0.75;
+    resize: none;
+}
+
+#popup {
+    display: none;
+    border-radius: 0% 0% 10% 0%;
+    background-color: black;
+    opacity: 0.75;
+    width: 300px;
+    height: 399px;
+    margin-left:25px;
+}
+
+#save_button {
+    width: 50px;
+    height: 25px;
+    display: inline;
+}
+
+#top_row {
+    display: inline-block;
 }
