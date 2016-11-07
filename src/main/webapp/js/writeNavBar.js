@@ -6,26 +6,22 @@ function generateNavBar(currentPage) {
   	case "index":
       pageList = 
         '      <li><a href="reviews.html">Reviews</a></li>' + '\n' +
-        '      <li><a href="browse.html">Browse</a></li>' + '\n' +
-        '      <li><a href="edit-account.html">Manage Account</a></li>' + '\n';
+        '      <li><a href="browse.html">Browse</a></li>' + '\n';
       break;
     case "reviews":
       pageList = 
         '      <li class="active"><a href="reviews.html">Reviews<span class="sr-only">(current)</span></a></li>' + '\n' +
-        '      <li><a href="browse.html">Browse</a></li>' + '\n' +
-        '      <li><a href="edit-account.html">Manage Account</a></li>' + '\n';
+        '      <li><a href="browse.html">Browse</a></li>' + '\n';
       break;
     case "browse":
       pageList = 
         '      <li><a href="reviews.html">Reviews</a></li>' + '\n' +
-        '      <li class="active"><a href="browse.html">Browse<span class="sr-only">(current)</span></a></li>' + '\n' +
-        '      <li><a href="edit-account.html">Manage Account</a></li>' + '\n';
+        '      <li class="active"><a href="browse.html">Browse<span class="sr-only">(current)</span></a></li>' + '\n';
       break;
     case "edit-account":
       pageList = 
         '      <li><a href="reviews.html">Reviews</a></li>' + '\n' +
-        '      <li><a href="browse.html">Browse</a></li>' + '\n' +
-        '      <li class="active"><a href="edit-account.html">Manage Account<span class="sr-only">(current)</span></a></li>' + '\n';
+        '      <li><a href="browse.html">Browse</a></li>' + '\n';
       break;  
   }
 
@@ -48,18 +44,6 @@ function generateNavBar(currentPage) {
   '  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">' + '\n' +
   '    <ul class="nav navbar-nav">' + '\n' + pageList +
   '' + '\n' +
-  '      <li class="dropdown">' + '\n' +
-  '        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>' + '\n' +
-  '        <ul class="dropdown-menu">' + '\n' +
-  '          <li><a href="#">Action</a></li>' + '\n' +
-  '          <li><a href="#">Another action</a></li>' + '\n' +
-  '          <li><a href="#">Something else here</a></li>' + '\n' +
-  '          <li role="separator" class="divider"></li>' + '\n' +
-  '          <li><a href="#">Separated link</a></li>' + '\n' +
-  '          <li role="separator" class="divider"></li>' + '\n' +
-  '          <li><a href="#">One more separated link</a></li>' + '\n' +
-  '        </ul>' + '\n' +
-  '      </li>' + '\n' +
   '    </ul>' + '\n' +
   '    <form class="navbar-form navbar-left">' + '\n' +
   '      <div class="form-group">' + '\n' +
@@ -70,15 +54,12 @@ function generateNavBar(currentPage) {
   '    <ul class="nav navbar-nav navbar-right">' + '\n' +
   '    	<li><img class="navprofilepic" id="profilepic" src="img/generic-user.png"></li>' + '\n' +
   '    	<li class="nav-name"><span class="fNamelName" id="' + strippedPage + 'NavName">Generic User</span></li>' + '\n' +
-  '      <li><a href="login.html">Logout</a></li>' + '\n' +
   '      <li class="dropdown">' + '\n' +
-  '        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>' + '\n' +
+  '        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Account<span class="caret"></span></a>' + '\n' +
   '        <ul class="dropdown-menu">' + '\n' +
-  '          <li><a href="#">Action</a></li>' + '\n' +
-  '          <li><a href="#">Another action</a></li>' + '\n' +
-  '          <li><a href="#">Something else here</a></li>' + '\n' +
+  '          <li><a href="edit-account.html">Manage Account</a></li>' + '\n' +
   '          <li role="separator" class="divider"></li>' + '\n' +
-  '          <li><a href="#">Separated link</a></li>' + '\n' +
+  '          <li><a href="login.html">Logout</a></li>' + '\n' +
   '        </ul>' + '\n' +
   '      </li>' + '\n' +
   '    </ul>' + '\n' +

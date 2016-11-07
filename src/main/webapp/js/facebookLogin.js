@@ -57,8 +57,8 @@ window.fbAsyncInit = function() {
 }(document, 'script', 'facebook-jssdk'));
 
 
-// this function doesn't happen on every page load... just after the facebook login.
-// thats why its not changing anything on the edit-account page.
+// this code is going to be refactored into individual javascript files
+// so that it's not checking over and over for element's that don't exist
 function testAPI() {
   console.log('Welcome!  Fetching your information.... ');
   FB.api('/me', {fields : "name, email, picture"}, function(response) {
@@ -73,7 +73,7 @@ function testAPI() {
 
     if (document.getElementById('profilepic-l') != null) {
       document.getElementById('profilepic-l').src = 
-        response.picture.data.url;
+        'http://graph.facebook.com/' + response.id + '/picture?type=normal';
     }
 
     // getting first name and last name separate into an array'

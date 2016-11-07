@@ -22,6 +22,10 @@ body {
     max-height: 256px;
 }
 
+.btn, .btn-xl {
+    width:175px;
+}
+
 .nav-name {
 	transform: translate(0px, 15px);
 	font-weight: bold;
