@@ -15,11 +15,11 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  * Created by Austin on 9/28/2016.
  */
 
-/*
-  MADE OBSOLETE TEMPORARILY BY DESIGN CHANGES
+/**
+ * MADE OBSOLETE TEMPORARILY BY DESIGN CHANGES
  */
 public class CloseIT {
-
+    /*
     WebDriver driver = new ChromeDriver();
 
     @Before
@@ -27,7 +27,7 @@ public class CloseIT {
 
     @After
     public void tearDown() { driver.quit(); }
-
+*/
     /**
      *  Acceptance Test:
      *
@@ -35,7 +35,7 @@ public class CloseIT {
      *      When I open a rating popup and press "submit" having not entered content
      *      Then the rating popup should close without updating.
      */
-
+/*
     @Test
     public void testCloseNoContent() {
         driver.findElement(By.id("popup")).click();
@@ -43,5 +43,5 @@ public class CloseIT {
  
         assertEquals("CLOSED", driver.findElement(By.id("result")).getText());
     }
+    */
 }
-*/
