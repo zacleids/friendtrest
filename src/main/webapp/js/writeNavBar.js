@@ -55,9 +55,9 @@ function generateNavBar(currentPage) {
   '    	<li><img class="navprofilepic" id="profilepic" src="img/generic-user.png"></li>' + '\n' +
   '    	<li class="nav-name"><span class="fNamelName" id="' + strippedPage + 'NavName">Generic User</span></li>' + '\n' +
   '      <li class="dropdown">' + '\n' +
-  '        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Account<span class="caret"></span></a>' + '\n' +
+  '        <a href="#" class="dropdown-toggle" id="' + strippedPage + '-account-dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Account<span class="caret"></span></a>' + '\n' +
   '        <ul class="dropdown-menu">' + '\n' +
-  '          <li><a href="edit-account.html">Manage Account</a></li>' + '\n' +
+  '          <li><a id="' + strippedPage + '-edit-account" href="edit-account.html">Manage Account</a></li>' + '\n' +
   '          <li role="separator" class="divider"></li>' + '\n' +
   '          <li><a href="login.html">Logout</a></li>' + '\n' +
   '        </ul>' + '\n' +
