@@ -3,85 +3,83 @@
 
 <head>
     <meta charset="UTF-8">
-    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+    <script type="text/javascript" src="js/writeHead.js"></script>
     <link rel="stylesheet" type="text/css" href="css/rating.css">
+    <script src="js/appearance.js"></script>
 
     <title>Rating Prototype</title>
 </head>
 
 <body>
-    This page has no content.
-    <br>
-    <button type="button" id="rate_button">RATE</button>
-
-    <div id="rate_review">
-        <input type="range" id="rating" min="0" max="10" step=".01">
-        <br>
-        <textarea cols="43" rows="10" id="review"></textarea>
-        <button type="button" id="save">SAVE</button>
+    <div class="row" id="row1">
+        <div class="col-md-3" id="item1"></div>
     </div>
 
     <div id="result"></div>
+<script>
+    var shown = false;
+    var review = {uuid:"", rating:0, review_text:"", item_id:"", user_id:""};
+    var review_uuid = "8227c1f7-e52c-4dec-ab1d-e9d2bd9c44c6";
+    var rating;
+    var review_text;
 
-    <script>
-        var shown = false, down = false;
-	var content;
+    $(document).ready(function() {
+        $("#item1").html(makePopup(1));
 
-	function getContent() {
-	    return content;	
-	}
+        $(".popup").on('click', '.controls', function() {
+            if (shown) {
+                $(".rate_rev").css("display", "none");
+                $(".popup").css("width", "25px");
+                $(".close").css("display", "none");
+                $(".close_place").css("display", "block");
+                $(".toggle").css("margin-top", "0px");
 
-	function setContent(new_content) {
-	    content = new_content;
-	}
+                submitRateRev();
 
-        $(document).ready(function() {
-            $("#rate_button").on("click", function(){
-                if (shown) {
-                    $("#rate_review").css("display", "none");
-                    shown = false;
-                } else {
-                    $("#rate_review").css("display", "block");
-                    shown = true;
-                }
-            });
-/*
-            $("#rating").on("mousedown", function(mouse) {
-                var percent = (mouse.pageX - $(this).offset().left) * 100 / $("#rating").width();
-                $("#rating2").css("width", "" + percent + "%");
-            });
+                shown = false;
+            } else {
+                $(".rate_rev").css("display", "block");
+                $(".popup").css("width", "245px");
+                $(".close").css("display", "block");
+                $(".close_place").css("display", "none");
+                $(".toggle").css("margin-top", "25px");
 
-            $("#rating").on("mouseup", function(mouse) {
-                var percent = (mouse.pageX - $(this).offset().left) * 100 / $("#rating").width();
-                $("#rating2").css("width", "" + percent + "%");
-            });
-*/
-            var rating = $("#rating"), rating_interval;
-            rating.on("mousedown", function() {
-                var max = rating.attr("max");
-                rating_interval = setInterval(function() {
-                    var val = rating.val() / max;
-                    $("#result").text(val);
-                }, 500);
-            }).on("mouseup", function() {
-                clearInterval(rating_interval);
-            });
-
-            $("#save").on("click", function() {
-                if ($("#review").val() == "") {
-                    $("#rate_review").css("display", "none");
-                    shown = false;
-                    $("#result").text("CLOSED");
-                } else {
-                    $("#rate_review").css("display", "none");
-                    shown = false;
-                    $("#result").text("SUBMITTED");
-                }
-            });
+                shown = true;
+            }
         });
 
+        $.get("/rest/reviewTest", {uuid: review_uuid}, function(review_new) {
+            review.rating = review_new.rating;
+            review.review_text = review_new.review_text;
+            review.uuid = review_new.uuid;
+            review.item_id = review_new.item_id;
+            review.user_id = review_new.user_id;
+            $(".rating").val(review.rating);
+            $(".review").val(review.review_text);
+        }).fail(function() {
+            alert("Retrieval failed");
+        });
 
-  </script>
+    });
+
+    function submitRateRev() {
+        rating = $(".rating").val();
+        review_text = $(".review").val();
+
+        $.get("/rest/reviewTestSubmit", {
+            uuid: review_uuid,
+            rating: rating,
+            review_text: review_text,
+            item_id: review.item_id,
+            user_id: review.user_id
+        }, function() {
+            alert("submitted");
+        }).fail(function() {
+            alert("Submission failed");
+        });
+    }
+</script>
+
 </body>
 
 </html>

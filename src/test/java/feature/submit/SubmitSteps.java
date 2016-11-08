@@ -17,7 +17,7 @@ import cucumber.api.java.en.When;
  * Created by Austin on 9/28/2016.
  */
 public class SubmitSteps {
-	
+	/*
 	WebDriver driver = new ChromeDriver();
 	
 	@Before
@@ -50,4 +50,5 @@ public class SubmitSteps {
 		WebElement element = driver.findElement(By.id("review"));
 		assertEquals(content, (String)((JavascriptExecutor)driver).executeScript("return content;"));
 	}
+	*/
 }
