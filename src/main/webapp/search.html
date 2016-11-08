@@ -32,7 +32,11 @@
     function getItem() {
         var name = $("#name").val();
         $("#items").html("");
-        $.get("/rest/simpleSearch", { name: name,}, function(items) {
+        $.get("/rest/simpleSearch", { name: name}, function(items) {
+            console.log(items.length);
+            if(items.length === 0){
+                displayNoItems();
+            }
             for(var i = 0; i < items.length; i++){
                 displayItem(items[i]);
             }
@@ -47,6 +51,11 @@
                 "</b>  Released: " +
                 item.releaseDate  +
                 "</div><hr>";
+        $("#items").html($("#items").html() + text);
+    }
+
+    function displayNoItems(){
+        var text = "<h3>No Items to display</h3>";
         $("#items").html($("#items").html() + text);
     }
 </script>
