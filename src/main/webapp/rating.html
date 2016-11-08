@@ -15,34 +15,22 @@
     <button type="button" id="rate_button">RATE</button>
 
     <div id="popup">
-        <tr class="row">
-            <td class="col-sm-3"></td>
-            <td class="col-sm-3">
-                <tr>
-                    <td>
-                        <input type="range" id="rating" min="0" max="10" step=".01">
-                    </td>
-                </tr>
-                <!--textarea cols="25" rows="7" id="review"></textarea-->
-            </td>
-            <td class="col-sm-3">
-                X
-                <!--div id="close">X</div-->
-                <!--div id="toggle">Something</div-->
-            </td>
-            <td class="col-sm-3">
-                X
-                <!--div id="close">X</div-->
-                <!--div id="toggle">Something</div-->
-            </td>
-        </tr>
+        <div id="rating_review">
+            <input type="range" id="rating" min="0" max="10" step=".01">
+            <textarea cols="25" rows="5"></textarea>
+        </div>
+        <div id="controls">
+            <div id="close">&#10006;</div>
+            <div id="toggle">
+            </div>
+        </div>
     </div>
 
     <div id="result"></div>
 
     <script>
         var shown = false, down = false;
-	var content;
+	    var content;
 
 	function getContent() {
 	    return content;	

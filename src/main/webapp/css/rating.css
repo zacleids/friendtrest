@@ -5,18 +5,16 @@
     opacity: 0.75;
 }
 
-#controls, #popup_space {
+#controls {
     width: 25px;
     color: white;
 }
 
 #rating {
     -webkit-appearance: none;
-    width: 191px;
+    width: 195px;
     height: 25px;
     overflow: hidden;
-    margin-left: 25px;
-    margin-right: 25px;
 }
 
 #rating:focus{
@@ -52,8 +50,8 @@
     border-radius: 0% 0% 10% 0%;
     background-color: black;
     opacity: 0.75;
-    width: 300px;
-    height: 399px;
+    width: 245px;
+    height: 150px;
     margin-left:25px;
 }
 
@@ -63,6 +61,6 @@
     display: inline;
 }
 
-#top_row {
-    display: inline-block;
+#rating_review {
+    margin-left: 25px;
 }
