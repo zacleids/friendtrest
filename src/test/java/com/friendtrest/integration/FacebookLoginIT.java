@@ -83,9 +83,13 @@ public class FacebookLoginIT {
 
         driver.switchTo().window(home);
 
+        (new WebDriverWait(driver, 10)).until(
+            ExpectedConditions.presenceOfElementLocated(
+                By.tagName("nav")));
+
         // check if the username at the top is what it should be
         String url = driver.getCurrentUrl();
-        assertTrue(url.equals("http://sample-env.mxm64u72tc.us-west-1.elasticbeanstalk.com/index.html"));
+        assertThat(url, equalTo("http://sample-env.mxm64u72tc.us-west-1.elasticbeanstalk.com/index.html"));
     }
 
     @Test
@@ -163,6 +167,6 @@ public class FacebookLoginIT {
             ExpectedConditions.attributeContains(element3, "value", "facebook-login_isrxotf_tester@tfbnw.net"));
 
         //check to see the email field is the email it should be
-        assertTrue(driver.findElement(By.id("input-email")).getAttribute("value").equals("facebook-login_isrxotf_tester@tfbnw.net"));
+        assertThat(driver.findElement(By.id("input-email")).getAttribute("value"), equalTo("facebook-login_isrxotf_tester@tfbnw.net"));
     }
 }
