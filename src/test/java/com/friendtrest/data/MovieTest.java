@@ -6,7 +6,7 @@ import org.junit.Test;
 import java.util.ArrayList;
 
 import static org.hamcrest.CoreMatchers.equalTo;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 
 /**
  * Created by Zac Leids on 10/13/2016.
@@ -65,7 +65,7 @@ public class MovieTest {
 
     @Test
     public void testNumTags(){
-        assertTrue(m.getNumTags() == tags.size());
+        assertThat(m.getNumTags(), equalTo(tags.size()));
     }
 
     @Test
@@ -80,7 +80,7 @@ public class MovieTest {
 
     @Test
     public void testCastExists(){
-        assertTrue(m.getActors().contains(cast.get(0)));
+        assertThat(m.getActors(), equalTo(cast));
     }
 
     @Test
@@ -95,21 +95,21 @@ public class MovieTest {
 
     @Test
     public void testGetRunTime(){
-        assertTrue(m.getRunTimeInMinutes() == runTime);
+        assertThat(m.getRunTimeInMinutes(), equalTo(runTime));
     }
 
     @Test
     public void testAddTag(){
         int n = m.getNumTags();
         m.addTag("Test");
-        assertTrue(n+1 == m.getNumTags());
+        assertThat(n+1, equalTo(m.getNumTags()));
     }
 
     @Test
     public void testRemoveTag(){
         int n = m.getNumTags();
         m.removeTag("Adventure");
-        assertTrue(n-1 == m.getNumTags());
+        assertThat(n-1, equalTo(m.getNumTags()));
     }
 
 

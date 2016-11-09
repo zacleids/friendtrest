@@ -7,7 +7,6 @@ import java.util.ArrayList;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;
-import static org.junit.Assert.assertTrue;
 
 /**
  * Created by Zac Leids on 11/7/2016.
@@ -61,7 +60,7 @@ public class SongTest {
 
     @Test
     public void testNumTags(){
-        assertTrue(s.getNumTags() == tags.size());
+        assertThat(s.getNumTags(), equalTo(tags.size()));
     }
 
     @Test
@@ -81,11 +80,11 @@ public class SongTest {
 
     @Test
     public void testGetMin(){
-        assertTrue(s.getMin() == min);
+        assertThat(s.getMin(), equalTo(min));
     }
 
     @Test
     public void testGetSec(){
-        assertTrue(s.getSeconds() == sec);
+        assertThat(s.getSeconds(), equalTo(sec));
     }
 }

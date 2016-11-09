@@ -7,7 +7,6 @@ import java.util.ArrayList;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;
-import static org.junit.Assert.assertTrue;
 
 /**
  * Created by Zac Leids on 11/7/2016.
@@ -62,7 +61,7 @@ public class TVShowTest {
 
     @Test
     public void testNumTags(){
-        assertTrue(tvShow.getNumTags() == tags.size());
+        assertThat(tvShow.getNumTags(), equalTo(tags.size()));
     }
 
     @Test
@@ -77,7 +76,7 @@ public class TVShowTest {
 
     @Test
     public void testCastExists(){
-        assertTrue(tvShow.getActors().contains(cast.get(0)));
+        assertThat(tvShow.getActors(), equalTo(cast));
     }
 
     @Test
@@ -87,7 +86,7 @@ public class TVShowTest {
 
     @Test
     public void testGetNumSeasons(){
-        assertTrue(tvShow.getNumSeasons() == numSeasons);
+        assertThat(tvShow.getNumSeasons(), equalTo(numSeasons));
     }
 
 }
