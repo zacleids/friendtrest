@@ -83,4 +83,26 @@ public class AlbumTest {
     public void testGetSongs(){
         assertThat(a.getSongs(), equalTo(songs));
     }
+
+    @Test
+    public void testNumSongs(){
+        assertThat(a.getNumSongs(), equalTo(songs.size()));
+    }
+
+    @Test
+    public void testSetArtist(){
+        String tempArtist = "temp";
+        a.setArtist(tempArtist);
+        assertThat(a.getArtist(), equalTo(tempArtist));
+        a.setArtist(artist);
+    }
+
+    @Test
+    public void testSetSongs(){
+        List<String> tempSongs = new ArrayList<String>();
+        tempSongs.add("not a song");
+        a.setSongs(tempSongs);
+        assertThat(a.getSongs(), equalTo(tempSongs));
+        a.setSongs(songs);
+    }
 }

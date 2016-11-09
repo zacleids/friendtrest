@@ -6,6 +6,8 @@ import org.junit.Test;
 import java.util.ArrayList;
 
 import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.CoreMatchers.not;
+import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.junit.Assert.assertThat;
 
 /**
@@ -96,6 +98,16 @@ public class MovieTest {
     @Test
     public void testGetRunTime(){
         assertThat(m.getRunTimeInMinutes(), equalTo(runTime));
+    }
+
+    @Test
+    public void testGetTags(){
+        assertThat(m.getTags(), equalTo(tags));
+    }
+
+    @Test
+    public void testGetUUID(){
+        assertThat(m.getUUID(), notNullValue());
     }
 
     @Test

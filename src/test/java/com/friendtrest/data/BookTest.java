@@ -78,4 +78,20 @@ public class BookTest {
     public void testGetAuthor(){
         assertThat(b.getAuthor(), equalTo(author));
     }
+
+    @Test
+    public void testSetISBN(){
+        String tempISBN = "-0";
+        b.setISBN(tempISBN);
+        assertThat(b.getISBN(), equalTo(tempISBN));
+        b.setISBN(isbn);
+    }
+
+    @Test
+    public void testSetAuthou(){
+        String tempAuthor = "me";
+        b.setAuthor(tempAuthor);
+        assertThat(b.getAuthor(), equalTo(tempAuthor));
+        b.setAuthor(author);
+    }
 }
