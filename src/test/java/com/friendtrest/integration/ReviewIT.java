@@ -13,6 +13,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.Random;
 
+import static java.lang.Thread.sleep;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 
@@ -21,33 +22,37 @@ import static org.junit.Assert.assertFalse;
  */
 public class ReviewIT {
 
-    WebDriver driver = new ChromeDriver();
-    DBController dbc = new DBController();
+    WebDriver driver;
+    DBController dbc;
 
     @Before
-    public void setUp() { driver.get("http://localhost:8080/rating.html"); }
+    public void setUp() {
+        driver = new ChromeDriver();
+        dbc = new DBController();
+        driver.get("http://localhost:8080/rating.html");
+    }
 
     @After
     public void tearDown() { driver.quit(); }
 
     @Test
-    public void testUpdateOnToggle() {
+    public void testUpdateOnToggle() throws InterruptedException {
         WebElement popup = driver.findElement(By.className("popup"));
-        popup.click();
+        popup.click();  //required to make "review" visible
         WebElement review = driver.findElement(By.className("review"));
         String review_text = review.getAttribute("value");
-        review.clear();
         String new_text = "";
         Random rand = new Random();
 
+        review.clear();
         for (int i = 0; i < 10; i++) {
             new_text += " " + rand.nextDouble();
         }
-
         assertFalse(review_text.equals(new_text));
         review.sendKeys(new_text);
         WebElement toggle = driver.findElement(By.className("toggle"));
         toggle.click();
+        sleep(1000);
         Review reviewObj = Load.loadReview("8227c1f7-e52c-4dec-ab1d-e9d2bd9c44c6", dbc);
 
         assertEquals(reviewObj.getReview_text(), new_text);
