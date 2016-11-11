@@ -15,14 +15,15 @@ import java.io.IOException;
 import java.util.Properties;
 
 /**
- * Created by Austin on 10/21/2016.
+ * Loads AWS DynamoDB credentials from access.ini (local filesystem)
+ * or AWS Environment Variables (Elastic Beanstalk)
  */
 
 public class DBController {
 
-    private static final String CREDENTIALS_FILE_PATH = "./access.ini";
+    private static final String CREDENTIALS_FILE_PATH = "access.ini";
 
-    private AmazonDynamoDB client;
+    private AmazonDynamoDBClient client;
     private DynamoDB dynamoDB;
 
     public DBController() {
