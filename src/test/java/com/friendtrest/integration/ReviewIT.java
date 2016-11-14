@@ -53,8 +53,7 @@ public class ReviewIT {
         review.sendKeys(new_text);
         WebElement toggle = driver.findElement(By.className("toggle"));
         toggle.click();
-        Table table = dbc.getDynamoDB().getTable("ReviewTest");
-        table.waitForActive();
+        Thread.sleep(10000);
         Review reviewObj = Load.loadReview("8227c1f7-e52c-4dec-ab1d-e9d2bd9c44c6", dbc);
 
         assertEquals(reviewObj.getReview_text(), new_text);
