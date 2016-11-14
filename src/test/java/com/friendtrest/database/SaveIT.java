@@ -50,8 +50,8 @@ public class SaveIT {
         int size2 = client.scan(scanRequest).getItems().size(); //size of table
         TestClass test2 = dbm.load(TestClass.class, test.getUuid(), test.getType());
 
-        assertEquals(size2, size1+1);   //table size has increased by 1
-        assertEquals(test.getUuid(), test2.getUuid());  //retrieved Object with same uuid from DB
+        assertThat(size2, equalTo(size1+1));   //table size has increased by 1
+        assertThat(test.getUuid(), equalTo(test2.getUuid()));  //retrieved Object with same uuid from DB
     }
 
     @Test
