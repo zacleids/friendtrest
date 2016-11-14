@@ -3,6 +3,7 @@ package com.friendtrest.rest;
 
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
 import com.amazonaws.services.dynamodbv2.datamodeling.PaginatedScanList;
+
 import com.friendtrest.data.Item;
 import com.friendtrest.data.Review;
 import com.friendtrest.database.DBController;
