@@ -36,10 +36,14 @@ public class DBControllerIT {
     public void testCreateTable() throws InterruptedException {
         String table_name = "TestCreate";
 
-        createTable("TestCreate", 1L, 1L, "id", "N", null, null);
+        createTable(table_name, 1L, 1L, "id", "N", null, null);
         TableCollection<ListTablesResult> tables = dynamoDB.listTables();
 
-         
+        Table table = dynamoDB.getTable(table_name);
+        String table_name2 = table.getTableName();
+        table.delete();
+
+        assertThat(table_name, equalTo(table_name2));
     }
 
     private void createTable(String tableName, long readCapacityUnits, long writeCapacityUnits,
