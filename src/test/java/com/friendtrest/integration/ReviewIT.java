@@ -1,5 +1,6 @@
 package com.friendtrest.integration;
 
+import com.amazonaws.services.dynamodbv2.document.Table;
 import com.friendtrest.data.Review;
 import com.friendtrest.database.DBController;
 import com.friendtrest.database.Load;
@@ -41,18 +42,19 @@ public class ReviewIT {
         popup.click();  //required to make "review" visible
         WebElement review = driver.findElement(By.className("review"));
         String review_text = review.getAttribute("value");
-        String new_text = "";
         Random rand = new Random();
 
+        String new_text = "" + rand.nextDouble();
         review.clear();
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 9; i++) {
             new_text += " " + rand.nextDouble();
         }
         assertFalse(review_text.equals(new_text));
         review.sendKeys(new_text);
         WebElement toggle = driver.findElement(By.className("toggle"));
         toggle.click();
-        sleep(1000);
+        Table table = dbc.getDynamoDB().getTable("ReviewTest");
+        table.waitForActive();
         Review reviewObj = Load.loadReview("8227c1f7-e52c-4dec-ab1d-e9d2bd9c44c6", dbc);
 
         assertEquals(reviewObj.getReview_text(), new_text);
