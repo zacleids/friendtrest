@@ -8,8 +8,8 @@ import com.friendtrest.data.Item;
  */
 public class Delete {
 
-    public static void deleteItem(Item item, DBController dbc) {
+    public static <T> void deleteItem(T object, DBController dbc) {
         DynamoDBMapper dbm = new DynamoDBMapper(dbc.getAmazonDynamoDB());
-        dbm.delete(item);
+        dbm.delete(object);
     }
 }
