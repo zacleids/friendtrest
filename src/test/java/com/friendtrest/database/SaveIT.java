@@ -45,7 +45,7 @@ public class SaveIT {
         ScanRequest scanRequest = new ScanRequest().withTableName("Test");
         int size1 = client.scan(scanRequest).getItems().size(); //size of table
 
-        dbm.save(test);
+        Save.saveObject(test, dbc);
         scanRequest = new ScanRequest().withTableName("Test");
         int size2 = client.scan(scanRequest).getItems().size(); //size of table
         TestClass test2 = dbm.load(TestClass.class, test.getUuid(), test.getType());
@@ -59,11 +59,11 @@ public class SaveIT {
         TestClass test = new TestClass("Movie", "Another Movie");
         delete.add(test);
 
-        dbm.save(test);
+        Save.saveObject(test, dbc);
         ScanRequest scanRequest = new ScanRequest().withTableName("Test");
         int size1 = client.scan(scanRequest).getItems().size(); //size of table
         test.setName("Another Move 2"); //change item attribute (not primary or secondary key)
-        dbm.save(test);
+        Save.saveObject(test, dbc);
         scanRequest = new ScanRequest().withTableName("Test");
         int size2 = client.scan(scanRequest).getItems().size(); //size of table
         TestClass test2 = dbm.load(TestClass.class, test.getUuid(), test.getType());
