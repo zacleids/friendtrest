@@ -70,14 +70,7 @@ public class DataRetrieval {
     @GET
     @Path("/simpleSearch")
     public Response simpleSearch(@QueryParam("name") String name){
-        PaginatedScanList<Item> items = Scan.getItemsTable(dbc);
-        ArrayList<Item> itemsToShow = new ArrayList<Item>();
-        for (Item item : items) {
-            //System.out.println(item.getName());
-            if(item.getName().contains(name)){
-                itemsToShow.add(item);
-            }
-        }
+        ArrayList<Item> itemsToShow = getItems(name, "", "");
         String json = new Gson().toJson(itemsToShow);
         return Response.ok(json, MediaType.APPLICATION_JSON).build();
     }
@@ -85,16 +78,21 @@ public class DataRetrieval {
     @GET
     @Path("/search")
     public Response search(@QueryParam("name") String name, @QueryParam("year") String year, @QueryParam("tags") String tagString){
-        ArrayList<String> tags = new ArrayList<String>(Arrays.asList(tagString.split(",")));
+        ArrayList<Item> itemsToShow = getItems(name, year, tagString);
+        String json = new Gson().toJson(itemsToShow);
+        return Response.ok(json, MediaType.APPLICATION_JSON).build();
+    }
+
+    private ArrayList<Item> getItems(String name, String year, String tagString) {
         PaginatedScanList<Item> items = Scan.getItemsTable(dbc);
+        ArrayList<String> tags = new ArrayList<String>(Arrays.asList(tagString.split(",")));
         ArrayList<Item> itemsToShow = new ArrayList<Item>();
         for (Item item : items) {
-            if((item.getName().contains(name) || name.equals("")) && (item.getReleaseDate().equals(year) || year.equals("")) && (arrayListContains(item.getTags(), tags) || tagString.equals(""))){
+            if((name.equals("") || item.getName().contains(name)) && (year.equals("") || item.getReleaseDate().equals(year)) && (tagString.equals("") || arrayListContains(item.getTags(), tags))){
                 itemsToShow.add(item);
             }
         }
-        String json = new Gson().toJson(itemsToShow);
-        return Response.ok(json, MediaType.APPLICATION_JSON).build();
+        return itemsToShow;
     }
 
     private boolean arrayListContains(List<String> main, ArrayList<String> other){
@@ -105,4 +103,5 @@ public class DataRetrieval {
         }
         return true;
     }
+    
 }
