@@ -34,6 +34,14 @@ public class SearchServiceTest extends JerseyTest {
         assertThat(items.size(), equalTo(0));
     }
 
+    @Test
+    public void testQueryEndpoint(){
+        String q = "test";
+        WebTarget webTarget = target("query").queryParam("query", q);
+        String response = webTarget.request().get(String.class);
+        assertThat(response, equalTo("query received '" + q + "'"));
+    }
+
     private ArrayList<Item> getItems(String endPoint, String param, String data) {
         WebTarget webTarget = target(endPoint).queryParam(param, data);
         String json = webTarget.request().get(String.class);
