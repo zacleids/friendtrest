@@ -24,20 +24,21 @@ public class SearchServiceTest extends JerseyTest {
 
     @Test
     public void testResultsForHungerGames(){
-        WebTarget webTarget = target("simpleSearch").queryParam("name", "Hunger");;
-        String json = webTarget.request().get(String.class);
-        Gson gson = new Gson();
-        ArrayList<Item> items = gson.fromJson(json, ArrayList.class);
+        ArrayList<Item> items = getItems("simpleSearch", "name", "Hunger");
         assertThat(items.size(), equalTo(2));
     }
 
     @Test
     public void testResultsForBadData(){
-        WebTarget webTarget = target("simpleSearch").queryParam("name", "rjdtxfythhh");;
+        ArrayList<Item> items = getItems("simpleSearch", "name", "rjdtxfythhh");
+        assertThat(items.size(), equalTo(0));
+    }
+
+    private ArrayList<Item> getItems(String endPoint, String param, String data) {
+        WebTarget webTarget = target(endPoint).queryParam(param, data);
         String json = webTarget.request().get(String.class);
         Gson gson = new Gson();
-        ArrayList<Item> items = gson.fromJson(json, ArrayList.class);
-        assertThat(items.size(), equalTo(0));
+        return gson.fromJson(json, ArrayList.class);
     }
 
 
