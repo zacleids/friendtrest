@@ -5,21 +5,23 @@ import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBIgnore;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
 
-import java.util.ArrayList;
+import java.util.List;
 
 @DynamoDBTable(tableName = "Users")
 public class User {
-	private String name;
+
 	private String email;
-	private String pictureURL;
 	private String facebookID;
-	private ArrayList<String> reviewIDs = new ArrayList<String>();
-	private ArrayList<String> friendIDs = new ArrayList<String>();
+	private String name;
+	private String pictureURL;
+
+	private List<String> friendIDs;
+	private List<String> reviewIDs;
 
 	public User() { }
 
 	public User(String name, String email, String pictureURL, String facebookID,
-		ArrayList<String> reviewIDs, ArrayList<String> friendIDs){
+		List<String> reviewIDs, List<String> friendIDs){
 		this.name = name;
 		this.email = email;
 		this.pictureURL = pictureURL;
@@ -29,7 +31,7 @@ public class User {
 	}
 
 	public User(String name, String email, String pictureURL, String facebookID,
-		ArrayList<String> friendIDs){
+		List<String> friendIDs){
 		this.name = name;
 		this.email = email;
 		this.pictureURL = pictureURL;
@@ -66,18 +68,18 @@ public class User {
 	}
 
 	@DynamoDBAttribute(attributeName = "review_ids")
-	public ArrayList<String> getReviews() {
+	public List<String> getReviews() {
 		return reviewIDs;
 	}
-	public void setReviews(ArrayList<String> reviewIDs) {
+	public void setReviews(List<String> reviewIDs) {
 		this.reviewIDs = reviewIDs;
 	}
 
 	@DynamoDBAttribute(attributeName = "friend_ids")
-	public ArrayList<String> getFriends() {
+	public List<String> getFriends() {
 		return friendIDs;
 	}
-	public void setFriends(ArrayList<String> friendIDs) {
+	public void setFriends(List<String> friendIDs) {
 		this.friendIDs = friendIDs;
 	}
 

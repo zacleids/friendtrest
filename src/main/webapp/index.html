@@ -2,39 +2,75 @@
 <html lang="en">
 
 <div class="container-fluid">
-<head>
-  <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
-  <meta content="utf-8" http-equiv="encoding">
+    <head>
+        <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+        <meta content="utf-8" http-equiv="encoding">
 
-  <script type="text/javascript" src="js/writeHead.js"></script>
-  <link rel="stylesheet" type="text/css" href="css/index.css">
-  <script type="text/javascript" src="js/appearance.js"></script>
-  <script type="text/javascript" src="js/array.js"></script>
-</head>
-<body>
+        <!--jquery compatible with bootstrap-->
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 
-<!-- javascript file will write the nav bar given the name of the page -->
-<script>
-  generateNavBar("index");
-</script>
+        <!--bootstrap js-->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/latest/js/bootstrap.min.js"></script>
 
-<div id="main" class="container"></div>
+        <script type="text/javascript" src="js/appearance.js"></script>
+        <script type="text/javascript" src="js/array.js"></script>
 
-<footer class="footer">
-  <div class="container">
-      <!-- row that has footer for links and stuff -->
-      <div class="row">
-        <div class="col-md-6 left-footer">
-          Copyright LLC
+        <!--bootstrap css-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap-theme.min.css">
+
+        <link rel="stylesheet" type="text/css" href="css/bootstrap-social.css">
+        <link rel="stylesheet" type="text/css" href="css/global-styles.css">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+
+        <script>
+            $(document).ready(function() {
+                $("#nav").load("head.html");
+            });
+        </script>
+    </head>
+    <body>
+        <div id="nav"></div>
+
+<br>
+<br>
+<br>
+<br>
+        content
+
+        <div id="friends" class="container-fluid">
+            <div id="friends1" class="row">
+                <div id="friend-item1" class="col-md-2 col-md-offset-1"></div>
+                <div id="friend-item2" class="col-md-2"></div>
+                <div id="friend-item3" class="col-md-2"></div>
+                <div id="friend-item4" class="col-md-2"></div>
+                <div id="friend-item5" class="col-md-2"></div>
+            </div>
+            <div id="friends2" class="row">
+                <div id="friend-item6" class="col-md-2 col-md-offset-1"></div>
+                <div id="friend-item7" class="col-md-2"></div>
+                <div id="friend-item8" class="col-md-2"></div>
+                <div id="friend-item9" class="col-md-2"></div>
+                <div id="friend-item10" class="col-md-2"></div>
+            </div>
         </div>
-        <div class="col-md-6 right-footer">
-          <a href="https://www.csumb.edu/">About Us</a>
-          <span class="pipe">|</span> 
-          <a href="https://www.csumb.edu/">Contact Us</a>
-          <span class="pipe">|</span> 
-          <a href="https://www.csumb.edu/">CSUMB</a>
+
+        <div id="random" class="container-fluid">
+            <div id="random1" class="row">
+                <div id="random-item1" class="col-md-2 col-md-offset-1"></div>
+                <div id="random-item2" class="col-md-2"></div>
+                <div id="random-item3" class="col-md-2"></div>
+                <div id="random-item4" class="col-md-2"></div>
+                <div id="random-item5" class="col-md-2"></div>
+            </div>
+            <div id="random2" class="row">
+                <div id="random-item6" class="col-md-2 col-md-offset-1"></div>
+                <div id="random-item7" class="col-md-2"></div>
+                <div id="random-item8" class="col-md-2"></div>
+                <div id="random-item9" class="col-md-2"></div>
+                <div id="random-item10" class="col-md-2"></div>
+            </div>
         </div>
-      </div>
   </div>
 </footer>
 
@@ -81,54 +117,68 @@
                     row += "<img id='cover' src='" + results[i].url + "'>";
                     row += "<div id='rating_color' style='background-color:" + getColor(randomRating()) + "'></div>";
                     row += "</div>";
+                    $("#main").html($("#main").html() + row);
                 }
-                row += "</div>";
-                $("#main").html($("#main").html() + row);
-            }
-        }).fail(function() {
-            //alert("data retrieval failed");
-        });
-    };
-
-    getData();
-
-    var shown = false;
-
-    $(document).ready(function() {
-      $("#popup").on("click", "#controls", function () {
-        if (shown) {
-          $("#close_placeholder").css("display", "block");
-          $("#close").css("display", "none");
-          //$("#popup").css("display", "none");
-          $(".popup").css("width", "25px");
-          $("#rate_review").css("display", "none");
-          shown = false;
-        } else {
-          $("#close_placeholder").css("display", "none");
-          $("#close").css("display", "block");
-          $(".popup").css("width", "245px");
-          $(".popup").css("display", "flex");
-          $("#rate_review").css("display", "block");
-
-          shown = true;
+            }).fail(function() {
+                //alert("data retrieval failed");
+            });
         }
-      });
 
-      var rating = $("#rating"), rating_interval;
-      rating.on("mousedown", function () {
-        var max = rating.attr("max");
-        rating_interval = setInterval(function () {
-          var val = rating.val() / max;
-          $("#result").text(val);
-        }, 500);
-      }).on("mouseup", function () {
-        clearInterval(rating_interval);
-      });
-    });
+        function getFriendItems() {
+            for (var i = 1; i <= 10; i++) {
+                var id = "#friend-item" + i;
+                $(id).html("<img src='https://upload.wikimedia.org/wikipedia/en/thumb/5/5a/The_Downward_Spiral.png/220px-The_Downward_Spiral.png' class='img-responsive center-block'/>");
+            }
+        }
 
-</script>
+        function getRandomItems() {
+            for (var i = 1; i <= 10; i++) {
+                var id = "#random-item" + i;
+                $(id).html("<img src='https://upload.wikimedia.org/wikipedia/en/6/66/22,_A_Million_cover.jpg' class='img-responsive center-block'/>");
+            }
+        }
 
-</body>
+        //getData();
+        getFriendItems();
+        getRandomItems();
+
+        var shown = false;
+
+        $(document).ready(function() {
+            $("#popup").on("click", "#controls", function () {
+                if (shown) {
+                    $("#close_placeholder").css("display", "block");
+                    $("#close").css("display", "none");
+                    //$("#popup").css("display", "none");
+                    $(".popup").css("width", "25px");
+                    $("#rate_review").css("display", "none");
+                    shown = false;
+                } else {
+                    $("#close_placeholder").css("display", "none");
+                    $("#close").css("display", "block");
+                    $(".popup").css("width", "245px");
+                    $(".popup").css("display", "flex");
+                    $("#rate_review").css("display", "block");
+
+                    shown = true;
+                }
+            });
+
+            var rating = $("#rating"), rating_interval;
+            rating.on("mousedown", function () {
+                var max = rating.attr("max");
+                rating_interval = setInterval(function () {
+                    var val = rating.val() / max;
+                    $("#result").text(val);
+                }, 500);
+            }).on("mouseup", function () {
+                clearInterval(rating_interval);
+            });
+        });
+
+        </script>
+
+    </body>
 
 </div>
 </html>
