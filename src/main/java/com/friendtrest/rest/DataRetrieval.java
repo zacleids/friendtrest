@@ -39,10 +39,10 @@ public class DataRetrieval {
     @GET
     @Path("/data")
     public Response query() {
-        PaginatedScanList<Item> items = Scan.getItemsTable(dbc);
-        String json = new Gson().toJson(items);
+        PaginatedScanList<Item> all_items = Scan.getItemsTable(dbc);
+        String items_as_json = new Gson().toJson(all_items);
 
-        return Response.ok(json, MediaType.APPLICATION_JSON).build();
+        return Response.ok(items_as_json, MediaType.APPLICATION_JSON).build();
     }
 
     @GET
