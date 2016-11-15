@@ -3,9 +3,25 @@
 
 <head>
     <meta charset="UTF-8">
-    <script type="text/javascript" src="js/writeHead.js"></script>
+
+    <!--jquery compatible with bootstrap-->
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+    <!--bootstrap js-->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/latest/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="js/appearance.js"></script>
+    <script type="text/javascript" src="js/array.js"></script>
+
+    <!--bootstrap css-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap-theme.min.css">
+
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-social.css">
+    <link rel="stylesheet" type="text/css" href="css/global-styles.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+
     <link rel="stylesheet" type="text/css" href="css/rating.css">
-    <script src="js/appearance.js"></script>
 
     <title>Rating Prototype</title>
 </head>
@@ -13,6 +29,10 @@
 <body>
     <div class="row" id="row1">
         <div class="col-md-3" id="item1"></div>
+    </div>
+
+    <div class="row" id="row2">
+        <div class="col-md-3" id="item2"></div>
     </div>
 
     <div id="result"></div>
@@ -25,6 +45,7 @@
 
     $(document).ready(function() {
         $("#item1").html(makePopup(1));
+        $("#item2").html(makePopup(2));
 
         $(".popup").on('click', '.controls', function() {
             if (shown) {

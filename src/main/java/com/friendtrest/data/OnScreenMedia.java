@@ -10,6 +10,8 @@ public class OnScreenMedia extends Item {
     private ArrayList<String> actors;
     private String director;
 
+    public OnScreenMedia() { }
+
     public OnScreenMedia(String url) { super(url); }
 
     public ArrayList<String> getActors() {

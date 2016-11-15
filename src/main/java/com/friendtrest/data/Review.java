@@ -13,7 +13,7 @@ public class Review {
     private String user_id;
     private String uuid;
 
-    public Review() {}
+    public Review() { }
 
     public Review(String item_id, String user_id, double rating, String review_text) {
         this.item_id = item_id;
