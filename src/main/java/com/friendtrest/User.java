@@ -1,21 +1,20 @@
 package com.friendtrest;
 
 import java.util.ArrayList;
-import java.util.UUID;
 
 public class User {
 	private String name;
 	private String email;
-	private String passwordHash;
-	private String uuid;
-	private ArrayList<String> reviews = new ArrayList<String>();
-	private ArrayList<String> friends = new ArrayList<String>();
+	private String pictureURL;
+	private String facebookID;
+	private ArrayList<String> reviewIDs = new ArrayList<String>();
+	private ArrayList<String> friendIDs = new ArrayList<String>();
 
-	public User(String name, String email, String passwordHash){
+	public User(String name, String email, String pictureURL, String facebookID,
+		ArrayList<String> reviewIDs, ArrayList<String> friendIDs){
 		this.name = name;
 		this.email = email;
-		this.passwordHash = passwordHash;
-		this.uuid = UUID.randomUUID().toString();
+		this.pictureURL = pictureURL;
 	}
 
 	public String getName() {
@@ -34,47 +33,47 @@ public class User {
 		this.email = email;
 	}
 
-	public String getPasswordHash() {
-		return passwordHash;
+	public String getPictureURL() {
+		return pictureURL;
 	}
 
-	public void setPasswordHash(String passwordHash) {
-		this.passwordHash = passwordHash;
+	public void setPictureURL(String pictureURL) {
+		this.pictureURL = pictureURL;
 	}
 
-	public String getUuid() {
-		return uuid;
+	public String getFacebookID() {
+		return facebookID;
 	}
 
-	public void setUuid(String uuid) {
-		this.uuid = uuid;
+	public void setFacebookID(String facebookID) {
+		this.facebookID = facebookID;
 	}
 
 	public ArrayList<String> getReviews() {
-		return reviews;
+		return reviewIDs;
 	}
 
 	public ArrayList<String> getFriends() {
-		return friends;
+		return friendIDs;
 	}
 
-	public void setFriends(ArrayList<String> friends) {
-		this.friends = friends;
+	public void setFriends(ArrayList<String> friendIDs) {
+		this.friendIDs = friendIDs;
 	}
 
-	public void setReviews(ArrayList<String> reviews) {
-		this.reviews = reviews;
+	public void setReviews(ArrayList<String> reviewIDs) {
+		this.reviewIDs = reviewIDs;
 	}
 
 	public void addReview(String review){
-		reviews.add(review);
+		reviewIDs.add(review);
 	}
 
 	public boolean deleteReview(String review){
-		if (!reviews.contains(review)){
+		if (!reviewIDs.contains(review)){
 			return false;
 		}
-		reviews.remove(review);
+		reviewIDs.remove(review);
 		return true;
 	}
 
