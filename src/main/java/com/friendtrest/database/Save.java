@@ -10,13 +10,8 @@ import com.friendtrest.data.Review;
  */
 public class Save {
 
-    public static void saveItem(Item item, DBController dbc) {
+    public static <T> void saveObject(T object, DBController dbc) {
         DynamoDBMapper dbm = new DynamoDBMapper(dbc.getAmazonDynamoDB());
-        dbm.save(item);
-    }
-
-    public static void saveReview(Review review, DBController dbc) {
-        DynamoDBMapper dbm = new DynamoDBMapper(dbc.getAmazonDynamoDB());
-        dbm.save(review);
+        dbm.save(object);
     }
 }
