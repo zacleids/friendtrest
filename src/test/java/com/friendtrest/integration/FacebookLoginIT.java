@@ -26,7 +26,8 @@ public class FacebookLoginIT {
 
     @Before
     public void setUp() {
-        driver.get("http://sample-env.mxm64u72tc.us-west-1.elasticbeanstalk.com/login.html");
+        //driver.get("http://sample-env.mxm64u72tc.us-west-1.elasticbeanstalk.com/login.html");
+        driver.get("https://cst438-code-e.c9users.io/friendtrest/src/main/webapp/login.html");
     }
 
     @After
@@ -89,7 +90,7 @@ public class FacebookLoginIT {
 
         // check if the username at the top is what it should be
         String url = driver.getCurrentUrl();
-        assertThat(url, equalTo("http://sample-env.mxm64u72tc.us-west-1.elasticbeanstalk.com/index.html"));
+        assertThat(url, equalTo("https://cst438-code-e.c9users.io/friendtrest/src/main/webapp/index.html"));
     }
 
     @Test
