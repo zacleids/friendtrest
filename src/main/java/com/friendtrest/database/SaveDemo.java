@@ -111,7 +111,7 @@ public class SaveDemo {
 
         Item example = movie_hunger_games;
         System.out.println(example.getUUID());
-        Save.saveItem(example, dbc);
+        Save.saveObject(example, dbc);
         Item load = (Item)Load.loadItem(example.getUUID(), dbc);
         if (load == null) {
             System.out.println("NULL");

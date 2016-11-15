@@ -68,7 +68,7 @@ public class DataRetrieval {
         review.setReview_text(review_text);
         review.setItem_id(item_id);
         review.setUser_id(user_id);
-        Save.saveReview(review, dbc);
+        Save.saveObject(review, dbc);
 
         return Response.ok("ok").build();
     }
