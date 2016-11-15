@@ -19,6 +19,8 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * Created by Austin on 10/26/2016.
@@ -82,8 +84,26 @@ public class DataRetrieval {
 
     @GET
     @Path("/search")
-    public Response search(){
+    public Response search(@QueryParam("name") String name, @QueryParam("year") String year, @QueryParam("tags") String tagString){
+        ArrayList<String> tags = new ArrayList<String>(Arrays.asList(tagString.split(",")));
+        PaginatedScanList<Item> items = Scan.getItemsTable(dbc);
+        ArrayList<Item> itemsToShow = new ArrayList<Item>();
+        for (Item item : items) {
+            //System.out.println(item.getName());
+            if(item.getName().contains(name) && (item.getReleaseDate().equals(year) || year.equals("")) && (arrayListContains(item.getTags(), tags) || tagString.equals(""))){
+                itemsToShow.add(item);
+            }
+        }
+        String json = new Gson().toJson(itemsToShow);
+        return Response.ok(json, MediaType.APPLICATION_JSON).build();
+    }
 
-        return Response.ok("temp").build();
+    private boolean arrayListContains(List<String> main, ArrayList<String> other){
+        for(String s : other){
+            if(!main.contains(s)){
+                return false;
+            }
+        }
+        return true;
     }
 }
