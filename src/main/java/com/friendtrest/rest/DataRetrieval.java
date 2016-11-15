@@ -31,6 +31,12 @@ public class DataRetrieval {
     AmazonDynamoDB client = dbc.getAmazonDynamoDB();
 
     @GET
+    @Path("/query")
+    public Response query(@QueryParam("query") String query) {
+        return Response.ok("query received '" + query + "'").build();
+    }
+
+    @GET
     @Path("/data")
     public Response query() {
         PaginatedScanList<Item> items = Scan.getItemsTable(dbc);
@@ -103,5 +109,5 @@ public class DataRetrieval {
         }
         return true;
     }
-    
+
 }
