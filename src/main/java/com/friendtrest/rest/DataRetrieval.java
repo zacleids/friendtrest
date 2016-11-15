@@ -89,8 +89,7 @@ public class DataRetrieval {
         PaginatedScanList<Item> items = Scan.getItemsTable(dbc);
         ArrayList<Item> itemsToShow = new ArrayList<Item>();
         for (Item item : items) {
-            //System.out.println(item.getName());
-            if(item.getName().contains(name) && (item.getReleaseDate().equals(year) || year.equals("")) && (arrayListContains(item.getTags(), tags) || tagString.equals(""))){
+            if((item.getName().contains(name) || name.equals("")) && (item.getReleaseDate().equals(year) || year.equals("")) && (arrayListContains(item.getTags(), tags) || tagString.equals(""))){
                 itemsToShow.add(item);
             }
         }
