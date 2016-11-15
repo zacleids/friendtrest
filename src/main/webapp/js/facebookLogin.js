@@ -75,7 +75,6 @@ function testAPI() {
     for (i = 0; i < friendNodes.data.length; i++) {
       friends += friendNodes.data[i].id + "-";
     }
-    
 
     $.get("/rest/createUser", { name: name, email: email, profilepic: profilepic, facebookID: facebookID, friends: friends }, function(accountCreationResponse) {
       //if you need to do anything after logging on here, do it with account

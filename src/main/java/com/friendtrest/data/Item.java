@@ -23,7 +23,7 @@ public class Item {
     private String releaseDate;
     private String url;
 
-    public Item() {}
+    public Item() { }
 
     public Item(String url) {
         this.uuid = UUID.randomUUID().toString();
