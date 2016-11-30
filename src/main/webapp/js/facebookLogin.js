@@ -65,6 +65,15 @@ function testAPI() {
     console.log(response);
     console.log('Successful login for: ' + response.name);
 
+    var name = response.name;
+    var email = response.email;
+    var profilepic = 'http://graph.facebook.com/' + response.id + '/picture?type=large';
+    //var friends = response.friends; // <--NOT SURE IF THIS WILL WORK
+
+    // $.get("/rest/createUser", { name: name, email: email, profilepic: profilepic, friends: friends }, function(accountCreationResponse) {
+    //   //if you need to do anything after logging on here, do it
+    // });
+
 
     if (document.getElementById('profilepic') != null) {
       document.getElementById('profilepic').src = 
@@ -73,7 +82,7 @@ function testAPI() {
 
     if (document.getElementById('profilepic-l') != null) {
       document.getElementById('profilepic-l').src = 
-        'http://graph.facebook.com/' + response.id + '/picture?type=large';
+        profilepic;
     }
 
     // getting first name and last name separate into an array'

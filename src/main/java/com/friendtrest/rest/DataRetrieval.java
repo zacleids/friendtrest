@@ -1,6 +1,5 @@
 package com.friendtrest.rest;
 
-
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
 import com.amazonaws.services.dynamodbv2.datamodeling.PaginatedScanList;
 
