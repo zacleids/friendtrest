@@ -15,8 +15,19 @@ public class User {
 		this.name = name;
 		this.email = email;
 		this.pictureURL = pictureURL;
+        this.facebookID = facebookID;
+        this.reviewIDs = reviewIDs;
+        this.friendIDs = friendIDs;
 	}
 
+	public User(String name, String email, String pictureURL, String facebookID,
+		ArrayList<String> friendIDs){
+		this.name = name;
+		this.email = email;
+		this.pictureURL = pictureURL;
+        this.facebookID = facebookID; 
+        this.friendIDs = friendIDs;
+	}
 	public String getName() {
 		return name;
 	}
