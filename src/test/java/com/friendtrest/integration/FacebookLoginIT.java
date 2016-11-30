@@ -26,8 +26,8 @@ public class FacebookLoginIT {
 
     @Before
     public void setUp() {
-        driver.get("http://sample-env.mxm64u72tc.us-west-1.elasticbeanstalk.com/login.html");
         //driver.get("https://cst438-code-e.c9users.io/friendtrest/src/main/webapp/login.html");
+        driver.get("http://sample-env.mxm64u72tc.us-west-1.elasticbeanstalk.com/login.html");
     }
 
     @After

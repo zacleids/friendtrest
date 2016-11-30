@@ -43,7 +43,6 @@ window.fbAsyncInit = function() {
   FB.getLoginStatus(function(response) {
     statusChangeCallback(response);
   });
-
 };
 
 // Load the SDK asynchronously
@@ -61,20 +60,26 @@ window.fbAsyncInit = function() {
 // so that it's not checking over and over for element's that don't exist
 function testAPI() {
   console.log('Welcome!  Fetching your information.... ');
-  FB.api('/me', {fields : "name, email, picture"}, function(response) {
+  FB.api('/me', {fields : "name, email, picture, friends"}, function(response) {
     console.log(response);
     console.log('Successful login for: ' + response.name);
 
     var name = response.name;
     var email = response.email;
-    var profilepic = 'http://graph.facebook.com/' + response.id + '/picture?type=large';
-    //var friends = response.friends; // <--NOT SURE IF THIS WILL WORK
+    var facebookID = response.id;
+    var profilepic = 'http://graph.facebook.com/' + facebookID + '/picture?type=large';
+    // response.friends is a list of user nodes
+    var friendNodes = response.friends;
+    var friends = new Array(friendNodes.length);
 
-    // $.get("/rest/createUser", { name: name, email: email, profilepic: profilepic, friends: friends }, function(accountCreationResponse) {
-    //   //if you need to do anything after logging on here, do it
-    // });
+    for (i = 0; i < friendNodes.length; i++) {
+      friends[i] = friendNodes[i].id;
+    }
+    
 
-
+    $.get("/rest/createUser", { name: name, email: email, profilepic: profilepic, facebookID: facebookID, friends: friends }, function(accountCreationResponse) {
+      //if you need to do anything after logging on here, do it with account
+    });
     if (document.getElementById('profilepic') != null) {
       document.getElementById('profilepic').src = 
         response.picture.data.url;
