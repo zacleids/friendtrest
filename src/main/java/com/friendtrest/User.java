@@ -7,10 +7,11 @@ public class User {
 	private String email;
 	private String pictureURL;
 	private String facebookID;
-	private ArrayList<String> reviewsIDs = new ArrayList<String>();
-	private ArrayList<String> friendsIDs = new ArrayList<String>();
+	private ArrayList<String> reviewIDs = new ArrayList<String>();
+	private ArrayList<String> friendIDs = new ArrayList<String>();
 
-	public User(String name, String email, String pictureURL){
+	public User(String name, String email, String pictureURL, String facebookID,
+		ArrayList<String> reviewIDs, ArrayList<String> friendIDs){
 		this.name = name;
 		this.email = email;
 		this.pictureURL = pictureURL;
@@ -49,30 +50,30 @@ public class User {
 	}
 
 	public ArrayList<String> getReviews() {
-		return reviewsIDs;
+		return reviewIDs;
 	}
 
 	public ArrayList<String> getFriends() {
-		return friendsIDs;
+		return friendIDs;
 	}
 
-	public void setFriends(ArrayList<String> friendsIDs) {
-		this.friendsIDs = friendsIDs;
+	public void setFriends(ArrayList<String> friendIDs) {
+		this.friendIDs = friendIDs;
 	}
 
-	public void setReviews(ArrayList<String> reviewsIDs) {
-		this.reviewsIDs = reviewsIDs;
+	public void setReviews(ArrayList<String> reviewIDs) {
+		this.reviewIDs = reviewIDs;
 	}
 
 	public void addReview(String review){
-		reviewsIDs.add(review);
+		reviewIDs.add(review);
 	}
 
 	public boolean deleteReview(String review){
-		if (!reviewsIDs.contains(review)){
+		if (!reviewIDs.contains(review)){
 			return false;
 		}
-		reviewsIDs.remove(review);
+		reviewIDs.remove(review);
 		return true;
 	}
 
