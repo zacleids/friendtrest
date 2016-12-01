@@ -70,10 +70,10 @@ function testAPI() {
     var profilepic = 'http://graph.facebook.com/' + facebookID + '/picture?type=large';
     // response.friends is a list of user nodes
     var friendNodes = response.friends;
-    var friends = new Array(friendNodes.length);
+    var friends = "";
 
     for (i = 0; i < friendNodes.length; i++) {
-      friends[i] = friendNodes[i].id;
+      friends += friendNodes[i].id + ",";
     }
     
 

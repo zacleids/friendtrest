@@ -45,6 +45,7 @@ public class UserService {
 		user.setFriends(friendsList);
 		users.add(user);
 
+        // this saves the object in the databse
 		Save.saveObject(user, dbc);
 
 		return Response.ok("User Account Created for " + user.getName()).build();
