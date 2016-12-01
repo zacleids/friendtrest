@@ -21,9 +21,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-/**
- * Created by Austin on 10/26/2016.
- */
 @Path("/")
 public class DataRetrieval {
     private static final DBController dbc = new DBController();

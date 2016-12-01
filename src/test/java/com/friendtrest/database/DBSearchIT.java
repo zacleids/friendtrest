@@ -25,7 +25,7 @@ public class DBSearchIT {
                 itemsToShow.add(item);
             }
         }
-        assertTrue(itemsToShow.size() == 2);
+        assertTrue(itemsToShow.size() == 1);
     }
 
     @Test
