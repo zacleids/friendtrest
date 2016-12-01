@@ -1,7 +1,11 @@
 package com.friendtrest;
 
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
+
 import java.util.ArrayList;
 
+@DynamoDBTable(tableName = "Users")
 public class User {
 	private String name;
 	private String email;
@@ -28,6 +32,7 @@ public class User {
         this.facebookID = facebookID; 
         this.friendIDs = friendIDs;
 	}
+
 	public String getName() {
 		return name;
 	}
@@ -52,11 +57,11 @@ public class User {
 		this.pictureURL = pictureURL;
 	}
 
-	public String getFacebookID() {
+	@DynamoDBHashKey
+	public String getFacebookId() {
 		return facebookID;
 	}
-
-	public void setFacebookID(String facebookID) {
+	public void setFacebookId(String facebookID) {
 		this.facebookID = facebookID;
 	}
 

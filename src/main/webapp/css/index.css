@@ -117,10 +117,13 @@
     height: 1px;
 }
 
+.spacer, .white {
+    display: block;
+}
+
 .spacer {
     width: 25px;
     height: 9px;
-    display: block;
 }
 
 #covertab {
