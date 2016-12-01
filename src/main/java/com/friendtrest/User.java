@@ -14,6 +14,8 @@ public class User {
 	private ArrayList<String> reviewIDs = new ArrayList<String>();
 	private ArrayList<String> friendIDs = new ArrayList<String>();
 
+	public User() { }
+
 	public User(String name, String email, String pictureURL, String facebookID,
 		ArrayList<String> reviewIDs, ArrayList<String> friendIDs){
 		this.name = name;
