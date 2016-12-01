@@ -73,7 +73,7 @@ function testAPI() {
     var friends = "";
 
     for (i = 0; i < friendNodes.length; i++) {
-      friends += friendNodes[i].id + ",";
+      friends += friendNodes.data[i].id + ",";
     }
     
 
