@@ -27,7 +27,6 @@ import java.util.List;
 public class UserService {
 	private static final DBController dbc = new DBController();
 	AmazonDynamoDB client = dbc.getAmazonDynamoDB();
-	ArrayList<User> users = new ArrayList<User>();
 
 	@GET
 	@Path("/createUser")
@@ -41,9 +40,8 @@ public class UserService {
 		String[] friendsArray = friends.split(",");
 		ArrayList<String> friendsList = new ArrayList<String>(Arrays.asList(friendsArray));
 
+        // create the user with the information passed from javascript side
 		User user = new User(username, email, profilepic, facebookID, friendsList);
-		user.setFriends(friendsList);
-		users.add(user);
 
         // this saves the object in the databse
 		Save.saveObject(user, dbc);
