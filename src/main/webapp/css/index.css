@@ -117,7 +117,7 @@
     height: 1px;
 }
 
-span {
+.spacer {
     width: 25px;
     height: 9px;
     display: block;
