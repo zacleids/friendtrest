@@ -25,7 +25,7 @@ public class SearchServiceTest extends JerseyTest {
     @Test
     public void testResultsForHungerGames(){
         ArrayList<Item> items = getItems("simpleSearch", "name", "Hunger");
-        assertThat(items.size(), equalTo(2));
+        assertThat(items.size(), equalTo(1));
     }
 
     @Test

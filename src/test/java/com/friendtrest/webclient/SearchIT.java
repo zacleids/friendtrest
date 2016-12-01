@@ -31,7 +31,7 @@ public class SearchIT {
         driver.findElement(By.id("name")).sendKeys("Hunger");
         driver.findElement(By.id("submit")).click();
         (new WebDriverWait(driver, 10))
-                .until(ExpectedConditions.textToBe(By.id("movie"), "The Hunger Games Released: 2012"));
+                .until(ExpectedConditions.textToBe(By.id("movie"), "The Hunger Games Released: 2008"));
 
         // Success
     }
