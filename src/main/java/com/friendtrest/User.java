@@ -10,7 +10,7 @@ public class User {
 	private String name;
 	private String email;
 	private String pictureURL;
-	private String facebookID;
+	private String facebookId;
 	private ArrayList<String> reviewIDs = new ArrayList<String>();
 	private ArrayList<String> friendIDs = new ArrayList<String>();
 
@@ -21,7 +21,7 @@ public class User {
 		this.name = name;
 		this.email = email;
 		this.pictureURL = pictureURL;
-        this.facebookID = facebookID;
+        this.facebookId = facebookID;
         this.reviewIDs = reviewIDs;
         this.friendIDs = friendIDs;
 	}
@@ -31,7 +31,7 @@ public class User {
 		this.name = name;
 		this.email = email;
 		this.pictureURL = pictureURL;
-        this.facebookID = facebookID; 
+        this.facebookId = facebookID; 
         this.friendIDs = friendIDs;
 	}
 
@@ -61,10 +61,10 @@ public class User {
 
 	@DynamoDBHashKey
 	public String getFacebookId() {
-		return facebookID;
+		return facebookId;
 	}
 	public void setFacebookId(String facebookID) {
-		this.facebookID = facebookID;
+		this.facebookId = facebookID;
 	}
 
 	public ArrayList<String> getReviews() {
