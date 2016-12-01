@@ -1,8 +1,12 @@
+import Dropdown from "react-bootstrap/lib/Dropdown";
 import React, { Component } from "react";
 
+import "../../webapp/css/bootstrap-social/bootstrap-social.css";
+import "../../webapp/css/global-styles.css";
 
 
 class Nav extends Component {
+
     render() {
         return (
             <nav className="navbar navbar-default navbar-fixed-top">
