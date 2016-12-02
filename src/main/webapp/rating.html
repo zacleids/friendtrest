@@ -57,7 +57,7 @@
             $(".rating").val(review.rating);
             $(".review").val(review.review_text);
         }).fail(function() {
-            alert("Retrieval failed");
+            //alert("Retrieval failed");
         });
 
     });
@@ -73,9 +73,9 @@
             item_id: review.item_id,
             user_id: review.user_id
         }, function() {
-            alert("submitted");
+            //alert("submitted");
         }).fail(function() {
-            alert("Submission failed");
+            //alert("Submission failed");
         });
     }
 </script>
