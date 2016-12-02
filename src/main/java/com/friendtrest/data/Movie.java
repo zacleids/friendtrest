@@ -1,10 +1,10 @@
 package com.friendtrest.data;
 
 import java.util.ArrayList;
-import java.util.Date;
+import java.util.Arrays;
 
 /**
- * Created by Zac Leids on 10/4/2016.
+ * Created by Zac Leids.
  */
 public class Movie extends OnScreenMedia {
 
@@ -21,6 +21,18 @@ public class Movie extends OnScreenMedia {
         this.setDirector(director);
         this.setMPAARating(MPAARating);
         this.setRunTimeInMinutes(runTimeInMinutes);
+    }
+
+    public Movie(OMDbObject movie){
+        super(movie.Poster);
+        this.setName(movie.Title);
+        this.setDescription(movie.Plot);
+        this.setTags(Arrays.asList(movie.Genre.split(",")));
+        this.setReleaseDate(movie.Year);
+        this.setActors(new ArrayList<String>(Arrays.asList(movie.Actors.split(","))));
+        this.setDirector(movie.Director);
+        this.setMPAARating(movie.Rated);
+        this.setRunTimeInMinutes(Integer.parseInt(movie.Runtime.split(" ")[0]));
     }
 
     public String getMPAARating() {

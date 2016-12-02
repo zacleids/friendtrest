@@ -49,7 +49,7 @@ function generateNavBar(currentPage) {
   '      <div class="form-group">' + '\n' +
   '        <input type="text" class="form-control" id="search_text" placeholder="Search">' + '\n' +
   '      </div>' + '\n' +
-  '      <button type="button" class="btn btn-default" id="search_submit">Submit</button>' + '\n' +
+  '      <button type="button" class="btn btn-default" id="search_submit" onclick="search()">Submit</button>' + '\n' +
   '    </form>' + '\n' +
   '    <ul class="nav navbar-nav navbar-right">' + '\n' +
   '    	<li><img class="navprofilepic" id="profilepic" src="img/generic-user.png"></li>' + '\n' +
