@@ -5,7 +5,7 @@
     <meta content="utf-8" http-equiv="encoding">
 
     <script type="text/javascript" src="js/writeHead.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/reviews-styles.css">
+    <link rel="stylesheet" type="text/css" href="css/item.css">
 </head>
 <body>
 <!-- javascript file will write the nav bar given the name of the page -->
@@ -14,8 +14,29 @@
     generateNavBar("index");
 </script>
 
-<div id="item">
+<br><br><br><br><br>
 
+<div id="item">
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3">
+        </div>
+        <div class="col-md-6">
+            <div class="row">
+                <div class="col-md-6 item-picture">
+                    <span id=item-image></span>
+                </div>
+                <div class="col-md-6 item-description">
+                    <span id="movie-title"></span><br>
+                    <span id="release-date"></span><br><hr>
+                    <span id="description-text"></span><br>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+        </div>
+    </div>
+</div>
 </div>
 
 
@@ -34,19 +55,17 @@
         });
     }
 
-    function displayItem(item){
-        var text = "<div>" +
-            "<img src='" + item.url + "' >" +
-            "<b>" +
-            item.name +
-            "</b>  Released: " +
-            item.releaseDate  +
-            "<br>" +
-            item.description +
-            "<br>" +
-            //item.actors === null ? '' : item.actors.join(", ") +
-            "</div><hr>";
-        $("#item").html(text);
+    function displayItem(item) {
+        var imgUrl = item.url;
+
+        if (imgUrl === 'N/A') {
+            imgUrl = 'img/noImage.jpg';
+        }
+
+        $('#item-image').html('<img src="' + imgUrl + '">');
+        $('#movie-title').html(item.name);
+        $('#release-date').html(item.releaseDate);
+        $('#description-text').html(item.description);
     }
 
     $( document ).ready(function() {
