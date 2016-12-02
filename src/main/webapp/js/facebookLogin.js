@@ -72,8 +72,8 @@ function testAPI() {
     var friendNodes = response.friends;
     var friends = "";
 
-    for (i = 0; i < friendNodes.length; i++) {
-      friends += friendNodes.data[i].id + ",";
+    for (i = 0; i < friendNodes.data.length; i++) {
+      friends += friendNodes.data[i].id + "-";
     }
     
 
