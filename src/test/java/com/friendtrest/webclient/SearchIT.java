@@ -31,7 +31,7 @@ public class SearchIT {
         driver.findElement(By.id("name")).sendKeys("Hunger");
         driver.findElement(By.id("submit")).click();
         (new WebDriverWait(driver, 10))
-                .until(ExpectedConditions.textToBe(By.id("movie"), "The Hunger Games Released: 2008"));
+                .until(ExpectedConditions.textToBe(By.id("item-name"), "The Hunger Games"));
 
         // Success
     }
@@ -41,7 +41,7 @@ public class SearchIT {
         driver.findElement(By.id("name")).sendKeys("rjdtxfythhh");
         driver.findElement(By.id("submit")).click();
         (new WebDriverWait(driver, 10))
-                .until(ExpectedConditions.textToBe(By.id("items"), "No Items to display"));
+                .until(ExpectedConditions.textToBe(By.id("items"), "No items match your search results."));
     }
 
 

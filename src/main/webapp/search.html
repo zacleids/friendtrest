@@ -34,7 +34,7 @@
                 </div>
                 <div class="col-md-4">
                     <br>
-                    <button type="submit" onclick="redirect()" class="btn btn-xl srch-btn">Search</button>
+                    <button id="submit" type="submit" onclick="redirect()" class="btn btn-xl srch-btn">Search</button>
                 </div>
             </div>
         </div>
@@ -52,7 +52,6 @@
 
 <script>
     function getItem() {
-        console.log("entered getItem() function");
         $("#items").html("");
 
         var name = getAddressPart("name", location.href);
@@ -79,7 +78,6 @@
     }
 
     function displayItems(items) {
-        console.log("entered displayItems() function");
         var numberOfRows = Math.floor(items.length / 3);
         if (numberOfRows === 0) {
             numberOfRows = 1; 
@@ -105,7 +103,7 @@
                     html += '      <div class="col-md-4 search-result-item">\n';
                     html += '        <img class="search-results-img" src="' + imgUrl + '">\n';
                     html += '        <div class="item-descriptor">\n';
-                    html += '          ' + items[i].name + '<br>\n';
+                    html += '          <span id="item-name">' + items[i].name + '</span><br>\n';
                     html += '          ' + items[i].releaseDate + '<br>\n';
                     html += '        </div>\n';
                     html += '        <br>\n';
@@ -130,13 +128,11 @@
     }
 
     function displayNoItems(){
-        console.log("entered displayNoItems() function");
-        var text = "<h3>No Items match your search results.</h3>";
+        var text = "<h3>No items match your search results.</h3>";
         $("#items").html(text);
     }
 
     function redirect(){
-        console.log("entered redirect() function");
         var name = $("#name").val();
         var year = $("#year").val();
         var url = location.href;
@@ -152,7 +148,6 @@
     }
 
     $( document ).ready(function() {
-        console.log("document ready");
         getItem();
     });
 </script>
