@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="utf-8" http-equiv="encoding">
+
+    <script type="text/javascript" src="js/writeHead.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/reviews-styles.css">
+</head>
+<body>
+<!-- javascript file will write the nav bar given the name of the page -->
+<script type="text/javascript" src="js/writeNavBar.js"></script>
+<script>
+    generateNavBar("index");
+</script>
+
+<div id="item">
+
+</div>
+
+
+<script>
+    function retrieveItem() {
+        var uuid = getAddressPart("uuid", location.href);
+        if(uuid === null){
+            return;
+        }
+        $.get("/rest/retrieveItem", { uuid: uuid}, function(item) {
+            if(item === null){
+                displayNoItems();
+                return;
+            }
+            displayItem(item);
+        });
+    }
+
+    function displayItem(item){
+        var text = "<div>" +
+            "<img src='" + item.url + "' >" +
+            "<b>" +
+            item.name +
+            "</b>  Released: " +
+            item.releaseDate  +
+            "<br>" +
+            item.description +
+            "<br>" +
+            //item.actors === null ? '' : item.actors.join(", ") +
+            "</div><hr>";
+        $("#item").html(text);
+    }
+
+    $( document ).ready(function() {
+        retrieveItem();
+
+    });
+</script>

@@ -121,6 +121,21 @@ public class DataRetrieval {
         return Response.ok(json, MediaType.APPLICATION_JSON).build();
     }
 
+    @GET
+    @Path("retrieveItem")
+    public Response retrieveItem(@QueryParam("uuid") String uuid){
+        Item itemToReturn = null;
+        PaginatedScanList<Item> items = Scan.getItemsTable(dbc);
+        for (Item item : items) {
+            if(item.getUUID().equals(uuid)){
+                itemToReturn = item;
+                break;
+            }
+        }
+        String json = new Gson().toJson(itemToReturn);
+        return Response.ok(json, MediaType.APPLICATION_JSON).build();
+    }
+
     private ArrayList<Item> getItems(String name, String year, String tagString) {
         PaginatedScanList<Item> items = Scan.getItemsTable(dbc);
         ArrayList<String> tags = new ArrayList<String>(Arrays.asList(tagString.split(",")));

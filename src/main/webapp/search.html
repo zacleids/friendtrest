@@ -82,7 +82,7 @@
         if (numberOfRows === 0) {
             numberOfRows = 1; 
         }
-
+        var url = getBaseURL(location.href);
         var html = '';
 
         // start writing the table
@@ -101,7 +101,7 @@
                         imgUrl = 'img/noImage.jpg';
                     }
                     html += '      <div class="col-md-4 search-result-item">\n';
-                    html += '        <img class="search-results-img" src="' + imgUrl + '">\n';
+                    html += '       <a href="' + url + '/item.html?uuid=' + items[i].uuid + '"><img class="search-results-img" src="' + imgUrl + '"></a>\n';
                     html += '        <div class="item-descriptor">\n';
                     html += '          <span id="item-name">' + items[i].name + '</span><br>\n';
                     html += '          ' + items[i].releaseDate + '<br>\n';
@@ -135,14 +135,7 @@
     function redirect(){
         var name = $("#name").val();
         var year = $("#year").val();
-        var url = location.href;
-        var site = url;
-        if(url.indexOf(".com") === -1){
-            site = url.split("/")[0] + "/search.html?name=" + name.replace(/ /g, '+') + "&year=" + year;
-        } else{
-            site = url.split(".com")[0] + ".com/search.html?name=" + name.replace(/ /g, '+') + "&year=" + year;
-        }
-
+        var site = getBaseURL(location.href) + "/search.html?name=" + name.replace(/ /g, '+') + "&year=" + year;
         console.log(site);
         window.location.replace(site);
     }
@@ -150,6 +143,16 @@
     $( document ).ready(function() {
         getItem();
     });
+
+    function getBaseURL(url){
+        var site = url;
+        if(url.indexOf(".com") === -1){
+            site = url.split("/")[0];
+        } else{
+            site = url.split(".com")[0] + ".com";
+        }
+        return site;
+    }
 </script>
 
 </body>

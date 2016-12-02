@@ -39,17 +39,6 @@
 </footer>
 
 <script>
-    //won't work locally unless jetty is running (mvn jetty:run)
-    /*$("#search_submit").on('click', function() {
-        var query = $("#search_text").val();
-        if (query != null && query != "") {
-            $.get("/rest/query", {query: query}, function(response) {
-                alert(response);
-            }).fail(function() {
-                alert("search failed");
-            });
-        }
-    });*/
 
     function randomRating() {
         return (Math.random() * 10);
