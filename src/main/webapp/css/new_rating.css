@@ -1,4 +1,4 @@
-#close {
+.close {
     display: none;
     height: 25px;
     opacity: 0.75;
@@ -6,7 +6,7 @@
     width: 25px;
 }
 
-#controls {
+.controls {
     width: 25px;
     color: white;
     text-align: center;
@@ -16,7 +16,7 @@
     position: relative;
 }
 
-#cover {
+.cover {
     max-height: 150px;
     height: 100%;
     width: auto;
@@ -24,20 +24,13 @@
     margin-left:25px;
 }
 
-#inputs {
+.inputs {
     display: none;
 }
 
 #main {
     padding-top:70px;
     padding-bottom:70px;
-}
-
-#rate_review {
-    display: flex;
-    width: 25px;
-    background-color: black;
-    opacity: 0.75;
 }
 
 .rating {
@@ -81,16 +74,7 @@
             -300px 0 0 300px rgba(90, 184, 6, 1);
 }
 
-#rating_color {
-    position: absolute;
-    width:25px;
-    height:25px;
-    border-radius: 50%;
-    top:1px;
-    left:13px;
-}
-
-#review {
+.review {
     background-color: black;
     border: none;
     color: white;
@@ -100,7 +84,7 @@
     resize: none;
 }
 
-#spacer {
+.spacer {
     width: 25px;
     height: 9px;
 }
@@ -110,15 +94,10 @@
     overflow: hidden;
 }
 
-#white {
+.white {
     background-color: white;
     display: block;
     opacity: 0.75;
     height: 1px;
     width: 25px;
-}
-
-.col-4-md {
-    background-color: black;
-    opacity: 0.75;
 }
