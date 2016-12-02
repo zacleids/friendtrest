@@ -1,142 +1,15 @@
-#rating_color {
-    position: absolute;
-    width:25px;
-    height:25px;
-    border-radius: 50%;
-    top:1px;
-    left:13px;
-}
-
-#cirlce2 {
-    position:absolute;
-    width:25px;
-    height:25px;
-    border-radius:25px;
-    top:1px;
-    left:38px;
-}
-
-#content_display {
-    width: 500px;
-}
-
-#cover {
-    max-height: 150px;
-    height: 100%;
-    width: auto;
-    position:relative;
-}
-
-#special {
-    position:absolute;
-    width:25px;
-    height:25px;
-    border-radius: 50%;
-    top:1px;
-    left:13px;
-    background-color:red;
-}
-
-#main {
-    padding-top:70px;
-    padding-bottom:70px;
-}
-
-#close {
-    display:none;
-    width: 25px;
-    height: 25px;
-    opacity: 0.75;
-}
-
-#controls {
-    width: 25px;
-    color: white;
-    text-align: center;
-    font-size: 20px;
-}
-
-#rating {
-    -webkit-appearance: none;
-    width: 195px;
-    height: 25px;
-    overflow: hidden;
-}
-
-#rating:focus{
-    outline: none;
-}
-
-#rating::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    width: 0px;
-    height: 50px;
-    box-shadow:
-            -300px 0 0 300px rgba(90, 184, 6, 1);
-}
-
-#rating::-webkit-slider-runnable-track {
-    background-color: black;
-}
-
-#review {
-    background-color: black;
-    border: none;
-    color: white;
-    font-family: monospace;
-    font-size: 12px;
-    margin-right: 25px;
-    opacity: 0.75;
-    resize: none;
-}
-
-#popup {
-    border-radius: 0% 0% 10% 0%;
-    background-color: black;
-    opacity: 0.75;
-    width: 25px;
-    height: 150px;
-    margin-left:25px;
-}
-
-#save_button {
-    width: 50px;
-    height: 25px;
-    display: inline;
-}
-
-#rating_review {
-    display: none;
-    width: 195px;
-    margin-left: 25px;
-}
-
-.white {
-    background-color: white;
-    opacity: 0.75;
-    height: 1px;
-}
-
-.spacer, .white {
-    display: block;
-}
-
-.spacer {
-    width: 25px;
-    height: 9px;
-}
-
 #covertab {
     display: inline;
-}
-
-img {
-    position: relative;
 }
 
 .container {
     max-width: none;
     max-height: none;
+}
+
+.cover {
+    height: 200px;
+    width: 200px;
 }
 
 .row {
