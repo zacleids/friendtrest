@@ -1,6 +1,7 @@
 package com.friendtrest.data;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 
 /**
@@ -19,6 +20,17 @@ public class TVShow extends OnScreenMedia {
         this.setActors(actors);
         this.setDirector(director);
         this.setNumSeasons(numSeasons);
+    }
+
+    public TVShow(OMDbObject show){
+        super(show.Poster);
+        this.setName(show.Title);
+        this.setDescription(show.Plot);
+        this.setTags(Arrays.asList(show.Genre.split(",")));
+        this.setReleaseDate(show.Year.substring(0,4));
+        this.setActors(new ArrayList<String>(Arrays.asList(show.Actors.split(","))));
+        this.setDirector(show.Director);
+        this.setNumSeasons(show.totalSeasons);
     }
 
     public int getNumSeasons() {

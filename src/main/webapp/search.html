@@ -11,7 +11,7 @@
 <!-- javascript file will write the nav bar given the name of the page -->
 <script type="text/javascript" src="js/writeNavBar.js"></script>
 <script>
-    generateNavBar("reviews");
+    generateNavBar("index");
 </script>
 <br><br><br><br><br><br>
 <table>
@@ -20,7 +20,11 @@
         <td> <input id="name" type="text" placeholder="Name" autofocus /> </td>
     </tr>
     <tr>
-        <td><button id="submit" onclick="getItem()">Submit</button></td>
+        <td>Year: </td>
+        <td> <input id="year" type="number" placeholder="ex. 2016" min="1920" max="2016"> </td>
+    </tr>
+    <tr>
+        <td><button id="submit" onclick="redirect()">Submit</button></td>
     </tr>
 </table>
 <div id="items">
@@ -30,9 +34,18 @@
 
 <script>
     function getItem() {
-        var name = $("#name").val();
         $("#items").html("");
-        $.get("/rest/simpleSearch", { name: name}, function(items) {
+        var name = getAddressPart("name", location.href);
+        var year = getAddressPart("year", location.href);
+        if(name === null){
+            return;
+        }
+        if(year === null){
+            year = "";
+        }
+        $("#name").val(name);
+        $("#year").val(year);
+        $.get("/rest/search", { name: name, year: year, tagString: ""}, function(items) {
             console.log(items.length);
             if(items.length === 0){
                 displayNoItems();
@@ -58,6 +71,26 @@
         var text = "<h3>No Items to display</h3>";
         $("#items").html($("#items").html() + text);
     }
+
+    function redirect(){
+        var name = $("#name").val();
+        var year = $("#year").val();
+        var url = location.href;
+        var site = url;
+        if(url.indexOf(".com") === -1){
+            site = url.split("/")[0] + "/search.html?name=" + name.replace(/ /g, '+') + "&year=" + year;
+        } else{
+            site = url.split(".com")[0] + ".com/search.html?name=" + name.replace(/ /g, '+') + "&year=" + year;
+        }
+
+        console.log(site);
+        window.location.replace(site);
+    }
+
+    $( document ).ready(function() {
+        getItem();
+
+    });
 </script>
 
 </body>
