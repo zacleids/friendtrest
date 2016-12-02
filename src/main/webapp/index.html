@@ -59,26 +59,47 @@
         $.get("/rest/data", {}, function(results) {
             results = shuffle(results);
             var len = results.length;
+            var imgUrl = 'img/noImage.jpg';
             for (var i = 0; i < len; i++) {
                 if (i < len) {
                     var row = "<div class='row' id='covertab'>";
-                    row += "<img id='cover' src='" + results[i++].url + "'>";
+                    imgUrl = results[i].url;
+                    if (imgUrl === 'N/A') {
+                      imgUrl = 'img/noImage.jpg';
+                    }
+                    row += "<img id='cover' src='" + imgUrl + "'>";
+                    i++;
                     //row += makePopup(null, null, i);
                     row += "<div id='rating_color' style='background-color:" + getColor(randomRating()) + "'></div>";
                     row += "</div>";
                 } if (i < len) {
                     row += "<div class='col-sm-3'>";
-                    row += "<img id='cover' src='" + results[i++].url + "'>";
+                    imgUrl = results[i].url;
+                    if (imgUrl === 'N/A') {
+                      imgUrl = 'img/noImage.jpg';
+                    }
+                    row += "<img id='cover' src='" + imgUrl + "'>";
+                    i++;
                     row += "<div id='rating_color' style='background-color:" + getColor(randomRating()) + "'></div>";
                     row += "</div>";
                 } if (i < len) {
                     row += "<div class='col-sm-3'>";
-                    row += "<img id='cover' src='" + results[i++].url + "'>";
+                    imgUrl = results[i].url;
+                    if (imgUrl === 'N/A') {
+                      imgUrl = 'img/noImage.jpg';
+                    }
+                    row += "<img id='cover' src='" + imgUrl + "'>";
+                    i++;
                     row += "<div id='rating_color' style='background-color:" + getColor(randomRating()) + "'></div>";
                     row += "</div>";
                 } if (i < len) {
                     row += "<div class='col-sm-3'>";
-                    row += "<img id='cover' src='" + results[i].url + "'>";
+                    imgUrl = results[i].url;
+                    if (imgUrl === 'N/A') {
+                      imgUrl = 'img/noImage.jpg';
+                    }
+                    row += "<img id='cover' src='" + imgUrl + "'>";
+                    i++;
                     row += "<div id='rating_color' style='background-color:" + getColor(randomRating()) + "'></div>";
                     row += "</div>";
                 }

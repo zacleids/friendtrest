@@ -1,0 +1,41 @@
+.search-result-item {
+	margin: 0 auto;
+	height: 100%;
+	text-align: center;
+}
+.srch-btn {
+    width:200px;
+    margin-left:15%;
+}
+
+.search-results-img {
+	margin: 0 auto;
+	width: 275px;
+	height: 400px;
+}
+
+.item-descriptor {
+	border: solid;
+	border-width: 2px;
+	border-color: #5AA058;
+	padding: 1%;
+	padding-left: 2%;
+	padding-right: 2%;
+	margin-left: 10px;
+	margin-right: 10px;
+	background-color: #FFFFFF;
+	border-radius: 25px;
+
+}
+
+.search-box {
+	padding:1%;
+	padding-left:2%;
+	padding-right:2%;
+	background-color: #FFFFFF;
+	border-radius: 25px;
+}
+
+.search-containter {
+	transform: translate(0, 10%);
+}

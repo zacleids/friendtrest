@@ -5,7 +5,7 @@
     <meta content="utf-8" http-equiv="encoding">
 
     <script type="text/javascript" src="js/writeHead.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/reviews-styles.css">
+    <link rel="stylesheet" type="text/css" href="css/search.css">
 </head>
 <body>
 <!-- javascript file will write the nav bar given the name of the page -->
@@ -13,63 +13,123 @@
 <script>
     generateNavBar("index");
 </script>
-<br><br><br><br><br><br>
-<table>
-    <tr>
-        <td>Name: </td>
-        <td> <input id="name" type="text" placeholder="Name" autofocus /> </td>
-    </tr>
-    <tr>
-        <td>Year: </td>
-        <td> <input id="year" type="number" placeholder="ex. 2016" min="1920" max="2016"> </td>
-    </tr>
-    <tr>
-        <td><button id="submit" onclick="redirect()">Submit</button></td>
-    </tr>
-</table>
-<div id="items">
+
+<br><br><br><br><br>
+
+<div class="search-container">
+<div class="container-fluid">
+    <!-- search form -->
+    <div class="row">
+        <div class="col-md-3">
+        </div>
+        <div class="col-md-6 search-box">
+            <div class="row">
+                <div class="col-md-4">
+                    <label for="name">Search by name:</label>
+                    <input type="text" class="form-control" id="name" placeholder="Star Wars" />
+                </div>
+                <div class="col-md-4">
+                    <label for="year">Search by year:</label>
+                    <input type="number" class="form-control" id="year" placeholder="1977" min="1920" max="2016" />
+                </div>
+                <div class="col-md-4">
+                    <br>
+                    <button id="submit" type="submit" onclick="redirect()" class="btn btn-xl srch-btn">Search</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+        </div>
+    </div>
+<br>
+<hr>
+    <div id="items">
+
+    </div>
 
 </div>
-
+</div>
 
 <script>
     function getItem() {
         $("#items").html("");
+
         var name = getAddressPart("name", location.href);
         var year = getAddressPart("year", location.href);
+
         if(name === null){
             return;
         }
+
         if(year === null){
             year = "";
         }
+
         $("#name").val(name);
         $("#year").val(year);
-        $.get("/rest/search", { name: name, year: year, tagString: ""}, function(items) {
-            console.log(items.length);
+
+        $.get("/rest/search", { name: name, year: year, tagString: "" }, function(items) {
             if(items.length === 0){
                 displayNoItems();
-            }
-            for(var i = 0; i < items.length; i++){
-                displayItem(items[i]);
+            } else {
+                displayItems(items);
             }
         });
     }
 
-    function displayItem(item){
-        var text = "<div id='movie'>" +
-                "<img src='" + item.url + "' >" +
-                "<b>" +
-                item.name +
-                "</b>  Released: " +
-                item.releaseDate  +
-                "</div><hr>";
-        $("#items").html($("#items").html() + text);
+    function displayItems(items) {
+        var numberOfRows = Math.floor(items.length / 3);
+        if (numberOfRows === 0) {
+            numberOfRows = 1; 
+        }
+
+        var html = '';
+
+        // start writing the table
+        html += '<div class="row">\n';
+
+        html += '  <div class="col-md-2">\n';
+        html += '  </div>\n';
+        html += '  <div class="col-md-8">\n';
+        var i = 0;
+        for (var row = 0; row < numberOfRows; row++) {
+            html += '    <div class="row">\n';
+            for (var col = 0; col < 3; col++) {
+                if (i < items.length) {
+                    var imgUrl = items[i].url;
+                    if (imgUrl === 'N/A') {
+                        imgUrl = 'img/noImage.jpg';
+                    }
+                    html += '      <div class="col-md-4 search-result-item">\n';
+                    html += '        <img class="search-results-img" src="' + imgUrl + '">\n';
+                    html += '        <div class="item-descriptor">\n';
+                    html += '          <span id="item-name">' + items[i].name + '</span><br>\n';
+                    html += '          ' + items[i].releaseDate + '<br>\n';
+                    html += '        </div>\n';
+                    html += '        <br>\n';
+                    html += '        <br>\n';
+                    html += '      </div>\n';
+                } else {
+                    html += '      <div class="col-md-4">\n';
+                    html += '      </div>\n';
+                }
+                i++;
+            }
+            html += '    </div>\n';
+        }
+        html += '  </div>\n';
+        html += '  <div class="col-md-2">\n';
+        html += '  </div>\n';
+
+        html += '</div>\n';
+        console.log(html);
+
+        $("#items").html(html);
     }
 
     function displayNoItems(){
-        var text = "<h3>No Items to display</h3>";
-        $("#items").html($("#items").html() + text);
+        var text = "<h3>No items match your search results.</h3>";
+        $("#items").html(text);
     }
 
     function redirect(){
@@ -89,7 +149,6 @@
 
     $( document ).ready(function() {
         getItem();
-
     });
 </script>
 
