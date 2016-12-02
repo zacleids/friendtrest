@@ -38,6 +38,23 @@
     outline: none;
 }
 
+.rating:-moz-focusring {
+    outline: none;
+}
+
+.rating::-moz-range-thumb {
+    -moz-appearance: none;
+    width: 0px;
+    height: 50px;
+    box-shadow:
+            -300px 0 0 300px rgba(90, 184, 6, 1);
+}
+
+.rating::-moz-range-track {
+    height: 50px;
+    background-color: transparent;
+}
+
 .rating::-webkit-slider-thumb {
     box-shadow: -195px 0 0 195px rgba(90, 184, 6, 1);
     height: 25px;
