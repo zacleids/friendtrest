@@ -1,7 +1,5 @@
 <html>
 <body>
-
-
     <!--jquery compatible with bootstrap-->
     <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 
@@ -21,36 +19,55 @@
 
     <link rel="stylesheet" type="text/css" href="css/new_rating.css">
 
-    <div id="popup" class="col-md-3">
-        <img src="http://cdn4.pitchfork.com/albums/20964/homepage_large.af368c1a.jpg"/>
+    <br>
 
-            <div id="rate_rev">
-                <input id="rating" type='range' min='0' max='10' value='0.5' step='0.01'>
-                <textarea id='review' rows='7' cols='25'></textarea>
+    <div class="container">
+    <div class="row">
+    <div class="col-12-md unit">
+        <div class="col-4-md">
+            <img src="http://cdn4.pitchfork.com/albums/20964/homepage_large.af368c1a.jpg" id="cover"/>
+        </div>
+        <div id="inputs" class="col-4-md">
+            <input class="rating" type='range' min='0' max='10' value='0.5' step='0.01'>
+            <textarea id='review' rows='7' cols='25'></textarea>
+        </div>
+        <div id="controls" onclick="toggle(this)" class="col-4-md">
+            <div id="close_place">
+                <span style='height: 14px'></span>
+                <span id='white'></span>
+                <span id='spacer'></span>
+                <span id='white'></span>
             </div>
-            <div id="controls">
-                <div id="close_place">
-                    <span style='height: 14px'></span>
-                    <span id='white'></span>
-                    <span id='spacer'></span>
-                    <span id='white'></span>
-                </div>
-                <div id="toggle">
-                    <span id='spacer'></span>
-                    <span id='white'></span>
-                    <span id='spacer'></span>
-                    <span id='white'></span>
-                    <span id='spacer'></span>
-                    <span id='white'></span>
-                    <span id='spacer'></span>
-                    <span id='white'></span>
-                    <span id='spacer'></span>
-                    <span id='white'></span>
-                    <span id='spacer'></span>
-                </div>
+            <div id="toggle">
+                <span id='spacer'></span>
+                <span id='white'></span>
+                <span id='spacer'></span>
+                <span id='white'></span>
+                <span id='spacer'></span>
+                <span id='white'></span>
+                <span id='spacer'></span>
+                <span id='white'></span>
+                <span id='spacer'></span>
+                <span id='white'></span>
+                <span id='spacer'></span>
             </div>
-
+        </div>
+    </div>
+    </div>
     </div>
 
+    <script>
+        var shown = false;
+
+        function toggle(div) {
+            if (shown == false) {
+                $("#inputs").css('display', 'block');
+                shown = true;
+            } else {
+                $("#inputs").css('display', 'none');
+                shown = false;
+            }
+        }
+    </script>
 </body>
 </html>

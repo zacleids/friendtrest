@@ -22,6 +22,7 @@
         <link rel="stylesheet" type="text/css" href="css/bootstrap-social.css">
         <link rel="stylesheet" type="text/css" href="css/global-styles.css">
         <link rel="stylesheet" type="text/css" href="css/index.css">
+        <link rel="stylesheet" type="text/css" href="css/new_rating.css">
 
         <script>
             $(document).ready(function() {
@@ -40,41 +41,622 @@
 
         <div id="friends" class="container-fluid">
             <div id="friends1" class="row">
-                <div id="friend-item1" class="col-md-2 col-md-offset-1"></div>
-                <div id="friend-item2" class="col-md-2"></div>
-                <div id="friend-item3" class="col-md-2"></div>
-                <div id="friend-item4" class="col-md-2"></div>
-                <div id="friend-item5" class="col-md-2"></div>
+                <div id="friend-item1" class="col-md-2 unit col-md-offset-1">
+                    <div class="col-md-4">
+                        <img src="http://cdn4.pitchfork.com/albums/20964/homepage_large.af368c1a.jpg" id="cover"/>
+                    </div>
+                    <div id="inputs1" class="col-md-4">
+                        <input class="rating" type='range' min='0' max='10' value='0.5' step='0.01'>
+                        <textarea id='review' rows='7' cols='25'></textarea>
+                    </div>
+                    <div id="1" onclick="toggle(this)" class="col-md-4">
+                        <div id="close_place">
+                            <span style='height: 14px'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                        </div>
+                        <div id="toggle">
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                        </div>
+                    </div>
+                </div>
+                <div id="friend-item2" class="col-md-2 unit">
+                    <div class="col-md-4">
+                        <img src="http://cdn4.pitchfork.com/albums/20964/homepage_large.af368c1a.jpg" id="cover"/>
+                    </div>
+                    <div id="inputs2" class="col-md-4">
+                        <input class="rating" type='range' min='0' max='10' value='0.5' step='0.01'>
+                        <textarea id='review' rows='7' cols='25'></textarea>
+                    </div>
+                    <div id="2" onclick="toggle(this)" class="col-md-4">
+                        <div id="close_place">
+                            <span style='height: 14px'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                        </div>
+                        <div id="toggle">
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                        </div>
+                    </div>
+                </div>
+                <div id="friend-item3" class="col-md-2 unit">
+                    <div class="col-md-4">
+                        <img src="http://cdn4.pitchfork.com/albums/20964/homepage_large.af368c1a.jpg" id="cover"/>
+                    </div>
+                    <div id="inputs3" class="col-md-4">
+                        <input class="rating" type='range' min='0' max='10' value='0.5' step='0.01'>
+                        <textarea id='review' rows='7' cols='25'></textarea>
+                    </div>
+                    <div id="3" onclick="toggle(this)" class="col-md-4">
+                        <div id="close_place">
+                            <span style='height: 14px'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                        </div>
+                        <div id="toggle">
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                        </div>
+                    </div>
+                </div>
+                <div id="friend-item4" class="col-md-2 unit">
+                    <div class="col-md-4">
+                        <img src="http://cdn4.pitchfork.com/albums/20964/homepage_large.af368c1a.jpg" id="cover"/>
+                    </div>
+                    <div id="inputs4" class="col-md-4">
+                        <input class="rating" type='range' min='0' max='10' value='0.5' step='0.01'>
+                        <textarea id='review' rows='7' cols='25'></textarea>
+                    </div>
+                    <div id="4" onclick="toggle(this)" class="col-md-4">
+                        <div id="close_place">
+                            <span style='height: 14px'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                        </div>
+                        <div id="toggle">
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                        </div>
+                    </div>
+                </div>
+                <div id="friend-item5" class="col-md-2 unit">
+                    <div class="col-md-4">
+                        <img src="http://cdn4.pitchfork.com/albums/20964/homepage_large.af368c1a.jpg" id="cover"/>
+                    </div>
+                    <div id="inputs5" class="col-md-4">
+                        <input class="rating" type='range' min='0' max='10' value='0.5' step='0.01'>
+                        <textarea id='review' rows='7' cols='25'></textarea>
+                    </div>
+                    <div id="5" onclick="toggle(this)" class="col-md-4">
+                        <div id="close_place">
+                            <span style='height: 14px'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                        </div>
+                        <div id="toggle">
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div id="friends2" class="row">
-                <div id="friend-item6" class="col-md-2 col-md-offset-1"></div>
-                <div id="friend-item7" class="col-md-2"></div>
-                <div id="friend-item8" class="col-md-2"></div>
-                <div id="friend-item9" class="col-md-2"></div>
-                <div id="friend-item10" class="col-md-2"></div>
+                <div id="friend-item6" class="col-md-2 unit col-md-offset-1">
+                    <div class="col-md-4">
+                        <img src="http://cdn4.pitchfork.com/albums/20964/homepage_large.af368c1a.jpg" id="cover"/>
+                    </div>
+                    <div id="inputs6" class="col-md-4">
+                        <input class="rating" type='range' min='0' max='10' value='0.5' step='0.01'>
+                        <textarea id='review' rows='7' cols='25'></textarea>
+                    </div>
+                    <div id="6" onclick="toggle(this)" class="col-md-4">
+                        <div id="close_place">
+                            <span style='height: 14px'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                        </div>
+                        <div id="toggle">
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                        </div>
+                    </div>
+                </div>
+                <div id="friend-item7" class="col-md-2 unit">
+                    <div class="col-md-4">
+                        <img src="http://cdn4.pitchfork.com/albums/20964/homepage_large.af368c1a.jpg" id="cover"/>
+                    </div>
+                    <div id="inputs7" class="col-md-4">
+                        <input class="rating" type='range' min='0' max='10' value='0.5' step='0.01'>
+                        <textarea id='review' rows='7' cols='25'></textarea>
+                    </div>
+                    <div id="7" onclick="toggle(this)" class="col-md-4">
+                        <div id="close_place">
+                            <span style='height: 14px'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                        </div>
+                        <div id="toggle">
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                        </div>
+                    </div>
+                </div>
+                <div id="friend-item8" class="col-md-2 unit">
+                    <div class="col-md-4">
+                        <img src="http://cdn4.pitchfork.com/albums/20964/homepage_large.af368c1a.jpg" id="cover"/>
+                    </div>
+                    <div id="inputs8" class="col-md-4">
+                        <input class="rating" type='range' min='0' max='10' value='0.5' step='0.01'>
+                        <textarea id='review' rows='7' cols='25'></textarea>
+                    </div>
+                    <div id="8" onclick="toggle(this)" class="col-md-4">
+                        <div id="close_place">
+                            <span style='height: 14px'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                        </div>
+                        <div id="toggle">
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                        </div>
+                    </div>
+                </div>
+                <div id="friend-item9" class="col-md-2 unit">
+                    <div class="col-md-4">
+                        <img src="http://cdn4.pitchfork.com/albums/20964/homepage_large.af368c1a.jpg" id="cover"/>
+                    </div>
+                    <div id="inputs9" class="col-md-4">
+                        <input class="rating" type='range' min='0' max='10' value='0.5' step='0.01'>
+                        <textarea id='review' rows='7' cols='25'></textarea>
+                    </div>
+                    <div id="9" onclick="toggle(this)" class="col-md-4">
+                        <div id="close_place">
+                            <span style='height: 14px'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                        </div>
+                        <div id="toggle">
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                        </div>
+                    </div>
+                </div>
+                <div id="friend-item10" class="col-md-2 unit">
+                    <div class="col-md-4">
+                        <img src="http://cdn4.pitchfork.com/albums/20964/homepage_large.af368c1a.jpg" id="cover"/>
+                    </div>
+                    <div id="inputs10" class="col-md-4">
+                        <input class="rating" type='range' min='0' max='10' value='0.5' step='0.01'>
+                        <textarea id='review' rows='7' cols='25'></textarea>
+                    </div>
+                    <div id="10" onclick="toggle(this)" class="col-md-4">
+                        <div id="close_place">
+                            <span style='height: 14px'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                        </div>
+                        <div id="toggle">
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
         <div id="random" class="container-fluid">
             <div id="random1" class="row">
-                <div id="random-item1" class="col-md-2 col-md-offset-1"></div>
-                <div id="random-item2" class="col-md-2"></div>
-                <div id="random-item3" class="col-md-2"></div>
-                <div id="random-item4" class="col-md-2"></div>
-                <div id="random-item5" class="col-md-2"></div>
+                <div id="random-item1" class="col-md-2 unit col-md-offset-1">
+                    <div class="col-md-4">
+                        <img src="http://cdn4.pitchfork.com/albums/20964/homepage_large.af368c1a.jpg" id="cover"/>
+                    </div>
+                    <div id="inputs11" class="col-md-4">
+                        <input class="rating" type='range' min='0' max='10' value='0.5' step='0.01'>
+                        <textarea id='review' rows='7' cols='25'></textarea>
+                    </div>
+                    <div id="11" onclick="toggle(this)" class="col-md-4">
+                        <div id="close_place">
+                            <span style='height: 14px'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                        </div>
+                        <div id="toggle">
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                        </div>
+                    </div>
+                </div>
+                <div id="random-item2" class="col-md-2 unit">
+                    <div class="col-md-4">
+                        <img src="http://cdn4.pitchfork.com/albums/20964/homepage_large.af368c1a.jpg" id="cover"/>
+                    </div>
+                    <div id="inputs12" class="col-md-4">
+                        <input class="rating" type='range' min='0' max='10' value='0.5' step='0.01'>
+                        <textarea id='review' rows='7' cols='25'></textarea>
+                    </div>
+                    <div id="12" onclick="toggle(this)" class="col-md-4">
+                        <div id="close_place">
+                            <span style='height: 14px'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                        </div>
+                        <div id="toggle">
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                        </div>
+                    </div>
+                </div>
+                <div id="random-item3" class="col-md-2 unit">
+                    <div class="col-md-4">
+                        <img src="http://cdn4.pitchfork.com/albums/20964/homepage_large.af368c1a.jpg" id="cover"/>
+                    </div>
+                    <div id="inputs13" class="col-md-4">
+                        <input class="rating" type='range' min='0' max='10' value='0.5' step='0.01'>
+                        <textarea id='review' rows='7' cols='25'></textarea>
+                    </div>
+                    <div id="13" onclick="toggle(this)" class="col-md-4">
+                        <div id="close_place">
+                            <span style='height: 14px'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                        </div>
+                        <div id="toggle">
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                        </div>
+                    </div>
+                </div>
+                <div id="random-item4" class="col-md-2 unit">
+                    <div class="col-md-4">
+                        <img src="http://cdn4.pitchfork.com/albums/20964/homepage_large.af368c1a.jpg" id="cover"/>
+                    </div>
+                    <div id="inputs14" class="col-md-4">
+                        <input class="rating" type='range' min='0' max='10' value='0.5' step='0.01'>
+                        <textarea id='review' rows='7' cols='25'></textarea>
+                    </div>
+                    <div id="14" onclick="toggle(this)" class="col-md-4">
+                        <div id="close_place">
+                            <span style='height: 14px'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                        </div>
+                        <div id="toggle">
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                        </div>
+                    </div>
+                </div>
+                <div id="random-item5" class="col-md-2 unit">
+                    <div class="col-md-4">
+                        <img src="http://cdn4.pitchfork.com/albums/20964/homepage_large.af368c1a.jpg" id="cover"/>
+                    </div>
+                    <div id="inputs15" class="col-md-4">
+                        <input class="rating" type='range' min='0' max='10' value='0.5' step='0.01'>
+                        <textarea id='review' rows='7' cols='25'></textarea>
+                    </div>
+                    <div id="15" onclick="toggle(this)" class="col-md-4">
+                        <div id="close_place">
+                            <span style='height: 14px'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                        </div>
+                        <div id="toggle">
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div id="random2" class="row">
-                <div id="random-item6" class="col-md-2 col-md-offset-1"></div>
-                <div id="random-item7" class="col-md-2"></div>
-                <div id="random-item8" class="col-md-2"></div>
-                <div id="random-item9" class="col-md-2"></div>
-                <div id="random-item10" class="col-md-2"></div>
+                <div id="random-item6" class="col-md-2 unit col-md-offset-1">
+                    <div class="col-md-4">
+                        <img src="http://cdn4.pitchfork.com/albums/20964/homepage_large.af368c1a.jpg" id="cover"/>
+                    </div>
+                    <div id="inputs16" class="col-md-4">
+                        <input class="rating" type='range' min='0' max='10' value='0.5' step='0.01'>
+                        <textarea id='review' rows='7' cols='25'></textarea>
+                    </div>
+                    <div id="16" onclick="toggle(this)" class="col-md-4">
+                        <div id="close_place">
+                            <span style='height: 14px'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                        </div>
+                        <div id="toggle">
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="unit" class="col-md-2 unit">
+                    <div class="col-md-4">
+                        <img src="http://cdn4.pitchfork.com/albums/20964/homepage_large.af368c1a.jpg" id="cover"/>
+                    </div>
+                    <div id="inputs17" class="col-md-4">
+                        <input class="rating" type='range' min='0' max='10' value='0.5' step='0.01'>
+                        <textarea id='review' rows='7' cols='25'></textarea>
+                    </div>
+                    <div id="17" onclick="toggle(this)" class="col-md-4">
+                        <div id="close_place">
+                            <span style='height: 14px'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                        </div>
+                        <div id="toggle">
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                        </div>
+                    </div>
+                </div>
+                <div id="random-item8" class="col-md-2 unit">
+                    <div class="col-md-4">
+                        <img src="http://cdn4.pitchfork.com/albums/20964/homepage_large.af368c1a.jpg" id="cover"/>
+                    </div>
+                    <div id="inputs18" class="col-md-4" >
+                        <input class="rating" type='range' min='0' max='10' value='0.5' step='0.01'>
+                        <textarea id='review' rows='7' cols='25'></textarea>
+                    </div>
+                    <div id="18" onclick="toggle(this)" class="col-md-4">
+                        <div id="close_place">
+                            <span style='height: 14px'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                        </div>
+                        <div id="toggle">
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                        </div>
+                    </div>
+                </div>
+                <div id="random-item9" class="col-md-2 unit">
+                    <div class="col-md-4">
+                        <img src="http://cdn4.pitchfork.com/albums/20964/homepage_large.af368c1a.jpg" id="cover"/>
+                    </div>
+                    <div id="inputs19" class="col-md-4">
+                        <input class="rating" type='range' min='0' max='10' value='0.5' step='0.01'>
+                        <textarea id='review' rows='7' cols='25'></textarea>
+                    </div>
+                    <div id="19" onclick="toggle(this)" class="col-md-4">
+                        <div id="close_place">
+                            <span style='height: 14px'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                        </div>
+                        <div id="toggle">
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                        </div>
+                    </div>
+                </div>
+                <div id="random-item10" class="col-md-2 unit">
+                    <div class="col-md-4">
+                        <img src="http://cdn4.pitchfork.com/albums/20964/homepage_large.af368c1a.jpg" id="cover"/>
+                    </div>
+                    <div id="inputs20" class="col-md-4">
+                        <input class="rating" type='range' min='0' max='10' value='0.5' step='0.01'>
+                        <textarea id='review' rows='7' cols='25'></textarea>
+                    </div>
+                    <div id="20" onclick="toggle(this)" class="col-md-4">
+                        <div id="close_place">
+                            <span style='height: 14px'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                        </div>
+                        <div id="toggle">
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                            <span id='white'></span>
+                            <span id='spacer'></span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
   </div>
 </footer>
 
 <script>
+
     function randomRating() {
         return (Math.random() * 10);
     }
@@ -128,10 +710,11 @@
                     row += "</div>";
                     $("#main").html($("#main").html() + row);
                 }
-            }).fail(function() {
-                //alert("data retrieval failed");
-            });
-        }
+            }
+        }).fail(function() {
+            //alert("data retrieval failed");
+        });
+    }
 
         function getFriendItems() {
             for (var i = 1; i <= 10; i++) {
@@ -148,10 +731,8 @@
         }
 
         //getData();
-        getFriendItems();
-        getRandomItems();
-
-        var shown = false;
+        //getFriendItems();
+        //getRandomItems();
 
         $(document).ready(function() {
             $("#popup").on("click", "#controls", function () {
@@ -172,18 +753,26 @@
                     shown = true;
                 }
             });
-
-            var rating = $("#rating"), rating_interval;
-            rating.on("mousedown", function () {
-                var max = rating.attr("max");
-                rating_interval = setInterval(function () {
-                    var val = rating.val() / max;
-                    $("#result").text(val);
-                }, 500);
-            }).on("mouseup", function () {
-                clearInterval(rating_interval);
-            });
         });
+
+        var shown = new Array();
+
+        for (var i = 0; i < shown.length; i++) {
+            shown[i] = false;
+        }
+
+        function toggle(this) {
+            var id = this.id;
+            var new_id = "#inputs" + id;
+            if (shown[id] == false) {
+                shown[id] = true;
+                $(new_id).css("display", "block");
+                //$(new_id).css("width", "200px");
+            } else {
+                shown[id] == false;
+                $(new_id).css("display", "none");
+            }
+        }
 
         </script>
 
