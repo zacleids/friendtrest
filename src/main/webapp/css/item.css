@@ -1,0 +1,21 @@
+.item-description {
+	padding:3%;
+	background-color: #FFFFFF;
+	border-radius: 25px;
+}
+
+#movie-title {
+	font-weight:bold;
+	font-size:200%;
+}
+
+#release-date {
+	font-style:italic;
+	text-align:left;
+	font-size:150%;
+}
+
+#description-text {
+	text-align:left;
+	font-size:150%;
+}
