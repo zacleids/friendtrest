@@ -16,7 +16,7 @@ document.write(
     '<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>' + '\n' +
     '' + '\n' +
     '<!-- links to local files -->' + '\n' +
-    '<script type="text/javascript" src="js/searchBehavior.js"></script>"' + '\n' +
+    '<script type="text/javascript" src="js/searchBehavior.js"></script>' + '\n' +
     '<script type="text/javascript" src="js/facebookLogin.js"></script>' + '\n' +
     '<script type="text/javascript" src="js/writeNavBar.js"></script>' + '\n' +
     '<link rel="stylesheet" type="text/css" href="css/global-styles.css">' + '\n' +
