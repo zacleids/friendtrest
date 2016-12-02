@@ -25,8 +25,8 @@ import java.util.List;
 
 @Path("/")
 public class UserService {
+
 	private static final DBController dbc = new DBController();
-	AmazonDynamoDB client = dbc.getAmazonDynamoDB();
 
 	@GET
 	@Path("/createUser")
@@ -37,7 +37,7 @@ public class UserService {
 		@QueryParam("friends") String friends) {
 
 		// turn friends into a list
-		String[] friendsArray = friends.split(",");
+		String[] friendsArray = friends.split("-");
 		ArrayList<String> friendsList = new ArrayList<String>(Arrays.asList(friendsArray));
 
         // create the user with the information passed from javascript side
