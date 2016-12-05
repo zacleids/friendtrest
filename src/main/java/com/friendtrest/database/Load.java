@@ -18,4 +18,9 @@ public class Load {
         DynamoDBMapper dbm = new DynamoDBMapper(dbc.getAmazonDynamoDB());
         return dbm.load(Review.class, uuid);
     }
+
+    public static User loadUser(String facebook_id, DBController dbc) {
+        DynamoDBMapper dbm = new DynamoDBMapper(dbc.getAmazonDynamoDB());
+        return dbm.load(User.class, uuid);
+    }
 }

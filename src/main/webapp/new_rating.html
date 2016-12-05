@@ -13,114 +13,78 @@
     <script src="../bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <link rel="stylesheet" href="css/new_rating.css">
+
+    <script src="js/array.js"></script>
 </head>
 <body>
     <div class="container-fluid">
+        <div id="row1" class="row"></div>
+        <div id="row2" class="row"></div>
+        <div id="row3" class="row"></div>
+        <div id="row4" class="row"></div>
+    </div>
+
+    <script>
+        var num_rows = 4;
+        var row_size = 5;
+        var placeholder_url = 'img/noImage.jpg';
+
+        function getData() {
+            $.get("/rest/data", {}, function(results) {
+                results = shuffle(results);
+                for (var row = 1; row <= 4; row++) {
+                    
+                }
+            }
+        }
+
+        $(document).ready(function() {
+
+        });
+    </script>
+</body>
         <div class="row">
-            <div class="col-md-2 col-md-offset-1">
-                <div class="row">
-                    <div class="col-md-7">
-                        <img class="img-responsive" src="http://ecards.k7-de.com/strut/wp-content/uploads/2014/07/In-The-Orbit-Of-Ra-final-cover-web-RGB.jpg" style="height: 200px; width: auto"/>
+            <div class="col-md-2 col-md-offset1">
+                <div class="unit">
+                    <div class="colors-pictures">
+                        content
                     </div>
-                    <div class="col-md-3">
-                        <input type="rating"/>
-                        <textarea></textarea>
+                    <div class="cover">
+                        <img src="http://cdn4.pitchfork.com/albums/20964/homepage_large.af368c1a.jpg"/>
                     </div>
-                    <div class="col-md-2">
-                        <div>
-                            <span></span>
-                            <span></span>
-                            X
+                    <div class="rating-review">
+
+                    </div>
+                    <div class="unit-tabs">
+                        <div class="cover-tab">
+                            ya
                         </div>
-                        <div>
-                            <span></span>
-                            <span></span>
-                            Click
-                        </dvi>
+                        <div class="rr-tab">
+                            <br>
+                            &#9776;
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="col-md-2">
-                <div class="row">
-                    <div class="col-md-6">
-                        <img class="img-responsive" src="http://ecards.k7-de.com/strut/wp-content/uploads/2014/07/In-The-Orbit-Of-Ra-final-cover-web-RGB.jpg" style="height: 200px; width: auto"/>
+                <div class="unit">
+                    <div class="colors-pictures">
+                        content
                     </div>
-                    <div class="col-md-5">
-                        <input type="rating"/>
-                        <textarea></textarea>
+                    <div class="cover">
+                        <img src="http://cdn.mos.cms.futurecdn.net/15399e7a7b11a8c2ef28511107c90c6f.jpg"/>
                     </div>
-                    <div class="col-md-1">
-                        <div>
-                            <span></span>
-                            <span></span>
+                    <div class="rating-review">
+
+                    </div>
+                    <div class="unit-tabs">
+                        <div class="cover-tab">
+                            ya
                         </div>
-                        <div>
-                            <span></span>
-                            <span></span>
-                        </dvi>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-2">
-                <div class="row">
-                    <div class="col-md-6">
-                        <img class="img-responsive" src="http://ecards.k7-de.com/strut/wp-content/uploads/2014/07/In-The-Orbit-Of-Ra-final-cover-web-RGB.jpg" style="height: 200px; width: auto"/>
-                    </div>
-                    <div class="col-md-5">
-                        <input type="rating"/>
-                        <textarea></textarea>
-                    </div>
-                    <div class="col-md-1">
-                        <div>
-                            <span></span>
-                            <span></span>
+                        <div class="rr-tab">
+                            <br>
+                            &#9776;
                         </div>
-                        <div>
-                            <span></span>
-                            <span></span>
-                        </dvi>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-2">
-                <div class="row">
-                    <div class="col-md-6">
-                        <img class="img-responsive" src="http://ecards.k7-de.com/strut/wp-content/uploads/2014/07/In-The-Orbit-Of-Ra-final-cover-web-RGB.jpg" style="height: 200px; width: auto"/>
-                    </div>
-                    <div class="col-md-5">
-                        <input type="rating"/>
-                        <textarea></textarea>
-                    </div>
-                    <div class="col-md-1">
-                        <div>
-                            <span></span>
-                            <span></span>
-                        </div>
-                        <div>
-                            <span></span>
-                            <span></span>
-                        </dvi>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-2">
-                <div class="row">
-                    <div class="col-md-6">
-                        <img class="img-responsive" src="http://ecards.k7-de.com/strut/wp-content/uploads/2014/07/In-The-Orbit-Of-Ra-final-cover-web-RGB.jpg" style="height: 200px; width: auto"/>
-                    </div>
-                    <div class="col-md-5">
-                        <input type="rating"/>
-                        <textarea></textarea>
-                    </div>
-                    <div class="col-md-1">
-                        <div>
-                            <span></span>
-                            <span></span>
-                        </div>
-                        <div>
-                            <span></span>
-                            <span></span>
-                        </dvi>
                     </div>
                 </div>
             </div>

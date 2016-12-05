@@ -10,16 +10,17 @@ public class Review {
 
     private String item_id;
     private String review_text;
-    private String user_id;
+    private String facebook_id;
     private String uuid;
 
     public Review() {}
 
-    public Review(String item_id, String user_id, double rating, String review_text) {
+    public Review(String item_id, String facebook_id, double rating, String review_text) {
         this.item_id = item_id;
-        this.user_id = user_id;
+        this.facebook_id = facebook_id;
         this.rating = rating;
         this.review_text = review_text;
+        this.uuid = UUID.randomUUID.toString();
     }
 
     public String getItem_id() { return item_id; }
@@ -31,8 +32,8 @@ public class Review {
     public String getReview_text() { return review_text; }
     public void setReview_text(String review_text) { this.review_text = review_text; }
 
-    public String getUser_id() { return user_id; }
-    public void setUser_id(String user_id) { this.user_id = user_id; }
+    public String getFacebook_id() { return facebook_id; }
+    public void setFacebook_id(String facebook_id) { this.facebook_id = facebook_id; }
 
     @DynamoDBHashKey
     public String getUuid() { return uuid; }

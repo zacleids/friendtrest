@@ -29,4 +29,8 @@ public class Scan {
         return dbm.scan(Item.class, new DynamoDBScanExpression());
     }
 
+    public static PaginatedScanList<Review> getReviewsTable(DBController dbc) {
+        DynamoDBMapper dbm = new DynamoDBMapper(dbc.getAmazonDynamoDB());
+        return dbm.scan(Review.class, new DynamoDBScanExpression());
+    }
 }

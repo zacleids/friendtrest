@@ -23,6 +23,8 @@ public class Item {
     private String releaseDate;
     private String url;
 
+    private List<Review> reviews;
+
     public Item() {}
 
     public Item(String url) {
@@ -60,6 +62,10 @@ public class Item {
     }
     public void setReleaseDate(String releaseDate) {
         this.releaseDate = releaseDate;
+    }
+
+    public void setReviews(List<Review> reviews) {
+        this.reviews = reviews;
     }
 
     @DynamoDBAttribute(attributeName = "url")

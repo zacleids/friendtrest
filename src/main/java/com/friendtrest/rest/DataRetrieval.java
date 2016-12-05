@@ -39,6 +39,17 @@ public class DataRetrieval {
     @Path("/data")
     public Response query() {
         PaginatedScanList<Item> all_items = Scan.getItemsTable(dbc);
+        PaginatedScanList<Review> all_reviews = Scan.getReviewsTable(dbc);
+        U
+
+        for (Item item : all_items) {
+            List<Review> = new ArrayList<Review>();
+
+            for (Review review : all_reviews) {
+
+            }
+        }
+
         String items_as_json = new Gson().toJson(all_items);
 
         return Response.ok(items_as_json, MediaType.APPLICATION_JSON).build();
