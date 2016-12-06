@@ -4,6 +4,7 @@ target/
 friendtrest.iml
 .classpath
 .project
+log/
 bin/
 src/main/main.iml
 src/test/test.iml
