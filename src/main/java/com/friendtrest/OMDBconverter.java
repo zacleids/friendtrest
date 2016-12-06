@@ -38,6 +38,7 @@ public class OMDBconverter {
         }
 
         System.out.println("Item from OMDb api:" + i.getName());
+        LoggerMe.getLOG().info("Retrieved an item from OMDb api: {name: " + i.getName() + "}");
         return i;
     }
 

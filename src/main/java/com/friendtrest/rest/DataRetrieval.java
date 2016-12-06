@@ -3,6 +3,7 @@ package com.friendtrest.rest;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
 import com.amazonaws.services.dynamodbv2.datamodeling.PaginatedScanList;
 
+import com.friendtrest.LoggerMe;
 import com.friendtrest.OMDBconverter;
 import com.friendtrest.data.Item;
 import com.friendtrest.data.Review;
@@ -38,6 +39,7 @@ public class DataRetrieval {
     @GET
     @Path("/data")
     public Response query() {
+        LoggerMe.getLOG().info("requested data endpoint");
         PaginatedScanList<Item> all_items = Scan.getItemsTable(dbc);
         String items_as_json = new Gson().toJson(all_items);
 
@@ -75,10 +77,12 @@ public class DataRetrieval {
     @GET
     @Path("/apitest")
     public Response apitest(@QueryParam("name") String name, @QueryParam("year") String year){
+        LoggerMe.getLOG().info("apitest endpoint called with parameters:{name: " + name + ", year: " + year + "}");
         ArrayList<Item> itemsToShow = new ArrayList<>();
         try {
             itemsToShow.add(omdb.search(name, "", false));
         } catch (IOException e) {
+            LoggerMe.getLOG().error("An error occured in apitest trying to query OMDb api:{name: " + name + ", year: " + year +  ", error msg: " + e.getMessage() + "}");
             e.printStackTrace();
         }
         String json = new Gson().toJson(itemsToShow);
@@ -88,6 +92,7 @@ public class DataRetrieval {
     @GET
     @Path("/simpleSearch")
     public Response simpleSearch(@QueryParam("name") String name){
+        LoggerMe.getLOG().info("simpleSearch endpoint called with parameter:{name: " + name + "}");
         if(name == null) name = "";
         ArrayList<Item> itemsToShow = getItems(name, "", "");
         if(itemsToShow.size() == 0){
@@ -95,6 +100,7 @@ public class DataRetrieval {
                 Item i = omdb.search(name, "", true);
                 if( i != null) itemsToShow.add(i);
             } catch (IOException e) {
+                LoggerMe.getLOG().error("An error occured in simpleSearch trying to query OMDb api:{ name: " + name + ", error msg: " + e.getMessage() + "}");
                 e.printStackTrace();
             }
         }
@@ -105,6 +111,7 @@ public class DataRetrieval {
     @GET
     @Path("/search")
     public Response search(@QueryParam("name") String name, @QueryParam("year") String year, @QueryParam("tags") String tagString){
+        LoggerMe.getLOG().info("search endpoint called with parameters:{name: " + name + ", year: " + year + ", tagstring: " + tagString + "}");
         if(name == null) name = "";
         if(year == null) year = "";
         if(tagString == null) tagString = "";
@@ -114,6 +121,7 @@ public class DataRetrieval {
                 Item i = omdb.search(name, year, true);
                 if( i != null) itemsToShow.add(i);
             } catch (IOException e) {
+                LoggerMe.getLOG().error("An error occured in search trying to query OMDb api:{ name: " + name + ", year: " + year + ", tagstring: " + tagString + ", error msg: " + e.getMessage() + "}");
                 e.printStackTrace();
             }
         }
@@ -124,6 +132,7 @@ public class DataRetrieval {
     @GET
     @Path("retrieveItem")
     public Response retrieveItem(@QueryParam("uuid") String uuid){
+        LoggerMe.getLOG().info("retrieveItem endpoint called with parameter:{uuid: " + uuid + "}");
         Item itemToReturn = null;
         PaginatedScanList<Item> items = Scan.getItemsTable(dbc);
         for (Item item : items) {

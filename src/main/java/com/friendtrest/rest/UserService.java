@@ -2,6 +2,7 @@ package com.friendtrest.rest;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.PaginatedScanList;
 
+import com.friendtrest.LoggerMe;
 import com.friendtrest.data.Item;
 import com.friendtrest.database.DBController;
 import com.friendtrest.data.User;
@@ -30,7 +31,7 @@ public class UserService {
 		@QueryParam("profilepic") String profilepic,
         @QueryParam("facebookID") String facebookID,
 		@QueryParam("friends") String friends) {
-
+		LoggerMe.getLOG().info("createUser endpoint called with parameter:{username: " + username + ", email: " + email + ", profilepic: " + profilepic + ", facebookID: " + facebookID + ", friends: " + friends + "}");
 		// turn friends into a list
 		String[] friendsArray = friends.split("-");
 		ArrayList<String> friendsList = new ArrayList<String>(Arrays.asList(friendsArray));
