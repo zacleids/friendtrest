@@ -77,7 +77,7 @@ public class DataRetrieval {
     public Response apitest(@QueryParam("name") String name, @QueryParam("year") String year){
         ArrayList<Item> itemsToShow = new ArrayList<>();
         try {
-            itemsToShow.add(omdb.search(name, ""));
+            itemsToShow.add(omdb.search(name, "", false));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -92,7 +92,7 @@ public class DataRetrieval {
         ArrayList<Item> itemsToShow = getItems(name, "", "");
         if(itemsToShow.size() == 0){
             try {
-                Item i = omdb.search(name, "");
+                Item i = omdb.search(name, "", true);
                 if( i != null) itemsToShow.add(i);
             } catch (IOException e) {
                 e.printStackTrace();
@@ -111,7 +111,7 @@ public class DataRetrieval {
         ArrayList<Item> itemsToShow = getItems(name, year, tagString);
         if(itemsToShow.size() == 0){
             try {
-                Item i = omdb.search(name, year);
+                Item i = omdb.search(name, year, true);
                 if( i != null) itemsToShow.add(i);
             } catch (IOException e) {
                 e.printStackTrace();
