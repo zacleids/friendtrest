@@ -18,7 +18,8 @@ import java.io.InputStreamReader;
 public class OMDBconverter {
     private static final DBController dbc = new DBController();
 
-    public Item search(String title, String year) throws IOException {
+    public Item search(String title, String year, boolean save) throws IOException {
+        if (title == null) title = "";
         if (year == null) year = "";
         URL url = new URL("http://www.omdbapi.com/?t=" + title.replace(" ", "+") + "&y=" + year + "&plot=full&r=json");
         InputStreamReader reader = new InputStreamReader(url.openStream());
@@ -32,8 +33,10 @@ public class OMDBconverter {
         } else {
             i = new Movie(omdbObject);
         }
+        if(save){
+            Save.saveObject(i, dbc);
+        }
 
-        Save.saveObject(i, dbc);
         System.out.println("Item from OMDb api:" + i.getName());
         return i;
     }

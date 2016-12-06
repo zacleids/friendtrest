@@ -22,6 +22,8 @@ public class TVShowTest {
     int numSeasons;
     String url;
 
+    OMDbObject o = new OMDbObject();
+
     @Before
     public void setUp(){
         title = "The Flash";
@@ -47,6 +49,15 @@ public class TVShowTest {
                 numSeasons,
                 url
         );
+
+        o.Title = title;
+        o.Year = releaseDate;
+        o.Genre = "Action, Adventure, Comedy";
+        o.Director = director;
+        o.Actors = "Grant Gustin, Candice Patton, Tom Cavanagh";
+        o.Plot = description;
+        o.totalSeasons = numSeasons;
+        o.Poster = url;
     }
 
     @Test
@@ -87,6 +98,12 @@ public class TVShowTest {
     @Test
     public void testGetNumSeasons(){
         assertThat(tvShow.getNumSeasons(), equalTo(numSeasons));
+    }
+
+    @Test
+    public void testOMDBCOnversionToTVShow(){
+        TVShow test = new TVShow(o);
+        assertThat(tvShow.getName(), equalTo(test.getName()));
     }
 
 }
