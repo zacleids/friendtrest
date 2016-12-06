@@ -6,6 +6,7 @@ import com.amazonaws.services.dynamodbv2.datamodeling.PaginatedScanList;
 import com.friendtrest.OMDBconverter;
 import com.friendtrest.data.Item;
 import com.friendtrest.data.Review;
+import com.friendtrest.data.User;
 import com.friendtrest.database.DBController;
 
 import com.friendtrest.database.Load;
@@ -19,9 +20,7 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 @Path("/")
 public class DataRetrieval {
@@ -37,20 +36,46 @@ public class DataRetrieval {
 
     @GET
     @Path("/data")
-    public Response query() {
-        PaginatedScanList<Item> all_items = Scan.getItemsTable(dbc);
-        PaginatedScanList<Review> all_reviews = Scan.getReviewsTable(dbc);
-        U
+    public Response getData(@QueryParam("facebook_id") String facebook_id) {
+        PaginatedScanList<Item> all_items2 = Scan.getItemsTable(dbc);
+        List<Item> all_items = new ArrayList<Item>(all_items2.size());
+        for (Item item : all_items2)
+            all_items.add(item);
+        Collections.shuffle(all_items, new Random());
+        List<Item> items = all_items.subList(0, 20);
+        HashSet<String> item_ids = new HashSet<String>();
+        for (Item item : items)
+            item_ids.add(item.getUuid());
 
-        for (Item item : all_items) {
-            List<Review> = new ArrayList<Review>();
-
-            for (Review review : all_reviews) {
-
-            }
+        User user = Load.loadUser(facebook_id, dbc);
+        List<String> friend_ids = user.getFriends();
+        HashMap<String, String> friend_pics = new HashMap<String, String>(friend_ids.size());
+        for (String friend_id : friend_ids) {
+            User friend = Load.loadUser(friend_id, dbc);
+            friend_pics.put(friend_id, friend.getPictureURL());
         }
 
-        String items_as_json = new Gson().toJson(all_items);
+        PaginatedScanList<Review> all_reviews = Scan.getReviewsTable(dbc);
+        Object[][] rating_pics = new Object[items.size()][3];
+
+        for (int i = 0; i < items.size(); i++) {
+            Item item = items.get(i);
+            rating_pics[i][0] = item;
+
+            List<Double> ratings = new ArrayList<Double>();
+            List<String> pic_urls = new ArrayList<String>();
+            for (Review review : all_reviews) {
+                if (item.getUuid().equals(review.getItem_id())) {
+                    ratings.add(review.getRating());
+                    pic_urls.add(friend_pics.get(review.getFacebook_id()));
+                }
+            }
+
+            rating_pics[i][1] = ratings;
+            rating_pics[i][2] = pic_urls;
+        }
+
+        String items_as_json = new Gson().toJson(rating_pics);
 
         return Response.ok(items_as_json, MediaType.APPLICATION_JSON).build();
     }
@@ -77,7 +102,7 @@ public class DataRetrieval {
         review.setRating(rating);
         review.setReview_text(review_text);
         review.setItem_id(item_id);
-        review.setUser_id(user_id);
+        review.setFacebook_id(user_id);
         Save.saveObject(review, dbc);
 
         return Response.ok("ok").build();
@@ -138,7 +163,7 @@ public class DataRetrieval {
         Item itemToReturn = null;
         PaginatedScanList<Item> items = Scan.getItemsTable(dbc);
         for (Item item : items) {
-            if(item.getUUID().equals(uuid)){
+            if(item.getUuid().equals(uuid)){
                 itemToReturn = item;
                 break;
             }

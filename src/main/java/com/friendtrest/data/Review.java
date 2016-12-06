@@ -3,6 +3,8 @@ package com.friendtrest.data;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
 
+import java.util.UUID;
+
 @DynamoDBTable(tableName = "ReviewTest")
 public class Review {
 
@@ -20,7 +22,7 @@ public class Review {
         this.facebook_id = facebook_id;
         this.rating = rating;
         this.review_text = review_text;
-        this.uuid = UUID.randomUUID.toString();
+        this.uuid = UUID.randomUUID().toString();
     }
 
     public String getItem_id() { return item_id; }

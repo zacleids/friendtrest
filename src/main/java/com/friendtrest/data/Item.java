@@ -16,14 +16,14 @@ import java.util.UUID;
 @DynamoDBTable(tableName = "Items")
 public class Item {
 
-    private String uuid;
-    private String name;
     private String description;
-    private List<String> tags;
+    private String name;
     private String releaseDate;
     private String url;
+    private String uuid;
 
     private List<Review> reviews;
+    private List<String> tags;
 
     public Item() {}
 
@@ -32,9 +32,9 @@ public class Item {
         this.url = url;
     }
 
-    @DynamoDBHashKey(attributeName = "uuid")
-    public String getUUID() { return uuid; }
-    public void setUUID(String uuid) { this.uuid = uuid; }
+    @DynamoDBHashKey
+    public String getUuid() { return uuid; }
+    public void setUuid(String uuid) { this.uuid = uuid; }
 
     public String getName() {
         return name;
@@ -68,9 +68,8 @@ public class Item {
         this.reviews = reviews;
     }
 
-    @DynamoDBAttribute(attributeName = "url")
-    public String getURL() { return url; }
-    public void setURL(String url) { this.url = url; }
+    public String getUrl() { return url; }
+    public void setUrl(String url) { this.url = url; }
 
     @DynamoDBIgnore
     public void addTag(String tag){

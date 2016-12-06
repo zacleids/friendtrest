@@ -66,7 +66,7 @@ public class BookTest {
 
     @Test
     public void testGetURL(){
-        assertThat(b.getURL(), equalTo(url));
+        assertThat(b.getUrl(), equalTo(url));
     }
 
     @Test

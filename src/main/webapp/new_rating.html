@@ -8,16 +8,18 @@
     <script src="../jquery/3.0.0.min.js"></script>
 
     <!--bootstrap dependencies-->
-    <link rel="stylesheet" href="../bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../bootstrap/3.3.7/css/bootstrap-theme.min.css">
-    <script src="../bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bootstrap/3.3.7/css/bootstrap-theme.min.css">
+    <script src="bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <link rel="stylesheet" href="css/new_rating.css">
 
+    <script src="js/appearance.js"></script>
     <script src="js/array.js"></script>
 </head>
 <body>
     <div class="container-fluid">
+        <div id="row0" class="row"></div>
         <div id="row1" class="row"></div>
         <div id="row2" class="row"></div>
         <div id="row3" class="row"></div>
@@ -25,70 +27,75 @@
     </div>
 
     <script>
-        var num_rows = 4;
-        var row_size = 5;
+        var num_rows = 5;
+        var row_size = 4;
         var placeholder_url = 'img/noImage.jpg';
 
         function getData() {
-            $.get("/rest/data", {}, function(results) {
+            $.get("/rest/data", {facebook_id: "908647875932760"}, function(results) {
                 results = shuffle(results);
-                for (var row = 1; row <= 4; row++) {
-                    
+                for (var row = 0; row < 5; row++) {
+                    var row_id = "#row" + row;
+                    var row_html;
+
+                    for (var item_num = 0; item_num < row_size; item_num++) {
+                        var num = row * row_size + item_num;
+                        var item_id = "item" + num;
+
+                        row_html =
+                        "<div id='" + item_id + "' class='col-md-3'>" +
+                            "<div id='unit" + num + "' class='unit'>" +
+                                "<div class='colors-pictures'></div>";
+
+                        var item = results[num][0];
+                        var ratings = results[num][1];
+                        var urls = results[num][2];
+
+                        //row_html += showRatingsPics(ratings, urls) + "</div>" +
+                        row_html += "<div class='cover' id='cover" + num + "'><img src='" + item.url + "'/></div>" +
+                        "<div class='rating-review' id='rr" + num + "'>" +
+                        "<input class='rating' id='rating" + num + "' type='range' min='0' max='10' value='0.5' step='0.01'>" +
+                        "<textarea class='review' id='review" + num + "'></textarea></div>" +
+                        "<div class='unit-tabs'><div class='cover-tab'></div><div id='" + num + "' class='rr-tab' onclick='toggleReview(this.id)'><br>&#9776;</div></div></div></div>";
+
+                        $(row_id).html($(row_id).html() + row_html);
+                    }
                 }
+            });
+        }
+
+        function showRatingsPics(ratings, urls) {
+            for (var i = 0; i < rating.length; i++) {
+
+            }
+        }
+
+        var shown = new Array();
+        for (var i = 0; i < 20; i++) {
+            shown[i] = false;
+        }
+
+        getData();
+
+        function toggleReview(id) {
+            var cover_id = "#cover" + id;
+            var rr_id = "#rr" + id;
+            if (shown[id] == false) {
+                $(cover_id).css('display', 'none');
+                $(rr_id).css('display', 'inline-block');
+                shown[id] = true;
+            } else {
+                $(rr_id).css('display', 'none');
+                $(cover_id).css('display', 'inline-block');
+                shown[id] = false;
             }
         }
 
         $(document).ready(function() {
+            alert("click");
 
+            alert("OK");
         });
     </script>
-</body>
-        <div class="row">
-            <div class="col-md-2 col-md-offset1">
-                <div class="unit">
-                    <div class="colors-pictures">
-                        content
-                    </div>
-                    <div class="cover">
-                        <img src="http://cdn4.pitchfork.com/albums/20964/homepage_large.af368c1a.jpg"/>
-                    </div>
-                    <div class="rating-review">
-
-                    </div>
-                    <div class="unit-tabs">
-                        <div class="cover-tab">
-                            ya
-                        </div>
-                        <div class="rr-tab">
-                            <br>
-                            &#9776;
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-2">
-                <div class="unit">
-                    <div class="colors-pictures">
-                        content
-                    </div>
-                    <div class="cover">
-                        <img src="http://cdn.mos.cms.futurecdn.net/15399e7a7b11a8c2ef28511107c90c6f.jpg"/>
-                    </div>
-                    <div class="rating-review">
-
-                    </div>
-                    <div class="unit-tabs">
-                        <div class="cover-tab">
-                            ya
-                        </div>
-                        <div class="rr-tab">
-                            <br>
-                            &#9776;
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 </body>
 </html>

@@ -9,6 +9,8 @@ import com.amazonaws.services.dynamodbv2.model.AttributeValue;
 import com.amazonaws.services.dynamodbv2.model.ScanRequest;
 import com.amazonaws.services.dynamodbv2.model.ScanResult;
 import com.friendtrest.data.Item;
+import com.friendtrest.data.Review;
+import com.friendtrest.data.User;
 
 import java.util.List;
 import java.util.Map;
@@ -32,5 +34,10 @@ public class Scan {
     public static PaginatedScanList<Review> getReviewsTable(DBController dbc) {
         DynamoDBMapper dbm = new DynamoDBMapper(dbc.getAmazonDynamoDB());
         return dbm.scan(Review.class, new DynamoDBScanExpression());
+    }
+
+    public static PaginatedScanList<User> getUsersTable(DBController dbc) {
+        DynamoDBMapper dbm = new DynamoDBMapper(dbc.getAmazonDynamoDB());
+        return dbm.scan(User.class, new DynamoDBScanExpression());
     }
 }

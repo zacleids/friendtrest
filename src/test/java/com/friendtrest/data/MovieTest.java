@@ -77,7 +77,7 @@ public class MovieTest {
 
     @Test
     public void testGetURL(){
-        assertThat(m.getURL(), equalTo(url));
+        assertThat(m.getUrl(), equalTo(url));
     }
 
     @Test
@@ -107,7 +107,7 @@ public class MovieTest {
 
     @Test
     public void testGetUUID(){
-        assertThat(m.getUUID(), notNullValue());
+        assertThat(m.getUuid(), notNullValue());
     }
 
     @Test

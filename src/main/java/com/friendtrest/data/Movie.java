@@ -8,8 +8,9 @@ import java.util.Arrays;
  */
 public class Movie extends OnScreenMedia {
 
-    private String MPAARating;
     private int runTimeInMinutes;
+
+    private String MPAARating;
 
     public Movie(String name, String description, ArrayList<String> tags, String releaseDate, ArrayList<String> actors, String director, String MPAARating, int runTimeInMinutes, String url){
         super(url);
@@ -19,8 +20,8 @@ public class Movie extends OnScreenMedia {
         this.setReleaseDate(releaseDate);
         this.setActors(actors);
         this.setDirector(director);
-        this.setMPAARating(MPAARating);
-        this.setRunTimeInMinutes(runTimeInMinutes);
+        this.MPAARating = MPAARating;
+        this.runTimeInMinutes = runTimeInMinutes;
     }
 
     public Movie(OMDbObject movie){
@@ -31,8 +32,8 @@ public class Movie extends OnScreenMedia {
         this.setReleaseDate(movie.Year);
         this.setActors(new ArrayList<String>(Arrays.asList(movie.Actors.split(","))));
         this.setDirector(movie.Director);
-        this.setMPAARating(movie.Rated);
-        this.setRunTimeInMinutes(Integer.parseInt(movie.Runtime.split(" ")[0]));
+        this.MPAARating = movie.Rated;
+        this.runTimeInMinutes = Integer.parseInt(movie.Runtime.split(" ")[0]);
     }
 
     public String getMPAARating() {

@@ -70,7 +70,7 @@ public class SongTest {
 
     @Test
     public void testGetURL(){
-        assertThat(s.getURL(), equalTo(url));
+        assertThat(s.getUrl(), equalTo(url));
     }
 
     @Test

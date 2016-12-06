@@ -71,7 +71,7 @@ public class TVShowTest {
 
     @Test
     public void testGetURL(){
-        assertThat(tvShow.getURL(), equalTo(url));
+        assertThat(tvShow.getUrl(), equalTo(url));
     }
 
     @Test

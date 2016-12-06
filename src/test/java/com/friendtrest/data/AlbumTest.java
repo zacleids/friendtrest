@@ -71,7 +71,7 @@ public class AlbumTest {
 
     @Test
     public void testGetURL(){
-        assertThat(a.getURL(), equalTo(url));
+        assertThat(a.getUrl(), equalTo(url));
     }
 
     @Test
