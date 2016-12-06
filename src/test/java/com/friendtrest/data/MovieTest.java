@@ -25,6 +25,8 @@ public class MovieTest {
     int runTime;
     String url;
 
+    OMDbObject o = new OMDbObject();
+
     @Before
     public void setUp(){
         title = "Deadpool";
@@ -52,6 +54,19 @@ public class MovieTest {
                 runTime,
                 url
         );
+
+
+        o.Title = title;
+        o.Year = releaseDate;
+        o.Rated = ratting;
+        o.Runtime = Integer.toString(runTime);
+        o.Genre = "Action, Adventure, Comedy";
+        o.Director = director;
+        o.Actors = "Ryan Reynolds, Ed Skrein, Karan Soni";
+        o.Plot = description;
+        o.Poster = url;
+
+
     }
 
 
@@ -122,6 +137,12 @@ public class MovieTest {
         int n = m.getNumTags();
         m.removeTag("Adventure");
         assertThat(n-1, equalTo(m.getNumTags()));
+    }
+
+    @Test
+    public void testOMDbConversionToMovie(){
+        Movie test = new Movie(o);
+        assertThat(m.getName(), equalTo(test.getName()));
     }
 
 
