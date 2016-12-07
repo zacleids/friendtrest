@@ -3,9 +3,9 @@ body {
     color: white;
 }
 
-.col-md-3 {
+.col-md-4 {
     min-width: 500px;
-    padding-botton: 25px;
+    padding-bottom: 25px;
     padding-left: 25px;
     padding-right: 25px;
     padding-top: 25px;
@@ -23,12 +23,15 @@ body {
     height: 300px;
     position: relative;
     text-align: center;
-    width: 300px;
+    white-space: nowrap;
+    width: 250px;
 }
 
 .cover img {
-    height: 250px;
-    margin-top: 25px;
+    max-height: 250px;
+    max-width: 200px;
+    opacity: 1.0;
+    vertical-align: middle;
     width: auto;
 }
 
@@ -39,8 +42,75 @@ body {
     border-top: 5px solid white;
 }
 
+.helper {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+
+.rating {
+    height: 50px;
+    overflow: hidden;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 225px;
+}
+
+.rating:focus{
+    outline: none;
+}
+
+.rating:-moz-focusring {
+    outline: none;
+}
+
+.rating::-moz-range-thumb {
+    -moz-appearance: none;
+    width: 0px;
+    height: 50px;
+    box-shadow:
+            -300px 0 0 300px rgba(90, 184, 6, 1);
+}
+
+.rating::-moz-range-track {
+    height: 50px;
+    background-color: transparent;
+}
+
+.rating::-webkit-slider-thumb {
+    box-shadow: -195px 0 0 195px rgba(90, 184, 6, 1);
+    height: 50px;
+    -webkit-appearance: none;
+    width: 0px;
+}
+
+.rating::-webkit-slider-runnable-track {
+    background-color: black;
+}
+
 .rating-review {
     display: none;
+    border-bottom: 5px solid white;
+    border-top: 5px solid white;
+    height: 300px;
+    padding: 25px;
+    position: relative;
+    text-align: center;
+    width: 250px;
+}
+
+.review {
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    background: black;
+    border: none;
+    box-shadow: none;
+    height: 200px;
+    opacity: 0.75;
+    outline: none;
+    overflow: auto;
+    resize: none;
+    width: 200px;
 }
 
 .rr-tab {
@@ -50,6 +120,12 @@ body {
     text-align: center;
 }
 
+.spacer {
+    min-height:0px;
+    max-height: 50px;
+    width:300px;
+}
+
 .unit {
     background-color: #000000;
     border-left: 5px solid white;
@@ -57,7 +133,7 @@ body {
     height: 300px;
     opacity: 0.75;
     position: relative;
-    width: 450px;
+    width: 400px;
 }
 
 .unit-tabs {
